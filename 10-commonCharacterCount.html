@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Test 2</title>
+    <title>10. commonCharacterCount</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,31 +26,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//the-purpose-of-education" />
+        <link rel="canonical" href="http://localhost:4000//10-commonCharacterCount" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Test 2" />
+    <meta property="og:title" content="10. commonCharacterCount" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//the-purpose-of-education" />
-    <meta property="og:image" content="/assets/images/cover5.jpg" />
+    <meta property="og:url" content="http://localhost:4000//10-commonCharacterCount" />
+    <meta property="og:image" content="/assets/images/cover7.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Test 2" />
+    <meta name="twitter:title" content="10. commonCharacterCount" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//the-purpose-of-education" />
-    <meta name="twitter:image:src" content="/assets/images/cover5.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000//10-commonCharacterCount" />
+    <meta name="twitter:image:src" content="/assets/images/cover7.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "Test 2",
-    "url": "http://localhost:4000//the-purpose-of-education",
-    "image": "/assets/images/cover5.jpg",
+    "name": "10. commonCharacterCount",
+    "url": "http://localhost:4000//10-commonCharacterCount",
+    "image": "/assets/images/cover7.jpg",
     "description": "Since Jan 2020..."
 }
     </script>
@@ -90,7 +90,7 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/assets/images/cover5.jpg) ">
+<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
     <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -101,27 +101,25 @@
 
 <main class="content" role="main">
 
-    <article class="post tag-speeches">
+    <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">Test 2</h1>
+            <h1 class="post-title">10. commonCharacterCount</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
             
                 
+                    <a href='/author/Dududoo'>Dududoo</a>
+                
             
-            <time class="post-date" datetime="1948-12-12">12 Dec 1948</time>
+            <time class="post-date" datetime="2020-01-24">24 Jan 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/tag/speeches'>Speeches</a>,
-                    
-                
-                    
-                       <a href='/tag/fiction'>Fiction</a>
+                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
                     
                 
                 
@@ -130,7 +128,62 @@
 
         <section class="post-content">
 
-            <p>For Test 2</p>
+            <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given two strings, find the number of common characters between them.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">s1 = "aabcc"</code> and <code class="highlighter-rouge">s2 = "adcaa"</code>, the output should be
+<code class="highlighter-rouge">commonCharacterCount(s1, s2) = 3</code>.</p>
+
+<p>Strings have 3 common characters - 2 “a”s and 1 “c”.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string s1 <br />
+A string consisting of lowercase English letters. <br />
+Guaranteed constraints: 1 ≤ s1.length &lt; 15.</p>
+  </li>
+  <li>
+    <p>[input] string s2 <br />
+A string consisting of lowercase English letters. <br />
+Guaranteed constraints: 1 ≤ s2.length &lt; 15.</p>
+  </li>
+  <li>
+    <p>[output] integer</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def commonCharacterCount(s1, s2):
+    fstCount = {}
+    sndCount = {}
+    commonCount = 0
+    for letter in s1:
+        if letter in fstCount:
+            fstCount[letter] += 1
+        else:
+            fstCount[letter] = 1
+    for letter in s2:
+        if letter in sndCount:
+            sndCount[letter] += 1
+        else:
+            sndCount[letter] = 1
+    for key, val in fstCount.items():
+        if key in sndCount:
+            commonCount += min(val, sndCount[key])
+    return commonCount
+</code></pre></div></div>
 
 
         </section>
@@ -140,6 +193,42 @@
             <!-- Everything inside the #author tags pulls data from the author -->
             <!-- #author-->
             
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/author/Dududoo" style="background-image: url(/assets/images/casper.png)"><span class="hidden">Dududoo's Picture</span></a>
+                        </figure>
+                    
+
+                    <section class="author">
+                        <h4><a href="/author/Dududoo">Dududoo</a></h4>
+
+                        
+                            <p>Read <a href="/author/Dududoo">more posts</a> by this author.</p>
+                        
+                        <div class="author-meta">
+                            
+                            
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=10. commonCharacterCount&amp;url=http://localhost:400010-commonCharacterCount"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400010-commonCharacterCount"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400010-commonCharacterCount"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
                 
             
 
@@ -156,21 +245,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover3.jpg)" href="/a-full-and-comprehensive-style-test">
-            <section class="post">
-                <h2>A Full and Comprehensive Style Test</h2>
-                <p>This is just an ipsis verbis copy of the first example running on the Ghost...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover6.jpg)" href="/out-to-sea">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover7.jpg)" href="/9-AllLongestStrings">
             <section class="post">
-                <h2>Test 1</h2>
-                <p>For Test 1
-</p>
+                <h2>9. All Longest Strings</h2>
+                <p>Task Given an array of strings, return another array containing all of its longest strings....</p>
             </section>
         </a>
     

@@ -12,58 +12,6 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>1. Add</title>
-	  <link>//the-businessman-and-fisherman</link>
-	  <author></author>
-	  <pubDate>2020-01-20T19:18:00+09:00</pubDate>
-	  <guid>//the-businessman-and-fisherman</guid>
-	  <description><![CDATA[
-	     <p><br /><br /><br /><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Write a function that returns the sum of two numbers.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For param1 = 1 and param2 = 2, the output should be
-add(param1, param2) = 3.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] 4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer param1</p>
-
-    <p>Guaranteed constraints:
-  -1000 ≤ param1 ≤ 1000.</p>
-  </li>
-  <li>
-    <p>[input] integer param2</p>
-
-    <p>Guaranteed constraints:
-  -1000 ≤ param2 ≤ 1000.</p>
-  </li>
-  <li>
-    <p>[output] integer</p>
-
-    <p>The sum of the two inputs.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def add(param1, param2):
-    return param1 + param2
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>A Full and Comprehensive Style Test</title>
 	  <link>//a-full-and-comprehensive-style-test</link>
 	  <author></author>

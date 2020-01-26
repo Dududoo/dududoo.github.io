@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>dududoo.github.io/</title>
+   
+   <link>http://localhost:4000</link>
+   <description>Since Jan 2020...</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>10. commonCharacterCount</title>
+	  <link>//10-commonCharacterCount</link>
+	  <author></author>
+	  <pubDate>2020-01-24T21:00:00+09:00</pubDate>
+	  <guid>//10-commonCharacterCount</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given two strings, find the number of common characters between them.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">s1 = "aabcc"</code> and <code class="highlighter-rouge">s2 = "adcaa"</code>, the output should be
+<code class="highlighter-rouge">commonCharacterCount(s1, s2) = 3</code>.</p>
+
+<p>Strings have 3 common characters - 2 “a”s and 1 “c”.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string s1 <br />
+A string consisting of lowercase English letters. <br />
+Guaranteed constraints: 1 ≤ s1.length &lt; 15.</p>
+  </li>
+  <li>
+    <p>[input] string s2 <br />
+A string consisting of lowercase English letters. <br />
+Guaranteed constraints: 1 ≤ s2.length &lt; 15.</p>
+  </li>
+  <li>
+    <p>[output] integer</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def commonCharacterCount(s1, s2):
+    fstCount = {}
+    sndCount = {}
+    commonCount = 0
+    for letter in s1:
+        if letter in fstCount:
+            fstCount[letter] += 1
+        else:
+            fstCount[letter] = 1
+    for letter in s2:
+        if letter in sndCount:
+            sndCount[letter] += 1
+        else:
+            sndCount[letter] = 1
+    for key, val in fstCount.items():
+        if key in sndCount:
+            commonCount += min(val, sndCount[key])
+    return commonCount
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>9. All Longest Strings</title>
+	  <link>//9-AllLongestStrings</link>
+	  <author></author>
+	  <pubDate>2020-01-24T20:00:00+09:00</pubDate>
+	  <guid>//9-AllLongestStrings</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given an array of strings, return another array containing all of its longest strings.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = ["aba", "aa", "ad", "vcd", "aba"]</code>, the output should be
+<code class="highlighter-rouge">allLongestStrings(inputArray) = ["aba", "vcd", "aba"]</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.string inputArray <br />
+A non-empty array. <br />
+Guaranteed constraints: 1 ≤ inputArray.length ≤ 10, 1 ≤ inputArray[i].length ≤ 10.</p>
+  </li>
+  <li>
+    <p>[output] array.string <br />
+Array of the longest strings, stored in the same order as in the inputArray.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def allLongestStrings(inputArray):
+    maxLength = 0
+    for element in inputArray:
+        if len(element) &gt;= maxLength:
+            maxLength = len(element)
+    LongestStrings = [element for element in inputArray if len(element) == maxLength]
+    return LongestStrings
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>8.matrixElementsSum</title>
+	  <link>//8-matrixElementsSum</link>
+	  <author></author>
+	  <pubDate>2020-01-24T19:00:00+09:00</pubDate>
+	  <guid>//8-matrixElementsSum</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there’s a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.</p>
+
+<p>Given matrix, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don’t appear below a 0).</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[0, 1, 1, 2],
+          [0, 5, 0, 0],
+          [2, 0, 3, 3]]
+</code></pre></div>    </div>
+
+    <p>the output should be <code class="highlighter-rouge">matrixElementsSum(matrix) = 9</code></p>
+
+    <p><img src="./img/example1.png" alt="example1" /></p>
+
+    <p>There are several haunted rooms, so we’ll disregard them as well as any rooms beneath them. Thus, the answer is <code class="highlighter-rouge">1 + 5 + 1 + 2 = 9</code>.</p>
+  </li>
+  <li>
+    <p>For</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[1, 1, 1, 0],
+          [0, 5, 0, 1],
+          [2, 1, 3, 10]]
+</code></pre></div>    </div>
+    <p>the output should be <code class="highlighter-rouge">matrixElementsSum(matrix) = 9</code></p>
+
+    <p><img src="./img/example2.png" alt="example2" /></p>
+
+    <p>Note that the free room in the final column makes the full column unsuitable for bots (not just the room directly beneath it). Thus, the answer is <code class="highlighter-rouge">1 + 1 + 1 + 5 + 1 = 9</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.array.integer matrix <br />
+A 2-dimensional array of integers representing the cost of each room in the building. A value of 0 indicates that the room is haunted. <br />
+Guaranteed constraints: 1 ≤ matrix.length ≤ 5, 1 ≤ matrix[i].length ≤ 5, 0 ≤ matrix[i][j] ≤ 10.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The total price of all the rooms that are suitable for the CodeBots to live in.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def matrixElementsSum(matrix):
+    col = 0
+    total = 0
+    while col &lt; len(matrix[0]):
+        row = 0
+        while row &lt; len(matrix):
+            if matrix[row][col] == 0:
+                break
+            total += matrix[row][col]
+            row += 1
+        col += 1
+    return total
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>7. almostIncreasingSequence</title>
+	  <link>//7-almostIncreasingSequence</link>
+	  <author></author>
+	  <pubDate>2020-01-22T23:00:00+09:00</pubDate>
+	  <guid>//7-almostIncreasingSequence</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.</p>
+
+<p>Note: sequence a0, a1, …, an is considered to be a strictly increasing if a0 &lt; a1 &lt; … &lt; an. Sequence containing only one element is also considered to be strictly increasing.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">sequence = [1, 3, 2, 1]</code>, the output should be <code class="highlighter-rouge">almostIncreasingSequence(sequence) = false</code>. <br />
+There is no one element in this array that can be removed in order to get a strictly increasing sequence.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">sequence = [1, 3, 2]</code>, the output should be <code class="highlighter-rouge">almostIncreasingSequence(sequence) = true</code>. <br />
+You can remove 3 from the array to get the strictly increasing sequence [1, 2]. Alternately, you can remove 2 to get the strictly increasing sequence [1, 3].</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer sequence <br />
+Guaranteed constraints: 2 ≤ sequence.length ≤ 105, -105 ≤ sequence[i] ≤ 105.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+Return true if it is possible to remove one element from the array in order to get a strictly increasing sequence, otherwise return false.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def almostIncreasingSequence(sequence):
+    removeCount = 0
+    if sequence[0] &gt;= sequence[1]:
+        removeCount += 1
+    i = 2
+    while i &lt; len(sequence):
+        if sequence[i - 1] &gt;= sequence[i]:
+            removeCount += 1
+            if sequence[i - 2] &gt;= sequence[i]:
+                sequence[i] = sequence[i - 1]
+        i += 1
+
+    return (removeCount &lt; 2)
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>6. Make Array Consecutive 2</title>
+	  <link>//6-MakeArrayConsecutive2</link>
+	  <author></author>
+	  <pubDate>2020-01-22T22:00:00+09:00</pubDate>
+	  <guid>//6-MakeArrayConsecutive2</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">statues = [6, 2, 3, 8]</code>, the output should be <code class="highlighter-rouge">makeArrayConsecutive2(statues) = 3</code>.</p>
+
+<p>Ratiorg needs statues of sizes 4, 5 and 7.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer statues <br />
+An array of distinct non-negative integers. <br />
+Guaranteed constraints: 1 ≤ statues.length ≤ 10, 0 ≤ statues[i] ≤ 20.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The minimal number of statues that need to be added to existing statues such that it contains every integer size from an interval [L, R] (for some L, R) and no other sizes.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def makeArrayConsecutive2(statues):
+    return max(statues) - min(statues) - len(statues) + 1
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>5. shapeArea</title>
+	  <link>//5-shapeArea</link>
+	  <author></author>
+	  <pubDate>2020-01-21T22:00:00+09:00</pubDate>
+	  <guid>//5-shapeArea</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Below we will define an n-interesting polygon. Your task is to find the area of a polygon for a given n.</p>
+
+<p>A 1-interesting polygon is just a square with a side of length 1. An n-interesting polygon is obtained by taking the n - 1-interesting polygon and appending 1-interesting polygons to its rim, side by side. You can see the 1-, 2-, 3- and 4-interesting polygons in the picture below.</p>
+
+<p><img src="./img/area.png" alt="area" /></p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For n = 2, the output should be <br />
+shapeArea(n) = 5;</p>
+  </li>
+  <li>
+    <p>For n = 3, the output should be <br />
+shapeArea(n) = 13.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] integer n <br />
+Guaranteed constraints: 1 ≤ n &lt; 104.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The area of the n-interesting polygon.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def shapeArea(n):
+    area = 1 + 2 * (n - 1) * n
+    return area
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>4. adjacentElementsProduct</title>
+	  <link>//4-adjacentElementsProduct</link>
+	  <author></author>
+	  <pubDate>2020-01-21T21:00:00+09:00</pubDate>
+	  <guid>//4-adjacentElementsProduct</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = [3, 6, -2, -5, 7, 3]</code>, the output should be
+<code class="highlighter-rouge">adjacentElementsProduct(inputArray) = 21</code>.</p>
+
+<p>7 and 3 produce the largest product.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer inputArray <br />
+An array of integers containing at least two elements. <br />
+Guaranteed constraints: 2 ≤ inputArray.length ≤ 10, -1000 ≤ inputArray[i] ≤ 1000.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The largest product of adjacent elements.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def adjacentElementsProduct(inputArray):
+    largestProduct = inputArray[0] * inputArray[1]
+    i = 0
+    while i &lt; len(inputArray) - 1:
+        if inputArray[i] * inputArray[i + 1] &gt; largestProduct:
+            largestProduct = inputArray[i] * inputArray[i + 1]
+        i += 1
+    return largestProduct
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>3. checkPalindrome</title>
+	  <link>//3-checkPalindrome</link>
+	  <author></author>
+	  <pubDate>2020-01-20T21:00:00+09:00</pubDate>
+	  <guid>//3-checkPalindrome</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given the string, check if it is a palindrome.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "aabaa"</code>, the output should be<br />
+checkPalindrome(inputString) = true;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "abac"</code>, the output should be<br />
+checkPalindrome(inputString) = false;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "a"</code>, the output should be<br />
+checkPalindrome(inputString) = true.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string inputString <br />
+A non-empty string consisting of lowercase characters. <br />
+Guaranteed constraints: 1 ≤ inputString.length ≤ 105.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+true if inputString is a palindrome, false otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def checkPalindrome(inputString):
+    if inputString[::-1] == inputString:
+        return True
+    else:
+        return False
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>2. centryFromYear</title>
+	  <link>//2-centryFromYear</link>
+	  <author></author>
+	  <pubDate>2020-01-20T20:00:00+09:00</pubDate>
+	  <guid>//2-centryFromYear</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For year = 1905, the output should be <br />
+centuryFromYear(year) = 20;</p>
+  </li>
+  <li>
+    <p>For year = 1700, the output should be <br />
+centuryFromYear(year) = 17.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] integer year <br />
+A positive integer, designating the year. <br />
+Guaranteed constraints: 1 ≤ year ≤ 2005.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The number of the century the year is in.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def centuryFromYear(year):
+    return ((year - 1) // 100) + 1
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>1. Add</title>
+	  <link>//1-Add</link>
+	  <author></author>
+	  <pubDate>2020-01-20T19:00:00+09:00</pubDate>
+	  <guid>//1-Add</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Write a function that returns the sum of two numbers.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">param1 = 1</code> and <code class="highlighter-rouge">param2 = 2</code>, the output should be
+<code class="highlighter-rouge">add(param1, param2) = 3</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>[execution time limit]<br />
+4 seconds (py3)</li>
+  <li>[input] integer param1<br />
+Guaranteed constraints:
+  -1000 ≤ param1 ≤ 1000.</li>
+  <li>[input] integer param2<br />
+Guaranteed constraints:
+  -1000 ≤ param2 ≤ 1000.</li>
+  <li>[output] integer<br />
+The sum of the two inputs.</li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def add(param1, param2):
+    return param1 + param2
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
