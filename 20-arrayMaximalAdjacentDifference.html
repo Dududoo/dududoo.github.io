@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>19. areEquallyStrong</title>
+    <title>20. arrayMaximalAdjacentDifference</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//19-areEquallyStrong" />
+        <link rel="canonical" href="http://localhost:4000//20-arrayMaximalAdjacentDifference" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="19. areEquallyStrong" />
+    <meta property="og:title" content="20. arrayMaximalAdjacentDifference" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//19-areEquallyStrong" />
+    <meta property="og:url" content="http://localhost:4000//20-arrayMaximalAdjacentDifference" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="19. areEquallyStrong" />
+    <meta name="twitter:title" content="20. arrayMaximalAdjacentDifference" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//19-areEquallyStrong" />
+    <meta name="twitter:url" content="http://localhost:4000//20-arrayMaximalAdjacentDifference" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "19. areEquallyStrong",
-    "url": "http://localhost:4000//19-areEquallyStrong",
+    "name": "20. arrayMaximalAdjacentDifference",
+    "url": "http://localhost:4000//20-arrayMaximalAdjacentDifference",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">19. areEquallyStrong</h1>
+            <h1 class="post-title">20. arrayMaximalAdjacentDifference</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,28 +132,12 @@
 
 <h3 id="task">Task</h3>
 
-<p>Call two arms equally strong if the heaviest weights they each are able to lift are equal.</p>
-
-<p>Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.</p>
-
-<p>Given your and your friend’s arms’ lifting capabilities find out if you two are equally strong.</p>
+<p>Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.</p>
 
 <h3 id="example">Example</h3>
 
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">yourLeft = 10</code>, <code class="highlighter-rouge">yourRight = 15</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 10</code>, the output should be <br />
-<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">yourLeft = 15</code>, <code class="highlighter-rouge">yourRight = 10</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 10</code>, the output should be <br />
-<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">yourLeft = 15</code>, <code class="highlighter-rouge">yourRight = 10</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 9</code>, the output should be <br />
-<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false</code>.</p>
-  </li>
-</ul>
+<p>For <code class="highlighter-rouge">inputArray = [2, 4, 1, 0]</code>, the output should be <br />
+<code class="highlighter-rouge">arrayMaximalAdjacentDifference(inputArray) = 3</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -163,35 +147,19 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] integer yourLeft <br />
-A non-negative integer representing the heaviest weight you can lift with your left arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ yourLeft ≤ 20</code>.</p>
+    <p>[input] array.integer inputArray <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 10</code>, <code class="highlighter-rouge">-15 ≤ inputArray[i] ≤ 15</code>.</p>
   </li>
   <li>
-    <p>[input] integer yourRight <br />
-A non-negative integer representing the heaviest weight you can lift with your right arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ yourRight ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer friendsLeft <br />
-A non-negative integer representing the heaviest weight your friend can lift with his or her left arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsLeft ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer friendsRight <br />
-A non-negative integer representing the heaviest weight your friend can lift with his or her right arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsRight ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if you and your friend are equally strong, <code class="highlighter-rouge">false</code> otherwise.</p>
+    <p>[output] integer <br />
+The maximal absolute difference.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
-    return sorted([yourLeft, yourRight]) == sorted([friendsLeft, friendsRight])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaximalAdjacentDifference(inputArray):
+    return max([abs(inputArray[i] - inputArray[i - 1]) for i in range(1, len(inputArray))])
 </code></pre></div></div>
 
 
@@ -225,15 +193,15 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsRight ≤ 2
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=19. areEquallyStrong&amp;url=http://localhost:400019-areEquallyStrong"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=20. arrayMaximalAdjacentDifference&amp;url=http://localhost:400020-arrayMaximalAdjacentDifference"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400019-areEquallyStrong"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400020-arrayMaximalAdjacentDifference"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400019-areEquallyStrong"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400020-arrayMaximalAdjacentDifference"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -254,20 +222,13 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsRight ≤ 2
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/20-arrayMaximalAdjacentDifference">
-            <section class="post">
-                <h2>20. arrayMaximalAdjacentDifference</h2>
-                <p>### Task Given an array of integers, find the maximal absolute difference between any two...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/18-palindromeRearranging">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/19-areEquallyStrong">
             <section class="post">
-                <h2>18. palindromeRearranging</h2>
-                <p>Task Given a string, find out if its characters can be rearranged to form a...</p>
+                <h2>19. areEquallyStrong</h2>
+                <p>Task Call two arms equally strong if the heaviest weights they each are able to...</p>
             </section>
         </a>
     

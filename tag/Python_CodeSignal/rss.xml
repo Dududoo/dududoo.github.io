@@ -12,6 +12,50 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>20. arrayMaximalAdjacentDifference</title>
+	  <link>//20-arrayMaximalAdjacentDifference</link>
+	  <author></author>
+	  <pubDate>2020-01-28T17:00:00+09:00</pubDate>
+	  <guid>//20-arrayMaximalAdjacentDifference</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = [2, 4, 1, 0]</code>, the output should be <br />
+<code class="highlighter-rouge">arrayMaximalAdjacentDifference(inputArray) = 3</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer inputArray <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 10</code>, <code class="highlighter-rouge">-15 ≤ inputArray[i] ≤ 15</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The maximal absolute difference.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaximalAdjacentDifference(inputArray):
+    return max([abs(inputArray[i] - inputArray[i - 1]) for i in range(1, len(inputArray))])
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>19. areEquallyStrong</title>
 	  <link>//19-areEquallyStrong</link>
 	  <author></author>
@@ -601,73 +645,6 @@ Guaranteed constraints: <code class="highlighter-rouge">10 ≤ n &lt; 106</code>
         sndSum += int(strN[i])
         i += 1
     return fstSum == sndSum
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>10. commonCharacterCount</title>
-	  <link>//10-commonCharacterCount</link>
-	  <author></author>
-	  <pubDate>2020-01-24T21:00:00+09:00</pubDate>
-	  <guid>//10-commonCharacterCount</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given two strings, find the number of common characters between them.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">s1 = "aabcc"</code> and <code class="highlighter-rouge">s2 = "adcaa"</code>, the output should be
-<code class="highlighter-rouge">commonCharacterCount(s1, s2) = 3</code>.</p>
-
-<p>Strings have 3 common characters - 2 “a”s and 1 “c”.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string s1 <br />
-A string consisting of lowercase English letters. <br />
-Guaranteed constraints: 1 ≤ s1.length &lt; 15.</p>
-  </li>
-  <li>
-    <p>[input] string s2 <br />
-A string consisting of lowercase English letters. <br />
-Guaranteed constraints: 1 ≤ s2.length &lt; 15.</p>
-  </li>
-  <li>
-    <p>[output] integer</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def commonCharacterCount(s1, s2):
-    fstCount = {}
-    sndCount = {}
-    commonCount = 0
-    for letter in s1:
-        if letter in fstCount:
-            fstCount[letter] += 1
-        else:
-            fstCount[letter] = 1
-    for letter in s2:
-        if letter in sndCount:
-            sndCount[letter] += 1
-        else:
-            sndCount[letter] = 1
-    for key, val in fstCount.items():
-        if key in sndCount:
-            commonCount += min(val, sndCount[key])
-    return commonCount
 </code></pre></div></div>
 
 	  ]]></description>
