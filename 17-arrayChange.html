@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>16. Are Similar?</title>
+    <title>17. arrayChange</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//16-areSimilar" />
+        <link rel="canonical" href="http://localhost:4000//17-arrayChange" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="16. Are Similar?" />
+    <meta property="og:title" content="17. arrayChange" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//16-areSimilar" />
+    <meta property="og:url" content="http://localhost:4000//17-arrayChange" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="16. Are Similar?" />
+    <meta name="twitter:title" content="17. arrayChange" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//16-areSimilar" />
+    <meta name="twitter:url" content="http://localhost:4000//17-arrayChange" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "16. Are Similar?",
-    "url": "http://localhost:4000//16-areSimilar",
+    "name": "17. arrayChange",
+    "url": "http://localhost:4000//17-arrayChange",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">16. Are Similar?</h1>
+            <h1 class="post-title">17. arrayChange</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,27 +132,12 @@
 
 <h3 id="task">Task</h3>
 
-<p>Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.</p>
-
-<p>Given two arrays <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>, check whether they are similar.</p>
+<p>You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.</p>
 
 <h3 id="example">Example</h3>
 
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">a = [1, 2, 3]</code> and <code class="highlighter-rouge">b = [1, 2, 3]</code>, the output should be <br />
-<code class="highlighter-rouge">areSimilar(a, b) = true</code>. <br />
-The arrays are equal, no need to swap any elements.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">a = [1, 2, 3]</code> and <code class="highlighter-rouge">b = [2, 1, 3]</code>, the output should be <br />
-<code class="highlighter-rouge">areSimilar(a, b) = true</code>. <br />
-We can obtain <code class="highlighter-rouge">b</code> from <code class="highlighter-rouge">a</code> by swapping <code class="highlighter-rouge">2</code> and <code class="highlighter-rouge">1</code> in <code class="highlighter-rouge">b</code>. <br />
-For <code class="highlighter-rouge">a = [1, 2, 2]</code> and <code class="highlighter-rouge">b = [2, 1, 1]</code>, the output should be <br />
-<code class="highlighter-rouge">areSimilar(a, b) = false</code>. <br />
-Any swap of any two elements either in <code class="highlighter-rouge">a</code> or in <code class="highlighter-rouge">b</code> won’t make <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> equal.</p>
-  </li>
-</ul>
+<p>For <code class="highlighter-rouge">inputArray = [1, 1, 1]</code>, the output should be <br />
+<code class="highlighter-rouge">arrayChange(inputArray) = 3</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -162,46 +147,26 @@ Any swap of any two elements either in <code class="highlighter-rouge">a</code> 
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.integer a <br />
-Array of integers. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ a.length ≤ 105</code>, <code class="highlighter-rouge">1 ≤ a[i] ≤ 1000</code>.</p>
+    <p>[input] array.integer inputArray <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 105</code>, <code class="highlighter-rouge">-105 ≤ inputArray[i] ≤ 105</code>.</p>
   </li>
   <li>
-    <p>[input] array.integer b <br />
-Array of integers of the same length as <code class="highlighter-rouge">a</code>. <br />
-Guaranteed constraints: <code class="highlighter-rouge">b.length = a.length</code>, <code class="highlighter-rouge">1 ≤ b[i] ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> are similar, <code class="highlighter-rouge">false</code> otherwise.</p>
+    <p>[output] integer <br />
+The minimal number of moves needed to obtain a strictly increasing sequence from <code class="highlighter-rouge">inputArray</code>. <br />
+It’s guaranteed that for the given test cases the answer always fits signed 32-bit integer type.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def areSimilar(a, b):
-    i = 0
-    fstIndx = -1
-    sndIndx = -1
-    while i &lt; len(a):
-        if a[i] != b[i]:
-            fstIndx = i
-            i += 1
-            break
-        i += 1
-    while i &lt; len(a):
-        if a[i] != b[i]:
-            sndIndx = i
-            i += 1
-            break
-        i += 1
-    while i &lt; len(a):
-        if a[i] != b[i]:
-            return False
-        i += 1
-    if (fstIndx &lt; 0 or sndIndx &lt; 0):
-        return True
-    return (a[fstIndx] == b[sndIndx] and a[sndIndx] == b[fstIndx])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayChange(inputArray):
+    increase = 0
+    for i in range(1, len(inputArray)):
+        if inputArray[i - 1] &gt;= inputArray[i]:
+            increase += inputArray[i - 1] - inputArray[i] + 1
+            inputArray[i] = inputArray[i - 1] + 1
+    return increase
+
 </code></pre></div></div>
 
 
@@ -235,15 +200,15 @@ Guaranteed constraints: <code class="highlighter-rouge">b.length = a.length</cod
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=16. Are Similar?&amp;url=http://localhost:400016-areSimilar"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=17. arrayChange&amp;url=http://localhost:400017-arrayChange"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400016-areSimilar"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400017-arrayChange"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400016-areSimilar"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400017-arrayChange"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -264,20 +229,13 @@ Guaranteed constraints: <code class="highlighter-rouge">b.length = a.length</cod
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/17-arrayChange">
-            <section class="post">
-                <h2>17. arrayChange</h2>
-                <p>### Task You are given an array of integers. On each move you are allowed...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/15-addBorder">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/16-areSimilar">
             <section class="post">
-                <h2>15. Add Border</h2>
-                <p>Task Given a rectangular matrix of characters, add a border of asterisks(*) to it. Example...</p>
+                <h2>16. Are Similar?</h2>
+                <p>Task Two arrays are called similar if one can be obtained from another by swapping...</p>
             </section>
         </a>
     
