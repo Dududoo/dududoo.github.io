@@ -12,6 +12,63 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>18. palindromeRearranging</title>
+	  <link>//18-palindromeRearranging</link>
+	  <author></author>
+	  <pubDate>2020-01-28T15:00:00+09:00</pubDate>
+	  <guid>//18-palindromeRearranging</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a string, find out if its characters can be rearranged to form a palindrome.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputString = "aabb"</code>, the output should be <br />
+<code class="highlighter-rouge">palindromeRearranging(inputString) = true</code>.</p>
+
+<p>We can rearrange <code class="highlighter-rouge">"aabb"</code> to make <code class="highlighter-rouge">"abba"</code>, which is a palindrome.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string inputString <br />
+A string consisting of lowercase English letters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length ≤ 50</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+<code class="highlighter-rouge">true</code> if the characters of the <code class="highlighter-rouge">inputString</code> can be rearranged to form a palindrome, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def palindromeRearranging(inputString):
+    count = {}
+    oddCount = 0
+    for letter in inputString:
+        if letter in count:
+            count[letter] += 1
+        else:
+            count[letter] = 1
+    for val in count.values():
+        if val % 2 == 1:
+            oddCount += 1
+    return oddCount &lt; 2
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>17. arrayChange</title>
 	  <link>//17-arrayChange</link>
 	  <author></author>
@@ -56,7 +113,6 @@ It’s guaranteed that for the given test cases the answer always fits signed 32
             increase += inputArray[i - 1] - inputArray[i] + 1
             inputArray[i] = inputArray[i - 1] + 1
     return increase
-
 </code></pre></div></div>
 
 	  ]]></description>
@@ -586,89 +642,6 @@ Array of the longest strings, stored in the same order as in the inputArray.</p>
             maxLength = len(element)
     LongestStrings = [element for element in inputArray if len(element) == maxLength]
     return LongestStrings
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>8. matrixElementsSum</title>
-	  <link>//8-matrixElementsSum</link>
-	  <author></author>
-	  <pubDate>2020-01-24T19:00:00+09:00</pubDate>
-	  <guid>//8-matrixElementsSum</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there’s a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.</p>
-
-<p>Given matrix, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don’t appear below a 0).</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[0, 1, 1, 2],
-          [0, 5, 0, 0],
-          [2, 0, 3, 3]]
-</code></pre></div>    </div>
-
-    <p>the output should be <code class="highlighter-rouge">matrixElementsSum(matrix) = 9</code></p>
-
-    <p><img src="./img/example1.png" alt="example1" /></p>
-
-    <p>There are several haunted rooms, so we’ll disregard them as well as any rooms beneath them. Thus, the answer is <code class="highlighter-rouge">1 + 5 + 1 + 2 = 9</code>.</p>
-  </li>
-  <li>
-    <p>For</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[1, 1, 1, 0],
-          [0, 5, 0, 1],
-          [2, 1, 3, 10]]
-</code></pre></div>    </div>
-    <p>the output should be <code class="highlighter-rouge">matrixElementsSum(matrix) = 9</code></p>
-
-    <p><img src="./img/example2.png" alt="example2" /></p>
-
-    <p>Note that the free room in the final column makes the full column unsuitable for bots (not just the room directly beneath it). Thus, the answer is <code class="highlighter-rouge">1 + 1 + 1 + 5 + 1 = 9</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.array.integer matrix <br />
-A 2-dimensional array of integers representing the cost of each room in the building. A value of 0 indicates that the room is haunted. <br />
-Guaranteed constraints: 1 ≤ matrix.length ≤ 5, 1 ≤ matrix[i].length ≤ 5, 0 ≤ matrix[i][j] ≤ 10.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The total price of all the rooms that are suitable for the CodeBots to live in.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def matrixElementsSum(matrix):
-    col = 0
-    total = 0
-    while col &lt; len(matrix[0]):
-        row = 0
-        while row &lt; len(matrix):
-            if matrix[row][col] == 0:
-                break
-            total += matrix[row][col]
-            row += 1
-        col += 1
-    return total
 </code></pre></div></div>
 
 	  ]]></description>
