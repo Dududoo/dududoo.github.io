@@ -12,6 +12,51 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>14. alternatingSums</title>
+	  <link>//14-alternatingSums</link>
+	  <author></author>
+	  <pubDate>2020-01-28T11:00:00+09:00</pubDate>
+	  <guid>//14-alternatingSums</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Several people are standing in a row and need to be divided into two teams. The first person goes into team 1, the second goes into team 2, the third goes into team 1 again, the fourth into team 2, and so on.</p>
+
+<p>You are given an array of positive integers - the weights of the people. Return an array of two integers, where the first element is the total weight of team 1, and the second element is the total weight of team 2 after the division is complete.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">a = [50, 60, 60, 45, 70]</code>, the output should be <br />
+<code class="highlighter-rouge">alternatingSums(a) = [180, 105]</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer a <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 105</code>, <code class="highlighter-rouge">45 ≤ a[i] ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.integer</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def alternatingSums(a):
+    return [sum(a[::2]), sum(a[1::2])]
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>13. reverseInParentheses</title>
 	  <link>//13-reverseInParentheses</link>
 	  <author></author>
@@ -599,59 +644,6 @@ The area of the n-interesting polygon.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def shapeArea(n):
     area = 1 + 2 * (n - 1) * n
     return area
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>4. adjacentElementsProduct</title>
-	  <link>//4-adjacentElementsProduct</link>
-	  <author></author>
-	  <pubDate>2020-01-21T21:00:00+09:00</pubDate>
-	  <guid>//4-adjacentElementsProduct</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = [3, 6, -2, -5, 7, 3]</code>, the output should be
-<code class="highlighter-rouge">adjacentElementsProduct(inputArray) = 21</code>.</p>
-
-<p>7 and 3 produce the largest product.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer inputArray <br />
-An array of integers containing at least two elements. <br />
-Guaranteed constraints: 2 ≤ inputArray.length ≤ 10, -1000 ≤ inputArray[i] ≤ 1000.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The largest product of adjacent elements.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def adjacentElementsProduct(inputArray):
-    largestProduct = inputArray[0] * inputArray[1]
-    i = 0
-    while i &lt; len(inputArray) - 1:
-        if inputArray[i] * inputArray[i + 1] &gt; largestProduct:
-            largestProduct = inputArray[i] * inputArray[i + 1]
-        i += 1
-    return largestProduct
 </code></pre></div></div>
 
 	  ]]></description>

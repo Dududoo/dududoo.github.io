@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>13. reverseInParentheses</title>
+    <title>14. alternatingSums</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//13-reverseInParentheses" />
+        <link rel="canonical" href="http://localhost:4000//14-alternatingSums" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="13. reverseInParentheses" />
+    <meta property="og:title" content="14. alternatingSums" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//13-reverseInParentheses" />
+    <meta property="og:url" content="http://localhost:4000//14-alternatingSums" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="13. reverseInParentheses" />
+    <meta name="twitter:title" content="14. alternatingSums" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//13-reverseInParentheses" />
+    <meta name="twitter:url" content="http://localhost:4000//14-alternatingSums" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "13. reverseInParentheses",
-    "url": "http://localhost:4000//13-reverseInParentheses",
+    "name": "14. alternatingSums",
+    "url": "http://localhost:4000//14-alternatingSums",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">13. reverseInParentheses</h1>
+            <h1 class="post-title">14. alternatingSums</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,31 +132,14 @@
 
 <h3 id="task">Task</h3>
 
-<p>Write a function that reverses characters in (possibly nested) parentheses in the input string.</p>
+<p>Several people are standing in a row and need to be divided into two teams. The first person goes into team 1, the second goes into team 2, the third goes into team 1 again, the fourth into team 2, and so on.</p>
 
-<p>Input strings will always be well-formed with matching <code class="highlighter-rouge">()</code>s.</p>
+<p>You are given an array of positive integers - the weights of the people. Return an array of two integers, where the first element is the total weight of team 1, and the second element is the total weight of team 2 after the division is complete.</p>
 
 <h3 id="example">Example</h3>
 
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "(bar)"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "rab"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "foo(bar)baz"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "foorabbaz"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "foo(bar)baz(blim)"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "foorabbazmilb"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "foo(bar(baz))blim"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "foobazrabblim"</code>. <br />
-Because <code class="highlighter-rouge">"foo(bar(baz))blim"</code> becomes <code class="highlighter-rouge">"foo(barzab)blim"</code> and then <code class="highlighter-rouge">"foobazrabblim"</code>.</p>
-  </li>
-</ul>
+<p>For <code class="highlighter-rouge">a = [50, 60, 60, 45, 70]</code>, the output should be <br />
+<code class="highlighter-rouge">alternatingSums(a) = [180, 105]</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -166,32 +149,18 @@ Because <code class="highlighter-rouge">"foo(bar(baz))blim"</code> becomes <code
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] string inputString <br />
-A string consisting of lowercase English letters and the characters <code class="highlighter-rouge">(</code> and <code class="highlighter-rouge">)</code>. It is guaranteed that all parentheses in <code class="highlighter-rouge">inputString</code> form a regular bracket sequence. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ inputString.length ≤ 50</code>.</p>
+    <p>[input] array.integer a <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 105</code>, <code class="highlighter-rouge">45 ≤ a[i] ≤ 100</code>.</p>
   </li>
   <li>
-    <p>[output] string <br />
-Return <code class="highlighter-rouge">inputString</code>, with all the characters that were in parentheses reversed.</p>
+    <p>[output] array.integer</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def reverseInParentheses(inputString):
-    i = 0
-    rev = ''
-    while i &lt; len(inputString):
-        if inputString[i] == '(':
-            j, revPar = reverseInParentheses(inputString[i + 1:])
-            rev += revPar
-            i += j + 2
-        elif inputString[i] == ')':
-            return i, rev[::-1]
-        else:
-            rev += inputString[i]
-            i += 1
-    return rev
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def alternatingSums(a):
+    return [sum(a[::2]), sum(a[1::2])]
 </code></pre></div></div>
 
 
@@ -225,15 +194,15 @@ Return <code class="highlighter-rouge">inputString</code>, with all the characte
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=13. reverseInParentheses&amp;url=http://localhost:400013-reverseInParentheses"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=14. alternatingSums&amp;url=http://localhost:400014-alternatingSums"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400013-reverseInParentheses"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400014-alternatingSums"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400013-reverseInParentheses"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400014-alternatingSums"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -254,20 +223,13 @@ Return <code class="highlighter-rouge">inputString</code>, with all the characte
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/14-alternatingSums">
-            <section class="post">
-                <h2>14. alternatingSums</h2>
-                <p>### Task Several people are standing in a row and need to be divided into...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/12-SortByHeight">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/13-reverseInParentheses">
             <section class="post">
-                <h2>12. Sort by Height</h2>
-                <p>Task Some people are standing in a row in a park. There are trees between...</p>
+                <h2>13. reverseInParentheses</h2>
+                <p>Task Write a function that reverses characters in (possibly nested) parentheses in the input string....</p>
             </section>
         </a>
     
