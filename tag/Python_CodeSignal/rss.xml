@@ -12,6 +12,62 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>15. Add Border</title>
+	  <link>//15-addBorder</link>
+	  <author></author>
+	  <pubDate>2020-01-28T12:00:00+09:00</pubDate>
+	  <guid>//15-addBorder</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a rectangular matrix of characters, add a border of asterisks(<code class="highlighter-rouge">*</code>) to it.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>picture = ["abc",
+           "ded"]
+</code></pre></div></div>
+<p>the output should be</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addBorder(picture) = ["*****",
+                      "*abc*",
+                      "*ded*",
+                      "*****"]
+</code></pre></div></div>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.string picture <br />
+A non-empty array of non-empty equal-length strings. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ picture.length ≤ 100</code>, <code class="highlighter-rouge">1 ≤ picture[i].length ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.string <br />
+The same matrix of characters, framed with a border of asterisks of width 1.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def addBorder(picture):
+    border = ['*' + element + '*' for element in picture]
+    border.insert(0, '*' * (len(picture[0]) + 2))
+    border.append('*' * (len(picture[0]) + 2))
+    return border
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>14. alternatingSums</title>
 	  <link>//14-alternatingSums</link>
 	  <author></author>
@@ -587,63 +643,6 @@ The minimal number of statues that need to be added to existing statues such tha
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def makeArrayConsecutive2(statues):
     return max(statues) - min(statues) - len(statues) + 1
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>5. shapeArea</title>
-	  <link>//5-shapeArea</link>
-	  <author></author>
-	  <pubDate>2020-01-21T22:00:00+09:00</pubDate>
-	  <guid>//5-shapeArea</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Below we will define an n-interesting polygon. Your task is to find the area of a polygon for a given n.</p>
-
-<p>A 1-interesting polygon is just a square with a side of length 1. An n-interesting polygon is obtained by taking the n - 1-interesting polygon and appending 1-interesting polygons to its rim, side by side. You can see the 1-, 2-, 3- and 4-interesting polygons in the picture below.</p>
-
-<p><img src="./img/area.png" alt="area" /></p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For n = 2, the output should be <br />
-shapeArea(n) = 5;</p>
-  </li>
-  <li>
-    <p>For n = 3, the output should be <br />
-shapeArea(n) = 13.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer n <br />
-Guaranteed constraints: 1 ≤ n &lt; 104.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The area of the n-interesting polygon.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def shapeArea(n):
-    area = 1 + 2 * (n - 1) * n
-    return area
 </code></pre></div></div>
 
 	  ]]></description>
