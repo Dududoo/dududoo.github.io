@@ -12,6 +12,82 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>19. areEquallyStrong</title>
+	  <link>//19-areEquallyStrong</link>
+	  <author></author>
+	  <pubDate>2020-01-28T16:00:00+09:00</pubDate>
+	  <guid>//19-areEquallyStrong</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Call two arms equally strong if the heaviest weights they each are able to lift are equal.</p>
+
+<p>Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.</p>
+
+<p>Given your and your friend’s arms’ lifting capabilities find out if you two are equally strong.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">yourLeft = 10</code>, <code class="highlighter-rouge">yourRight = 15</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 10</code>, the output should be <br />
+<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">yourLeft = 15</code>, <code class="highlighter-rouge">yourRight = 10</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 10</code>, the output should be <br />
+<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">yourLeft = 15</code>, <code class="highlighter-rouge">yourRight = 10</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 9</code>, the output should be <br />
+<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] integer yourLeft <br />
+A non-negative integer representing the heaviest weight you can lift with your left arm. <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ yourLeft ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer yourRight <br />
+A non-negative integer representing the heaviest weight you can lift with your right arm. <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ yourRight ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer friendsLeft <br />
+A non-negative integer representing the heaviest weight your friend can lift with his or her left arm. <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsLeft ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer friendsRight <br />
+A non-negative integer representing the heaviest weight your friend can lift with his or her right arm. <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsRight ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+<code class="highlighter-rouge">true</code> if you and your friend are equally strong, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
+    return sorted([yourLeft, yourRight]) == sorted([friendsLeft, friendsRight])
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>18. palindromeRearranging</title>
 	  <link>//18-palindromeRearranging</link>
 	  <author></author>
@@ -592,56 +668,6 @@ Guaranteed constraints: 1 ≤ s2.length &lt; 15.</p>
         if key in sndCount:
             commonCount += min(val, sndCount[key])
     return commonCount
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>9. All Longest Strings</title>
-	  <link>//9-AllLongestStrings</link>
-	  <author></author>
-	  <pubDate>2020-01-24T20:00:00+09:00</pubDate>
-	  <guid>//9-AllLongestStrings</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given an array of strings, return another array containing all of its longest strings.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = ["aba", "aa", "ad", "vcd", "aba"]</code>, the output should be
-<code class="highlighter-rouge">allLongestStrings(inputArray) = ["aba", "vcd", "aba"]</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.string inputArray <br />
-A non-empty array. <br />
-Guaranteed constraints: 1 ≤ inputArray.length ≤ 10, 1 ≤ inputArray[i].length ≤ 10.</p>
-  </li>
-  <li>
-    <p>[output] array.string <br />
-Array of the longest strings, stored in the same order as in the inputArray.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def allLongestStrings(inputArray):
-    maxLength = 0
-    for element in inputArray:
-        if len(element) &gt;= maxLength:
-            maxLength = len(element)
-    LongestStrings = [element for element in inputArray if len(element) == maxLength]
-    return LongestStrings
 </code></pre></div></div>
 
 	  ]]></description>
