@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>12. Sort by Height</title>
+    <title>13. reverseInParentheses</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//12-SortByHeight" />
+        <link rel="canonical" href="http://localhost:4000//13-reverseInParentheses" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="12. Sort by Height" />
+    <meta property="og:title" content="13. reverseInParentheses" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//12-SortByHeight" />
+    <meta property="og:url" content="http://localhost:4000//13-reverseInParentheses" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="12. Sort by Height" />
+    <meta name="twitter:title" content="13. reverseInParentheses" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//12-SortByHeight" />
+    <meta name="twitter:url" content="http://localhost:4000//13-reverseInParentheses" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "12. Sort by Height",
-    "url": "http://localhost:4000//12-SortByHeight",
+    "name": "13. reverseInParentheses",
+    "url": "http://localhost:4000//13-reverseInParentheses",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">12. Sort by Height</h1>
+            <h1 class="post-title">13. reverseInParentheses</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,11 +132,31 @@
 
 <h3 id="task">Task</h3>
 
-<p>Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!</p>
+<p>Write a function that reverses characters in (possibly nested) parentheses in the input string.</p>
+
+<p>Input strings will always be well-formed with matching <code class="highlighter-rouge">()</code>s.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For <code class="highlighter-rouge">a = [-1, 150, 190, 170, -1, -1, 160, 180]</code>, the output should be <code class="highlighter-rouge">sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190]</code>.</p>
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "(bar)"</code>, the output should be <br />
+<code class="highlighter-rouge">reverseInParentheses(inputString) = "rab"</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "foo(bar)baz"</code>, the output should be <br />
+<code class="highlighter-rouge">reverseInParentheses(inputString) = "foorabbaz"</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "foo(bar)baz(blim)"</code>, the output should be <br />
+<code class="highlighter-rouge">reverseInParentheses(inputString) = "foorabbazmilb"</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "foo(bar(baz))blim"</code>, the output should be <br />
+<code class="highlighter-rouge">reverseInParentheses(inputString) = "foobazrabblim"</code>. <br />
+Because <code class="highlighter-rouge">"foo(bar(baz))blim"</code> becomes <code class="highlighter-rouge">"foo(barzab)blim"</code> and then <code class="highlighter-rouge">"foobazrabblim"</code>.</p>
+  </li>
+</ul>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -146,62 +166,32 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.integer a <br />
-If <code class="highlighter-rouge">a[i] = -1</code>, then the ith position is occupied by a tree. Otherwise <code class="highlighter-rouge">a[i]</code> is the height of a person standing in the ith position. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 1000</code>, <code class="highlighter-rouge">-1 ≤ a[i] ≤ 1000</code>.</p>
+    <p>[input] string inputString <br />
+A string consisting of lowercase English letters and the characters <code class="highlighter-rouge">(</code> and <code class="highlighter-rouge">)</code>. It is guaranteed that all parentheses in <code class="highlighter-rouge">inputString</code> form a regular bracket sequence. <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ inputString.length ≤ 50</code>.</p>
   </li>
   <li>
-    <p>[output] array.integer <br />
-Sorted array <code class="highlighter-rouge">a</code> with all the trees untouched.</p>
+    <p>[output] string <br />
+Return <code class="highlighter-rouge">inputString</code>, with all the characters that were in parentheses reversed.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def mergeSort(array, left, right):
-    if right - left &lt; 2:
-        return
-    mergeSort(array, left, left + (right - left) // 2)
-    mergeSort(array, left + (right - left) // 2, right)
-    temp = [0 for i in array]
-    lCur = left
-    rCur = left + (right - left) // 2
-    tCur = left
-    while lCur &lt; left + (right - left) // 2 and rCur &lt; right:
-        if array[lCur] &lt; array[rCur]:
-            temp[tCur] = array[lCur]
-            lCur += 1
-            tCur += 1
-        else:
-            temp[tCur] = array[rCur]
-            rCur += 1
-            tCur += 1
-    while tCur &lt; right:
-        if lCur == left + (right - left) // 2:
-            temp[tCur] = array[rCur]
-            rCur += 1
-            tCur += 1
-        else:
-            temp[tCur] = array[lCur]
-            lCur += 1
-            tCur += 1
-    array[left:right] = temp[left:right]
-    return
-
-
-def sortByHeight(a):
-    people = [height for height in a if height &gt; -1]
-    mergeSort(people, 0, len(people))
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def reverseInParentheses(inputString):
     i = 0
-    j = 0
-    while i &lt; len(a):
-        if a[i] == -1:
-            i += 1
+    rev = ''
+    while i &lt; len(inputString):
+        if inputString[i] == '(':
+            j, revPar = reverseInParentheses(inputString[i + 1:])
+            rev += revPar
+            i += j + 2
+        elif inputString[i] == ')':
+            return i, rev[::-1]
         else:
-            a[i] = people[j]
+            rev += inputString[i]
             i += 1
-            j += 1
-    return a
+    return rev
 </code></pre></div></div>
 
 
@@ -235,15 +225,15 @@ def sortByHeight(a):
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=12. Sort by Height&amp;url=http://localhost:400012-SortByHeight"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=13. reverseInParentheses&amp;url=http://localhost:400013-reverseInParentheses"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400012-SortByHeight"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400013-reverseInParentheses"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400012-SortByHeight"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400013-reverseInParentheses"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -264,20 +254,13 @@ def sortByHeight(a):
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/13-reverseInParentheses">
-            <section class="post">
-                <h2>13. reverseInParentheses</h2>
-                <p>### Task Write a function that reverses characters in (possibly nested) parentheses in the input...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/11-isLucky">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/12-SortByHeight">
             <section class="post">
-                <h2>11. isLucky</h2>
-                <p>Task Ticket numbers usually consist of an even number of digits. A ticket number is...</p>
+                <h2>12. Sort by Height</h2>
+                <p>Task Some people are standing in a row in a park. There are trees between...</p>
             </section>
         </a>
     
