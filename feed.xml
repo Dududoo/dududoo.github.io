@@ -8,6 +8,21 @@
     
       
       <item>
+        <title>11. isLucky</title>
+        
+          <description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 27 Jan 2020 10:15:00 +0900</pubDate>
+        <link>
+        http://localhost:4000/11-isLucky</link>
+        <guid isPermaLink="true">http://localhost:4000/11-isLucky</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>10. commonCharacterCount</title>
         
           <description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -38,7 +53,7 @@
     
       
       <item>
-        <title>8.matrixElementsSum</title>
+        <title>8. matrixElementsSum</title>
         
           <description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
