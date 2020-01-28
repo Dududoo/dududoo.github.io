@@ -12,6 +12,92 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>12. Sort by Height</title>
+	  <link>//12-SortByHeight</link>
+	  <author></author>
+	  <pubDate>2020-01-28T09:00:00+09:00</pubDate>
+	  <guid>//12-SortByHeight</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">a = [-1, 150, 190, 170, -1, -1, 160, 180]</code>, the output should be <code class="highlighter-rouge">sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190]</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer a <br />
+If <code class="highlighter-rouge">a[i] = -1</code>, then the ith position is occupied by a tree. Otherwise <code class="highlighter-rouge">a[i]</code> is the height of a person standing in the ith position. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 1000</code>, <code class="highlighter-rouge">-1 ≤ a[i] ≤ 1000</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.integer <br />
+Sorted array <code class="highlighter-rouge">a</code> with all the trees untouched.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def mergeSort(array, left, right):
+    if right - left &lt; 2:
+        return
+    mergeSort(array, left, left + (right - left) // 2)
+    mergeSort(array, left + (right - left) // 2, right)
+    temp = [0 for i in array]
+    lCur = left
+    rCur = left + (right - left) // 2
+    tCur = left
+    while lCur &lt; left + (right - left) // 2 and rCur &lt; right:
+        if array[lCur] &lt; array[rCur]:
+            temp[tCur] = array[lCur]
+            lCur += 1
+            tCur += 1
+        else:
+            temp[tCur] = array[rCur]
+            rCur += 1
+            tCur += 1
+    while tCur &lt; right:
+        if lCur == left + (right - left) // 2:
+            temp[tCur] = array[rCur]
+            rCur += 1
+            tCur += 1
+        else:
+            temp[tCur] = array[lCur]
+            lCur += 1
+            tCur += 1
+    array[left:right] = temp[left:right]
+    return
+
+
+def sortByHeight(a):
+    people = [height for height in a if height &gt; -1]
+    mergeSort(people, 0, len(people))
+    i = 0
+    j = 0
+    while i &lt; len(a):
+        if a[i] == -1:
+            i += 1
+        else:
+            a[i] = people[j]
+            i += 1
+            j += 1
+    return a
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>11. isLucky</title>
 	  <link>//11-isLucky</link>
 	  <author></author>
@@ -550,59 +636,6 @@ true if inputString is a palindrome, false otherwise.</p>
         return True
     else:
         return False
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>2. centryFromYear</title>
-	  <link>//2-centryFromYear</link>
-	  <author></author>
-	  <pubDate>2020-01-20T20:00:00+09:00</pubDate>
-	  <guid>//2-centryFromYear</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For year = 1905, the output should be <br />
-centuryFromYear(year) = 20;</p>
-  </li>
-  <li>
-    <p>For year = 1700, the output should be <br />
-centuryFromYear(year) = 17.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer year <br />
-A positive integer, designating the year. <br />
-Guaranteed constraints: 1 ≤ year ≤ 2005.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The number of the century the year is in.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def centuryFromYear(year):
-    return ((year - 1) // 100) + 1
 </code></pre></div></div>
 
 	  ]]></description>
