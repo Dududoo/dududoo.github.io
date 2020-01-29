@@ -12,6 +12,135 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>22. avoidObstacles</title>
+	  <link>//22-avoidObstacles</link>
+	  <author></author>
+	  <pubDate>2020-01-29T11:00:00+09:00</pubDate>
+	  <guid>//22-avoidObstacles</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>You are given an array of integers representing coordinates of obstacles situated on a straight line.</p>
+
+<p>Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.</p>
+
+<p>Find the minimal length of the jump enough to avoid all the obstacles.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = [5, 3, 6, 7, 9]</code>, the output should be <br />
+<code class="highlighter-rouge">avoidObstacles(inputArray) = 4</code>.</p>
+
+<p>Check out the image below for better understanding:
+<img src="./img/obstacles.png" alt="obstacles" /></p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer inputArray <br />
+Non-empty array of positive integers. <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ inputArray.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The desired length.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def avoidObstacles(inputArray):
+    for i in range(2, max(inputArray) + 1):
+        if list(map(lambda x: (x % i) == 0, inputArray)) == ([False] * len(inputArray)):
+            return i
+    return max(inputArray) + 1
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>21. isIPv4Address</title>
+	  <link>//21-isIPv4Address</link>
+	  <author></author>
+	  <pubDate>2020-01-29T10:00:00+09:00</pubDate>
+	  <guid>//21-isIPv4Address</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the IPv4 address.</p>
+
+<p>IPv4 address is a string with the following structure: <code class="highlighter-rouge">a.b.c.d</code>, where <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code>, <code class="highlighter-rouge">c</code> and <code class="highlighter-rouge">d</code> are integers in range <code class="highlighter-rouge">[0, 255]</code>. For example, <code class="highlighter-rouge">0.0.0.0</code>, <code class="highlighter-rouge">255.255.255.255</code> or <code class="highlighter-rouge">252.0.128.32</code> are correct IPv4 addresses, and <code class="highlighter-rouge">0.0.0.256</code>, <code class="highlighter-rouge">-1.1.1.1</code>, <code class="highlighter-rouge">0.0.0.0.0</code> are incorrect.</p>
+
+<p><code class="highlighter-rouge">a.b</code> is named network part and <code class="highlighter-rouge">c.d</code> is named host part.</p>
+
+<p>Given a string, find out if it satisfies the IPv4 address naming rules.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "172.16.254.1"</code>, the output should be <br />
+<code class="highlighter-rouge">isIPv4Address(inputString) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "172.316.254.1"</code>, the output should be <br />
+<code class="highlighter-rouge">isIPv4Address(inputString) = false</code>. <br />
+<code class="highlighter-rouge">316</code> is not in range <code class="highlighter-rouge">[0, 255]</code>.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = ".254.255.0"</code>, the output should be <br />
+<code class="highlighter-rouge">isIPv4Address(inputString) = false</code>. <br />
+There is no first number.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string inputString <br />
+A string consisting of digits, full stops and lowercase English letters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length ≤ 30</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">inputString</code> satisfies the IPv4 address naming rules, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isIPv4Address(inputString):
+    try:
+        address = list(map(int, inputString.split('.')))
+        if len(address) != 4:
+            return False
+        for number in address:
+            if (number &lt; 0) or (number &gt; 255):
+                return False
+        return True
+    except:
+        return False
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>20. arrayMaximalAdjacentDifference</title>
 	  <link>//20-arrayMaximalAdjacentDifference</link>
 	  <author></author>
@@ -496,155 +625,6 @@ Return <code class="highlighter-rouge">inputString</code>, with all the characte
             rev += inputString[i]
             i += 1
     return rev
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>12. Sort by Height</title>
-	  <link>//12-SortByHeight</link>
-	  <author></author>
-	  <pubDate>2020-01-28T09:00:00+09:00</pubDate>
-	  <guid>//12-SortByHeight</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">a = [-1, 150, 190, 170, -1, -1, 160, 180]</code>, the output should be <code class="highlighter-rouge">sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190]</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer a <br />
-If <code class="highlighter-rouge">a[i] = -1</code>, then the ith position is occupied by a tree. Otherwise <code class="highlighter-rouge">a[i]</code> is the height of a person standing in the ith position. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 1000</code>, <code class="highlighter-rouge">-1 ≤ a[i] ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.integer <br />
-Sorted array <code class="highlighter-rouge">a</code> with all the trees untouched.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def mergeSort(array, left, right):
-    if right - left &lt; 2:
-        return
-    mergeSort(array, left, left + (right - left) // 2)
-    mergeSort(array, left + (right - left) // 2, right)
-    temp = [0 for i in array]
-    lCur = left
-    rCur = left + (right - left) // 2
-    tCur = left
-    while lCur &lt; left + (right - left) // 2 and rCur &lt; right:
-        if array[lCur] &lt; array[rCur]:
-            temp[tCur] = array[lCur]
-            lCur += 1
-            tCur += 1
-        else:
-            temp[tCur] = array[rCur]
-            rCur += 1
-            tCur += 1
-    while tCur &lt; right:
-        if lCur == left + (right - left) // 2:
-            temp[tCur] = array[rCur]
-            rCur += 1
-            tCur += 1
-        else:
-            temp[tCur] = array[lCur]
-            lCur += 1
-            tCur += 1
-    array[left:right] = temp[left:right]
-    return
-
-
-def sortByHeight(a):
-    people = [height for height in a if height &gt; -1]
-    mergeSort(people, 0, len(people))
-    i = 0
-    j = 0
-    while i &lt; len(a):
-        if a[i] == -1:
-            i += 1
-        else:
-            a[i] = people[j]
-            i += 1
-            j += 1
-    return a
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>11. isLucky</title>
-	  <link>//11-isLucky</link>
-	  <author></author>
-	  <pubDate>2020-01-27T10:15:00+09:00</pubDate>
-	  <guid>//11-isLucky</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half.</p>
-
-<p>Given a ticket number <code class="highlighter-rouge">n</code>, determine if it’s lucky or not.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 1230</code>, the output should be <code class="highlighter-rouge">isLucky(n) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 239017</code>, the output should be <code class="highlighter-rouge">isLucky(n) = false</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer n <br />
-A ticket number represented as a positive integer with an even number of digits. <br />
-Guaranteed constraints: <code class="highlighter-rouge">10 ≤ n &lt; 106</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">n</code> is a lucky ticket number, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isLucky(n):
-    strN = str(n)
-    i = 0
-    fstSum = 0
-    sndSum = 0
-    while i &lt; len(strN) / 2:
-        fstSum += int(strN[i])
-        i += 1
-    while i &lt; len(strN):
-        sndSum += int(strN[i])
-        i += 1
-    return fstSum == sndSum
 </code></pre></div></div>
 
 	  ]]></description>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>20. arrayMaximalAdjacentDifference</title>
+    <title>22. avoidObstacles</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//20-arrayMaximalAdjacentDifference" />
+        <link rel="canonical" href="http://localhost:4000//22-avoidObstacles" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="20. arrayMaximalAdjacentDifference" />
+    <meta property="og:title" content="22. avoidObstacles" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//20-arrayMaximalAdjacentDifference" />
+    <meta property="og:url" content="http://localhost:4000//22-avoidObstacles" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="20. arrayMaximalAdjacentDifference" />
+    <meta name="twitter:title" content="22. avoidObstacles" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//20-arrayMaximalAdjacentDifference" />
+    <meta name="twitter:url" content="http://localhost:4000//22-avoidObstacles" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "20. arrayMaximalAdjacentDifference",
-    "url": "http://localhost:4000//20-arrayMaximalAdjacentDifference",
+    "name": "22. avoidObstacles",
+    "url": "http://localhost:4000//22-avoidObstacles",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">20. arrayMaximalAdjacentDifference</h1>
+            <h1 class="post-title">22. avoidObstacles</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-01-28">28 Jan 2020</time>
+            <time class="post-date" datetime="2020-01-29">29 Jan 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,12 +132,19 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.</p>
+<p>You are given an array of integers representing coordinates of obstacles situated on a straight line.</p>
+
+<p>Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.</p>
+
+<p>Find the minimal length of the jump enough to avoid all the obstacles.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For <code class="highlighter-rouge">inputArray = [2, 4, 1, 0]</code>, the output should be <br />
-<code class="highlighter-rouge">arrayMaximalAdjacentDifference(inputArray) = 3</code>.</p>
+<p>For <code class="highlighter-rouge">inputArray = [5, 3, 6, 7, 9]</code>, the output should be <br />
+<code class="highlighter-rouge">avoidObstacles(inputArray) = 4</code>.</p>
+
+<p>Check out the image below for better understanding:
+<img src="./img/obstacles.png" alt="obstacles" /></p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -148,18 +155,22 @@
   </li>
   <li>
     <p>[input] array.integer inputArray <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 10</code>, <code class="highlighter-rouge">-15 ≤ inputArray[i] ≤ 15</code>.</p>
+Non-empty array of positive integers. <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ inputArray.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
   </li>
   <li>
     <p>[output] integer <br />
-The maximal absolute difference.</p>
+The desired length.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaximalAdjacentDifference(inputArray):
-    return max([abs(inputArray[i] - inputArray[i - 1]) for i in range(1, len(inputArray))])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def avoidObstacles(inputArray):
+    for i in range(2, max(inputArray) + 1):
+        if list(map(lambda x: (x % i) == 0, inputArray)) == ([False] * len(inputArray)):
+            return i
+    return max(inputArray) + 1
 </code></pre></div></div>
 
 
@@ -193,15 +204,15 @@ The maximal absolute difference.</p>
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=20. arrayMaximalAdjacentDifference&amp;url=http://localhost:400020-arrayMaximalAdjacentDifference"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=22. avoidObstacles&amp;url=http://localhost:400022-avoidObstacles"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400020-arrayMaximalAdjacentDifference"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400022-avoidObstacles"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400020-arrayMaximalAdjacentDifference"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400022-avoidObstacles"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -222,20 +233,13 @@ The maximal absolute difference.</p>
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/21-isIPv4Address">
-            <section class="post">
-                <h2>21. isIPv4Address</h2>
-                <p>### Task An IP address is a numerical label assigned to each device (e.g., computer,...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/19-areEquallyStrong">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/21-isIPv4Address">
             <section class="post">
-                <h2>19. areEquallyStrong</h2>
-                <p>Task Call two arms equally strong if the heaviest weights they each are able to...</p>
+                <h2>21. isIPv4Address</h2>
+                <p>Task An IP address is a numerical label assigned to each device (e.g., computer, printer)...</p>
             </section>
         </a>
     
