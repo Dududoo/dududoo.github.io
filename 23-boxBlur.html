@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>22. avoidObstacles</title>
+    <title>23. Box Blur</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//22-avoidObstacles" />
+        <link rel="canonical" href="http://localhost:4000//23-boxBlur" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="22. avoidObstacles" />
+    <meta property="og:title" content="23. Box Blur" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//22-avoidObstacles" />
+    <meta property="og:url" content="http://localhost:4000//23-boxBlur" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="22. avoidObstacles" />
+    <meta name="twitter:title" content="23. Box Blur" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//22-avoidObstacles" />
+    <meta name="twitter:url" content="http://localhost:4000//23-boxBlur" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "22. avoidObstacles",
-    "url": "http://localhost:4000//22-avoidObstacles",
+    "name": "23. Box Blur",
+    "url": "http://localhost:4000//23-boxBlur",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">22. avoidObstacles</h1>
+            <h1 class="post-title">23. Box Blur</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-01-29">29 Jan 2020</time>
+            <time class="post-date" datetime="2020-01-30">30 Jan 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,19 +132,34 @@
 
 <h3 id="task">Task</h3>
 
-<p>You are given an array of integers representing coordinates of obstacles situated on a straight line.</p>
+<p>Last night you partied a little too hard. Now there’s a black and white photo of you that’s about to go viral! You can’t let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.</p>
 
-<p>Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.</p>
+<p>The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel <code class="highlighter-rouge">x</code> in the output image has a value equal to the average value of the pixel values from the <code class="highlighter-rouge">3 × 3</code> square that has its center at <code class="highlighter-rouge">x</code>, including <code class="highlighter-rouge">x</code> itself. All the pixels on the border of <code class="highlighter-rouge">x</code> are then removed.</p>
 
-<p>Find the minimal length of the jump enough to avoid all the obstacles.</p>
+<p>Return the blurred image as an integer, with the fractions rounded down.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For <code class="highlighter-rouge">inputArray = [5, 3, 6, 7, 9]</code>, the output should be <br />
-<code class="highlighter-rouge">avoidObstacles(inputArray) = 4</code>.</p>
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image = [[1, 1, 1],
+         [1, 7, 1],
+         [1, 1, 1]]
+</code></pre></div></div>
+<p>the output should be <code class="highlighter-rouge">boxBlur(image) = [[1]]</code>.</p>
 
-<p>Check out the image below for better understanding:
-<img src="./img/obstacles.png" alt="obstacles" /></p>
+<p>To get the value of the middle pixel in the input <code class="highlighter-rouge">3 × 3</code> square: <code class="highlighter-rouge">(1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) = 15 / 9 = 1.66666 = 1</code>. The border pixels are cropped from the final result.</p>
+
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image = [[7, 4, 0, 1],
+         [5, 6, 2, 2],
+         [6, 10, 7, 8],
+         [1, 4, 2, 0]]
+</code></pre></div></div>
+<p>the output should be</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>boxBlur(image) = [[5, 4],
+                  [4, 4]]
+</code></pre></div></div>
+<p>There are four <code class="highlighter-rouge">3 × 3</code> squares in the input image, so there should be four integers in the blurred output. To get the first value: <code class="highlighter-rouge">(7 + 4 + 0 + 5 + 6 + 2 + 6 + 10 + 7) = 47 / 9 = 5.2222 = 5</code>. The other three integers are obtained the same way, then the surrounding integers are cropped from the final result.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -154,23 +169,22 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.integer inputArray <br />
-Non-empty array of positive integers. <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ inputArray.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
+    <p>[input] array.array.integer image <br />
+An image, stored as a rectangular matrix of non-negative integers. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ image.length ≤ 100</code>, <code class="highlighter-rouge">3 ≤ image[0].length ≤ 100</code>, <code class="highlighter-rouge">0 ≤ image[i][j] ≤ 255</code>.</p>
   </li>
   <li>
-    <p>[output] integer <br />
-The desired length.</p>
+    <p>[output] array.array.integer <br />
+A blurred image represented as integers, obtained through the process in the description.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def avoidObstacles(inputArray):
-    for i in range(2, max(inputArray) + 1):
-        if list(map(lambda x: (x % i) == 0, inputArray)) == ([False] * len(inputArray)):
-            return i
-    return max(inputArray) + 1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def boxBlur(image):
+    return [[sum(sum([image[row + j][col + i] for i in range(-1, 2)]) for j in range(-1, 2)) // 9
+             for col in range(1, len(image[0]) - 1)]
+             for row in range(1, len(image) - 1)]
 </code></pre></div></div>
 
 
@@ -204,15 +218,15 @@ The desired length.</p>
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=22. avoidObstacles&amp;url=http://localhost:400022-avoidObstacles"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=23. Box Blur&amp;url=http://localhost:400023-boxBlur"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400022-avoidObstacles"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400023-boxBlur"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400022-avoidObstacles"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400023-boxBlur"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -233,20 +247,13 @@ The desired length.</p>
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/23-boxBlur">
-            <section class="post">
-                <h2>23. Box Blur</h2>
-                <p>### Task Last night you partied a little too hard. Now there's a black and...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/21-isIPv4Address">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/22-avoidObstacles">
             <section class="post">
-                <h2>21. isIPv4Address</h2>
-                <p>Task An IP address is a numerical label assigned to each device (e.g., computer, printer)...</p>
+                <h2>22. avoidObstacles</h2>
+                <p>Task You are given an array of integers representing coordinates of obstacles situated on a...</p>
             </section>
         </a>
     

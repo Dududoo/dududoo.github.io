@@ -12,6 +12,75 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>23. Box Blur</title>
+	  <link>//23-boxBlur</link>
+	  <author></author>
+	  <pubDate>2020-01-30T10:00:00+09:00</pubDate>
+	  <guid>//23-boxBlur</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Last night you partied a little too hard. Now there’s a black and white photo of you that’s about to go viral! You can’t let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.</p>
+
+<p>The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel <code class="highlighter-rouge">x</code> in the output image has a value equal to the average value of the pixel values from the <code class="highlighter-rouge">3 × 3</code> square that has its center at <code class="highlighter-rouge">x</code>, including <code class="highlighter-rouge">x</code> itself. All the pixels on the border of <code class="highlighter-rouge">x</code> are then removed.</p>
+
+<p>Return the blurred image as an integer, with the fractions rounded down.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image = [[1, 1, 1],
+         [1, 7, 1],
+         [1, 1, 1]]
+</code></pre></div></div>
+<p>the output should be <code class="highlighter-rouge">boxBlur(image) = [[1]]</code>.</p>
+
+<p>To get the value of the middle pixel in the input <code class="highlighter-rouge">3 × 3</code> square: <code class="highlighter-rouge">(1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) = 15 / 9 = 1.66666 = 1</code>. The border pixels are cropped from the final result.</p>
+
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image = [[7, 4, 0, 1],
+         [5, 6, 2, 2],
+         [6, 10, 7, 8],
+         [1, 4, 2, 0]]
+</code></pre></div></div>
+<p>the output should be</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>boxBlur(image) = [[5, 4],
+                  [4, 4]]
+</code></pre></div></div>
+<p>There are four <code class="highlighter-rouge">3 × 3</code> squares in the input image, so there should be four integers in the blurred output. To get the first value: <code class="highlighter-rouge">(7 + 4 + 0 + 5 + 6 + 2 + 6 + 10 + 7) = 47 / 9 = 5.2222 = 5</code>. The other three integers are obtained the same way, then the surrounding integers are cropped from the final result.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.array.integer image <br />
+An image, stored as a rectangular matrix of non-negative integers. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ image.length ≤ 100</code>, <code class="highlighter-rouge">3 ≤ image[0].length ≤ 100</code>, <code class="highlighter-rouge">0 ≤ image[i][j] ≤ 255</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.array.integer <br />
+A blurred image represented as integers, obtained through the process in the description.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def boxBlur(image):
+    return [[sum(sum([image[row + j][col + i] for i in range(-1, 2)]) for j in range(-1, 2)) // 9
+             for col in range(1, len(image[0]) - 1)]
+             for row in range(1, len(image) - 1)]
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>22. avoidObstacles</title>
 	  <link>//22-avoidObstacles</link>
 	  <author></author>
@@ -549,82 +618,6 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 105</
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def alternatingSums(a):
     return [sum(a[::2]), sum(a[1::2])]
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>13. reverseInParentheses</title>
-	  <link>//13-reverseInParentheses</link>
-	  <author></author>
-	  <pubDate>2020-01-28T10:00:00+09:00</pubDate>
-	  <guid>//13-reverseInParentheses</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Write a function that reverses characters in (possibly nested) parentheses in the input string.</p>
-
-<p>Input strings will always be well-formed with matching <code class="highlighter-rouge">()</code>s.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "(bar)"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "rab"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "foo(bar)baz"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "foorabbaz"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "foo(bar)baz(blim)"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "foorabbazmilb"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "foo(bar(baz))blim"</code>, the output should be <br />
-<code class="highlighter-rouge">reverseInParentheses(inputString) = "foobazrabblim"</code>. <br />
-Because <code class="highlighter-rouge">"foo(bar(baz))blim"</code> becomes <code class="highlighter-rouge">"foo(barzab)blim"</code> and then <code class="highlighter-rouge">"foobazrabblim"</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string inputString <br />
-A string consisting of lowercase English letters and the characters <code class="highlighter-rouge">(</code> and <code class="highlighter-rouge">)</code>. It is guaranteed that all parentheses in <code class="highlighter-rouge">inputString</code> form a regular bracket sequence. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ inputString.length ≤ 50</code>.</p>
-  </li>
-  <li>
-    <p>[output] string <br />
-Return <code class="highlighter-rouge">inputString</code>, with all the characters that were in parentheses reversed.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def reverseInParentheses(inputString):
-    i = 0
-    rev = ''
-    while i &lt; len(inputString):
-        if inputString[i] == '(':
-            j, revPar = reverseInParentheses(inputString[i + 1:])
-            rev += revPar
-            i += j + 2
-        elif inputString[i] == ')':
-            return i, rev[::-1]
-        else:
-            rev += inputString[i]
-            i += 1
-    return rev
 </code></pre></div></div>
 
 	  ]]></description>
