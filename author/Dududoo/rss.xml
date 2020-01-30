@@ -12,6 +12,151 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>27. variableName</title>
+	  <link>//27-variableName</link>
+	  <author></author>
+	  <pubDate>2020-01-30T14:00:00+09:00</pubDate>
+	  <guid>//27-variableName</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Correct variable names consist only of English letters, digits and underscores and they can’t start with a digit.</p>
+
+<p>Check if the given string is a correct variable name.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">name = "var_1__Int"</code>, the output should be <br />
+<code class="highlighter-rouge">variableName(name) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">name = "qq-q"</code>, the output should be <br />
+<code class="highlighter-rouge">variableName(name) = false</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">name = "2w2"</code>, the output should be <br />
+<code class="highlighter-rouge">variableName(name) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def variableName(name):
+    if name[0].isdigit():
+        return False
+    valid = [*list(map(str, range(10))), *list(map(chr, [*range(65, 91), *range(97, 123)])), '_']
+    return all([letter in valid for letter in name])
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>26. evenDigitsOnly</title>
+	  <link>//26-evenDigitsOnly</link>
+	  <author></author>
+	  <pubDate>2020-01-30T13:00:00+09:00</pubDate>
+	  <guid>//26-evenDigitsOnly</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Check if all digits of the given integer are even.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">n = 248622</code>, the output should be <code class="highlighter-rouge">evenDigitsOnly(n) = true</code>;</p>
+  </li>
+  <li>
+    <p>For n = 642386, the output should be <code class="highlighter-rouge">evenDigitsOnly(n) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] integer n <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ n ≤ 109</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+<code class="highlighter-rouge">true</code> if all digits of <code class="highlighter-rouge">n</code> are even, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def evenDigitsOnly(n):
+    return all([int(digit) % 2 == 0 for digit in str(n)])
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>25. Array Replace</title>
+	  <link>//25-arrayReplace</link>
+	  <author></author>
+	  <pubDate>2020-01-30T12:00:00+09:00</pubDate>
+	  <guid>//25-arrayReplace</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given an array of integers, replace all the occurrences of <code class="highlighter-rouge">elemToReplace</code> with <code class="highlighter-rouge">substitutionElem</code>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = [1, 2, 1]</code>, <code class="highlighter-rouge">elemToReplace = 1</code>, and <code class="highlighter-rouge">substitutionElem = 3</code>, the output should be <br />
+<code class="highlighter-rouge">arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer inputArray <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ inputArray.length ≤ 104</code>, <code class="highlighter-rouge">0 ≤ inputArray[i] ≤ 109</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer elemToReplace <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ elemToReplace ≤ 109</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer substitutionElem <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ substitutionElem ≤ 109</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.integer</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayReplace(inputArray, elemToReplace, substitutionElem):
+    return [substitutionElem if i == elemToReplace else i for i in inputArray]
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>24. Minesweeper</title>
 	  <link>//24-minesweeper</link>
 	  <author></author>
@@ -443,198 +588,6 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length
         if val % 2 == 1:
             oddCount += 1
     return oddCount &lt; 2
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>17. arrayChange</title>
-	  <link>//17-arrayChange</link>
-	  <author></author>
-	  <pubDate>2020-01-28T14:00:00+09:00</pubDate>
-	  <guid>//17-arrayChange</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = [1, 1, 1]</code>, the output should be <br />
-<code class="highlighter-rouge">arrayChange(inputArray) = 3</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer inputArray <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 105</code>, <code class="highlighter-rouge">-105 ≤ inputArray[i] ≤ 105</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The minimal number of moves needed to obtain a strictly increasing sequence from <code class="highlighter-rouge">inputArray</code>. <br />
-It’s guaranteed that for the given test cases the answer always fits signed 32-bit integer type.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayChange(inputArray):
-    increase = 0
-    for i in range(1, len(inputArray)):
-        if inputArray[i - 1] &gt;= inputArray[i]:
-            increase += inputArray[i - 1] - inputArray[i] + 1
-            inputArray[i] = inputArray[i - 1] + 1
-    return increase
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>16. Are Similar?</title>
-	  <link>//16-areSimilar</link>
-	  <author></author>
-	  <pubDate>2020-01-28T13:00:00+09:00</pubDate>
-	  <guid>//16-areSimilar</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.</p>
-
-<p>Given two arrays <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>, check whether they are similar.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">a = [1, 2, 3]</code> and <code class="highlighter-rouge">b = [1, 2, 3]</code>, the output should be <br />
-<code class="highlighter-rouge">areSimilar(a, b) = true</code>. <br />
-The arrays are equal, no need to swap any elements.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">a = [1, 2, 3]</code> and <code class="highlighter-rouge">b = [2, 1, 3]</code>, the output should be <br />
-<code class="highlighter-rouge">areSimilar(a, b) = true</code>. <br />
-We can obtain <code class="highlighter-rouge">b</code> from <code class="highlighter-rouge">a</code> by swapping <code class="highlighter-rouge">2</code> and <code class="highlighter-rouge">1</code> in <code class="highlighter-rouge">b</code>. <br />
-For <code class="highlighter-rouge">a = [1, 2, 2]</code> and <code class="highlighter-rouge">b = [2, 1, 1]</code>, the output should be <br />
-<code class="highlighter-rouge">areSimilar(a, b) = false</code>. <br />
-Any swap of any two elements either in <code class="highlighter-rouge">a</code> or in <code class="highlighter-rouge">b</code> won’t make <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> equal.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer a <br />
-Array of integers. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ a.length ≤ 105</code>, <code class="highlighter-rouge">1 ≤ a[i] ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[input] array.integer b <br />
-Array of integers of the same length as <code class="highlighter-rouge">a</code>. <br />
-Guaranteed constraints: <code class="highlighter-rouge">b.length = a.length</code>, <code class="highlighter-rouge">1 ≤ b[i] ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> are similar, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def areSimilar(a, b):
-    i = 0
-    fstIndx = -1
-    sndIndx = -1
-    while i &lt; len(a):
-        if a[i] != b[i]:
-            fstIndx = i
-            i += 1
-            break
-        i += 1
-    while i &lt; len(a):
-        if a[i] != b[i]:
-            sndIndx = i
-            i += 1
-            break
-        i += 1
-    while i &lt; len(a):
-        if a[i] != b[i]:
-            return False
-        i += 1
-    if (fstIndx &lt; 0 or sndIndx &lt; 0):
-        return True
-    return (a[fstIndx] == b[sndIndx] and a[sndIndx] == b[fstIndx])
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>15. Add Border</title>
-	  <link>//15-addBorder</link>
-	  <author></author>
-	  <pubDate>2020-01-28T12:00:00+09:00</pubDate>
-	  <guid>//15-addBorder</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a rectangular matrix of characters, add a border of asterisks(<code class="highlighter-rouge">*</code>) to it.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>picture = ["abc",
-           "ded"]
-</code></pre></div></div>
-<p>the output should be</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>addBorder(picture) = ["*****",
-                      "*abc*",
-                      "*ded*",
-                      "*****"]
-</code></pre></div></div>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.string picture <br />
-A non-empty array of non-empty equal-length strings. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ picture.length ≤ 100</code>, <code class="highlighter-rouge">1 ≤ picture[i].length ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.string <br />
-The same matrix of characters, framed with a border of asterisks of width 1.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def addBorder(picture):
-    border = ['*' + element + '*' for element in picture]
-    border.insert(0, '*' * (len(picture[0]) + 2))
-    border.append('*' * (len(picture[0]) + 2))
-    return border
 </code></pre></div></div>
 
 	  ]]></description>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>24. Minesweeper</title>
+    <title>25. Array Replace</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//24-minesweeper" />
+        <link rel="canonical" href="http://localhost:4000//25-arrayReplace" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="24. Minesweeper" />
+    <meta property="og:title" content="25. Array Replace" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//24-minesweeper" />
+    <meta property="og:url" content="http://localhost:4000//25-arrayReplace" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="24. Minesweeper" />
+    <meta name="twitter:title" content="25. Array Replace" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//24-minesweeper" />
+    <meta name="twitter:url" content="http://localhost:4000//25-arrayReplace" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "24. Minesweeper",
-    "url": "http://localhost:4000//24-minesweeper",
+    "name": "25. Array Replace",
+    "url": "http://localhost:4000//25-arrayReplace",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">24. Minesweeper</h1>
+            <h1 class="post-title">25. Array Replace</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,22 +132,12 @@
 
 <h3 id="task">Task</h3>
 
-<p>In the popular Minesweeper game you have a board with some mines and those cells that don’t contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.</p>
+<p>Given an array of integers, replace all the occurrences of <code class="highlighter-rouge">elemToReplace</code> with <code class="highlighter-rouge">substitutionElem</code>.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[true, false, false],
-          [false, true, false],
-          [false, false, false]]
-</code></pre></div></div>
-<p>the output should be</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minesweeper(matrix) = [[1, 2, 1],
-                       [2, 1, 1],
-                       [1, 1, 1]]
-</code></pre></div></div>
-<p>Check out the image below for better understanding:
-<img src="./img/minesweeper.png" alt="minesweeper" /></p>
+<p>For <code class="highlighter-rouge">inputArray = [1, 2, 1]</code>, <code class="highlighter-rouge">elemToReplace = 1</code>, and <code class="highlighter-rouge">substitutionElem = 3</code>, the output should be <br />
+<code class="highlighter-rouge">arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -157,27 +147,26 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.array.boolean matrix <br />
-A non-empty rectangular matrix consisting of boolean values - <code class="highlighter-rouge">true</code> if the corresponding cell contains a mine, <code class="highlighter-rouge">false</code> otherwise.</p>
+    <p>[input] array.integer inputArray <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ inputArray.length ≤ 104</code>, <code class="highlighter-rouge">0 ≤ inputArray[i] ≤ 109</code>.</p>
   </li>
   <li>
-    <p>Guaranteed constraints: <code class="highlighter-rouge">2 ≤ matrix.length ≤ 100</code>, <code class="highlighter-rouge">2 ≤ matrix[0].length ≤ 100</code>.</p>
+    <p>[input] integer elemToReplace <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ elemToReplace ≤ 109</code>.</p>
   </li>
   <li>
-    <p>[output] array.array.integer <br />
-Rectangular matrix of the same size as <code class="highlighter-rouge">matrix</code> each cell of which contains an integer equal to the number of mines in the neighboring cells. Two cells are called neighboring if they share at least one corner.</p>
+    <p>[input] integer substitutionElem <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ substitutionElem ≤ 109</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.integer</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def minesweeper(matrix):
-    matrix = [[False, *matrix[row], False] for row in range(len(matrix))]
-    matrix.insert(0, [False] * len(matrix[0]))
-    matrix.append([False] * len(matrix[0]))
-    return [[sum([sum(matrix[row + i][col - 1:col + 2]) for i in range(-1, 2)]) - matrix[row][col]
-             for col in range(1, len(matrix[0]) - 1)]
-             for row in range(1, len(matrix) - 1)]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayReplace(inputArray, elemToReplace, substitutionElem):
+    return [substitutionElem if i == elemToReplace else i for i in inputArray]
 </code></pre></div></div>
 
 
@@ -211,15 +200,15 @@ Rectangular matrix of the same size as <code class="highlighter-rouge">matrix</c
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=24. Minesweeper&amp;url=http://localhost:400024-minesweeper"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=25. Array Replace&amp;url=http://localhost:400025-arrayReplace"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400024-minesweeper"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400025-arrayReplace"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400024-minesweeper"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400025-arrayReplace"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -240,20 +229,20 @@ Rectangular matrix of the same size as <code class="highlighter-rouge">matrix</c
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/25-arrayReplace">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/26-evenDigitsOnly">
             <section class="post">
-                <h2>25. Array Replace</h2>
-                <p>### Task Given an array of integers, replace all the occurrences of `elemToReplace` with `substitutionElem`....</p>
+                <h2>26. evenDigitsOnly</h2>
+                <p>### Task Check if all digits of the given integer are even. ### Example *...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/23-boxBlur">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/24-minesweeper">
             <section class="post">
-                <h2>23. Box Blur</h2>
-                <p>Task Last night you partied a little too hard. Now there’s a black and white...</p>
+                <h2>24. Minesweeper</h2>
+                <p>Task In the popular Minesweeper game you have a board with some mines and those...</p>
             </section>
         </a>
     
