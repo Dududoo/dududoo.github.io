@@ -12,6 +12,68 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>24. Minesweeper</title>
+	  <link>//24-minesweeper</link>
+	  <author></author>
+	  <pubDate>2020-01-30T11:00:00+09:00</pubDate>
+	  <guid>//24-minesweeper</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>In the popular Minesweeper game you have a board with some mines and those cells that don’t contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[true, false, false],
+          [false, true, false],
+          [false, false, false]]
+</code></pre></div></div>
+<p>the output should be</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minesweeper(matrix) = [[1, 2, 1],
+                       [2, 1, 1],
+                       [1, 1, 1]]
+</code></pre></div></div>
+<p>Check out the image below for better understanding:
+<img src="./img/minesweeper.png" alt="minesweeper" /></p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.array.boolean matrix <br />
+A non-empty rectangular matrix consisting of boolean values - <code class="highlighter-rouge">true</code> if the corresponding cell contains a mine, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+  <li>
+    <p>Guaranteed constraints: <code class="highlighter-rouge">2 ≤ matrix.length ≤ 100</code>, <code class="highlighter-rouge">2 ≤ matrix[0].length ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.array.integer <br />
+Rectangular matrix of the same size as <code class="highlighter-rouge">matrix</code> each cell of which contains an integer equal to the number of mines in the neighboring cells. Two cells are called neighboring if they share at least one corner.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def minesweeper(matrix):
+    matrix = [[False, *matrix[row], False] for row in range(len(matrix))]
+    matrix.insert(0, [False] * len(matrix[0]))
+    matrix.append([False] * len(matrix[0]))
+    return [[sum([sum(matrix[row + i][col - 1:col + 2]) for i in range(-1, 2)]) - matrix[row][col]
+             for col in range(1, len(matrix[0]) - 1)]
+             for row in range(1, len(matrix) - 1)]
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>23. Box Blur</title>
 	  <link>//23-boxBlur</link>
 	  <author></author>
@@ -573,51 +635,6 @@ The same matrix of characters, framed with a border of asterisks of width 1.</p>
     border.insert(0, '*' * (len(picture[0]) + 2))
     border.append('*' * (len(picture[0]) + 2))
     return border
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>14. alternatingSums</title>
-	  <link>//14-alternatingSums</link>
-	  <author></author>
-	  <pubDate>2020-01-28T11:00:00+09:00</pubDate>
-	  <guid>//14-alternatingSums</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Several people are standing in a row and need to be divided into two teams. The first person goes into team 1, the second goes into team 2, the third goes into team 1 again, the fourth into team 2, and so on.</p>
-
-<p>You are given an array of positive integers - the weights of the people. Return an array of two integers, where the first element is the total weight of team 1, and the second element is the total weight of team 2 after the division is complete.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">a = [50, 60, 60, 45, 70]</code>, the output should be <br />
-<code class="highlighter-rouge">alternatingSums(a) = [180, 105]</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer a <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 105</code>, <code class="highlighter-rouge">45 ≤ a[i] ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.integer</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def alternatingSums(a):
-    return [sum(a[::2]), sum(a[1::2])]
 </code></pre></div></div>
 
 	  ]]></description>
