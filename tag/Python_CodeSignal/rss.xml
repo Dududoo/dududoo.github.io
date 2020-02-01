@@ -12,6 +12,161 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>30. Circle of Numbers</title>
+	  <link>//30-circleOfNumbers</link>
+	  <author></author>
+	  <pubDate>2020-02-01T12:00:00+09:00</pubDate>
+	  <guid>//30-circleOfNumbers</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Consider integer numbers from <code class="highlighter-rouge">0</code> to <code class="highlighter-rouge">n - 1</code> written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">n - 1</code> are neighboring, too).</p>
+
+<p>Given <code class="highlighter-rouge">n</code> and <code class="highlighter-rouge">firstNumber</code>, find the number which is written in the radially opposite position to <code class="highlighter-rouge">firstNumber</code>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">n = 10</code> and <code class="highlighter-rouge">firstNumber = 2</code>, the output should be <br />
+<code class="highlighter-rouge">circleOfNumbers(n, firstNumber) = 7</code>.
+<img src="./img/circleOfNumbers.png" alt="circleOfNumbers" /></p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] integer n <br />
+A positive even integer. <br />
+Guaranteed constraints: <code class="highlighter-rouge">4 ≤ n ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer firstNumber <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ firstNumber ≤ n - 1</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def circleOfNumbers(n, firstNumber):
+    return (firstNumber + n / 2) % n
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>29. chessBoardCellColor</title>
+	  <link>//29-chessBoardCellColor</link>
+	  <author></author>
+	  <pubDate>2020-02-01T11:00:00+09:00</pubDate>
+	  <guid>//29-chessBoardCellColor</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given two cells on the standard chess board, determine whether they have the same color or not.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "C3"</code>, the output should be <br />
+<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = true</code>.
+<img src="./img/chess1.png" alt="chess1" /></li>
+  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "H3"</code>, the output should be <br />
+<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = false</code>.
+<img src="./img/chess2.png" alt="chess2" /></li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string cell1 <br />
+Guaranteed constraints: <code class="highlighter-rouge">cell1.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell1[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell1[1] ≤ 8</code>.</p>
+  </li>
+  <li>
+    <p>[input] string cell2 <br />
+Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell2[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell2[1] ≤ 8</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+<code class="highlighter-rouge">true</code> if both cells have the same color, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessBoardCellColor(cell1, cell2):
+    return (ord(cell1[0]) + int(cell1[1]) + ord(cell2[0]) + int(cell2[1])) % 2 == 0
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>28. alphabeticShift</title>
+	  <link>//28-alphabeticShift</link>
+	  <author></author>
+	  <pubDate>2020-02-01T10:00:00+09:00</pubDate>
+	  <guid>//28-alphabeticShift</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a string, your task is to replace each of its characters by the next one in the English alphabet; i.e. replace <code class="highlighter-rouge">a</code> with <code class="highlighter-rouge">b</code>, replace <code class="highlighter-rouge">b</code> with <code class="highlighter-rouge">c</code>, etc (<code class="highlighter-rouge">z</code> would be replaced by <code class="highlighter-rouge">a</code>).</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputString = "crazy"</code>, the output should be <code class="highlighter-rouge">alphabeticShift(inputString) = "dsbaz"</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string inputString <br />
+A non-empty string consisting of lowercase English characters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length ≤ 1000</code>.</p>
+  </li>
+  <li>
+    <p>[output] string <br />
+The resulting string after replacing each of its characters.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def alphabeticShift(inputString):
+    shift = ''
+    for letter in inputString:
+        if letter == 'z':
+            shift += 'a'
+        else:
+            shift += chr(ord(letter) + 1)
+    return shift
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>27. variableName</title>
 	  <link>//27-variableName</link>
 	  <author></author>
@@ -40,6 +195,23 @@
   <li>
     <p>For <code class="highlighter-rouge">name = "2w2"</code>, the output should be <br />
 <code class="highlighter-rouge">variableName(name) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string name <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ name.length ≤ 10</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+<code class="highlighter-rouge">true</code> if name is a correct variable name, <code class="highlighter-rouge">false</code> otherwise.</p>
   </li>
 </ul>
 
@@ -411,183 +583,6 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length
         return True
     except:
         return False
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>20. arrayMaximalAdjacentDifference</title>
-	  <link>//20-arrayMaximalAdjacentDifference</link>
-	  <author></author>
-	  <pubDate>2020-01-28T17:00:00+09:00</pubDate>
-	  <guid>//20-arrayMaximalAdjacentDifference</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = [2, 4, 1, 0]</code>, the output should be <br />
-<code class="highlighter-rouge">arrayMaximalAdjacentDifference(inputArray) = 3</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer inputArray <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 10</code>, <code class="highlighter-rouge">-15 ≤ inputArray[i] ≤ 15</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The maximal absolute difference.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaximalAdjacentDifference(inputArray):
-    return max([abs(inputArray[i] - inputArray[i - 1]) for i in range(1, len(inputArray))])
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>19. areEquallyStrong</title>
-	  <link>//19-areEquallyStrong</link>
-	  <author></author>
-	  <pubDate>2020-01-28T16:00:00+09:00</pubDate>
-	  <guid>//19-areEquallyStrong</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Call two arms equally strong if the heaviest weights they each are able to lift are equal.</p>
-
-<p>Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.</p>
-
-<p>Given your and your friend’s arms’ lifting capabilities find out if you two are equally strong.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">yourLeft = 10</code>, <code class="highlighter-rouge">yourRight = 15</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 10</code>, the output should be <br />
-<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">yourLeft = 15</code>, <code class="highlighter-rouge">yourRight = 10</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 10</code>, the output should be <br />
-<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">yourLeft = 15</code>, <code class="highlighter-rouge">yourRight = 10</code>, <code class="highlighter-rouge">friendsLeft = 15</code>, and <code class="highlighter-rouge">friendsRight = 9</code>, the output should be <br />
-<code class="highlighter-rouge">areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer yourLeft <br />
-A non-negative integer representing the heaviest weight you can lift with your left arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ yourLeft ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer yourRight <br />
-A non-negative integer representing the heaviest weight you can lift with your right arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ yourRight ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer friendsLeft <br />
-A non-negative integer representing the heaviest weight your friend can lift with his or her left arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsLeft ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer friendsRight <br />
-A non-negative integer representing the heaviest weight your friend can lift with his or her right arm. <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ friendsRight ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if you and your friend are equally strong, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
-    return sorted([yourLeft, yourRight]) == sorted([friendsLeft, friendsRight])
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>18. palindromeRearranging</title>
-	  <link>//18-palindromeRearranging</link>
-	  <author></author>
-	  <pubDate>2020-01-28T15:00:00+09:00</pubDate>
-	  <guid>//18-palindromeRearranging</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a string, find out if its characters can be rearranged to form a palindrome.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputString = "aabb"</code>, the output should be <br />
-<code class="highlighter-rouge">palindromeRearranging(inputString) = true</code>.</p>
-
-<p>We can rearrange <code class="highlighter-rouge">"aabb"</code> to make <code class="highlighter-rouge">"abba"</code>, which is a palindrome.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string inputString <br />
-A string consisting of lowercase English letters. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length ≤ 50</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if the characters of the <code class="highlighter-rouge">inputString</code> can be rearranged to form a palindrome, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def palindromeRearranging(inputString):
-    count = {}
-    oddCount = 0
-    for letter in inputString:
-        if letter in count:
-            count[letter] += 1
-        else:
-            count[letter] = 1
-    for val in count.values():
-        if val % 2 == 1:
-            oddCount += 1
-    return oddCount &lt; 2
 </code></pre></div></div>
 
 	  ]]></description>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>27. variableName</title>
+    <title>30. Circle of Numbers</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//27-variableName" />
+        <link rel="canonical" href="http://localhost:4000//30-circleOfNumbers" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="27. variableName" />
+    <meta property="og:title" content="30. Circle of Numbers" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//27-variableName" />
+    <meta property="og:url" content="http://localhost:4000//30-circleOfNumbers" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="27. variableName" />
+    <meta name="twitter:title" content="30. Circle of Numbers" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//27-variableName" />
+    <meta name="twitter:url" content="http://localhost:4000//30-circleOfNumbers" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "27. variableName",
-    "url": "http://localhost:4000//27-variableName",
+    "name": "30. Circle of Numbers",
+    "url": "http://localhost:4000//30-circleOfNumbers",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">27. variableName</h1>
+            <h1 class="post-title">30. Circle of Numbers</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-01-30">30 Jan 2020</time>
+            <time class="post-date" datetime="2020-02-01">01 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,26 +132,15 @@
 
 <h3 id="task">Task</h3>
 
-<p>Correct variable names consist only of English letters, digits and underscores and they can’t start with a digit.</p>
+<p>Consider integer numbers from <code class="highlighter-rouge">0</code> to <code class="highlighter-rouge">n - 1</code> written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">n - 1</code> are neighboring, too).</p>
 
-<p>Check if the given string is a correct variable name.</p>
+<p>Given <code class="highlighter-rouge">n</code> and <code class="highlighter-rouge">firstNumber</code>, find the number which is written in the radially opposite position to <code class="highlighter-rouge">firstNumber</code>.</p>
 
 <h3 id="example">Example</h3>
 
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">name = "var_1__Int"</code>, the output should be <br />
-<code class="highlighter-rouge">variableName(name) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">name = "qq-q"</code>, the output should be <br />
-<code class="highlighter-rouge">variableName(name) = false</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">name = "2w2"</code>, the output should be <br />
-<code class="highlighter-rouge">variableName(name) = false</code>.</p>
-  </li>
-</ul>
+<p>For <code class="highlighter-rouge">n = 10</code> and <code class="highlighter-rouge">firstNumber = 2</code>, the output should be <br />
+<code class="highlighter-rouge">circleOfNumbers(n, firstNumber) = 7</code>.
+<img src="./img/circleOfNumbers.png" alt="circleOfNumbers" /></p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -161,22 +150,23 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] string name <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ name.length ≤ 10</code>.</p>
+    <p>[input] integer n <br />
+A positive even integer. <br />
+Guaranteed constraints: <code class="highlighter-rouge">4 ≤ n ≤ 20</code>.</p>
   </li>
   <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if name is a correct variable name, <code class="highlighter-rouge">false</code> otherwise.</p>
+    <p>[input] integer firstNumber <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ firstNumber ≤ n - 1</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def variableName(name):
-    if name[0].isdigit():
-        return False
-    valid = [*list(map(str, range(10))), *list(map(chr, [*range(65, 91), *range(97, 123)])), '_']
-    return all([letter in valid for letter in name])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def circleOfNumbers(n, firstNumber):
+    return (firstNumber + n / 2) % n
 </code></pre></div></div>
 
 
@@ -210,15 +200,15 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ name.length ≤ 10
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=27. variableName&amp;url=http://localhost:400027-variableName"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=30. Circle of Numbers&amp;url=http://localhost:400030-circleOfNumbers"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400027-variableName"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400030-circleOfNumbers"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400027-variableName"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400030-circleOfNumbers"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -239,20 +229,13 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ name.length ≤ 10
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/28-alphabeticShift">
-            <section class="post">
-                <h2>28. alphabeticShift</h2>
-                <p>### Task Given a string, your task is to replace each of its characters by...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/26-evenDigitsOnly">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/29-chessBoardCellColor">
             <section class="post">
-                <h2>26. evenDigitsOnly</h2>
-                <p>Task Check if all digits of the given integer are even. Example For n =...</p>
+                <h2>29. chessBoardCellColor</h2>
+                <p>Task Given two cells on the standard chess board, determine whether they have the same...</p>
             </section>
         </a>
     
