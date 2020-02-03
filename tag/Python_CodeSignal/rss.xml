@@ -12,6 +12,145 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>32. absoluteValuesSumMinimization</title>
+	  <link>//32-absoluteValuesSumMinimization</link>
+	  <author></author>
+	  <pubDate>2020-02-03T11:00:00+09:00</pubDate>
+	  <guid>//32-absoluteValuesSumMinimization</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a sorted array of integers <code class="highlighter-rouge">a</code>, your task is to determine which element of a is closest to all other values of <code class="highlighter-rouge">a</code>. In other words, find the element <code class="highlighter-rouge">x</code> in <code class="highlighter-rouge">a</code>, which minimizes the following sum:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abs(a[0] - x) + abs(a[1] - x) + ... + abs(a[a.length - 1] - x)
+</code></pre></div></div>
+<p>(where <code class="highlighter-rouge">abs</code> denotes the absolute value)</p>
+
+<p>If there are several possible answers, output the smallest one.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">a = [2, 4, 7]</code>, the output should be <code class="highlighter-rouge">absoluteValuesSumMinimization(a) = 4</code>. <br />
+for <code class="highlighter-rouge">x = 2</code>, the value will be <code class="highlighter-rouge">abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7</code>. <br />
+for <code class="highlighter-rouge">x = 4</code>, the value will be <code class="highlighter-rouge">abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5</code>. <br />
+for <code class="highlighter-rouge">x = 7</code>, the value will be <code class="highlighter-rouge">abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8</code>. <br />
+The lowest possible value is when <code class="highlighter-rouge">x = 4</code>, so the answer is <code class="highlighter-rouge">4</code>.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">a = [2, 3]</code>, the output should be <code class="highlighter-rouge">absoluteValuesSumMinimization(a) = 2</code>. <br />
+for <code class="highlighter-rouge">x = 2</code>, the value will be <code class="highlighter-rouge">abs(2 - 2) + abs(3 - 2) = 1</code>. <br />
+for <code class="highlighter-rouge">x = 3</code>, the value will be <code class="highlighter-rouge">abs(2 - 3) + abs(3 - 3) = 1</code>. <br />
+Because there is a tie, the smallest <code class="highlighter-rouge">x</code> between <code class="highlighter-rouge">x = 2</code> and <code class="highlighter-rouge">x = 3</code> is the answer.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer a <br />
+A non-empty array of integers, sorted in ascending order. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 1000</code>, <code class="highlighter-rouge">-106 ≤ a[i] ≤ 106</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+An integer representing the element from <code class="highlighter-rouge">a</code> that minimizes the sum of its absolute differences with all other elements.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def absoluteValuesSumMinimization(a):
+    minDstnc = a[0] * len(a) * -1
+    minElmnt = a[0]
+    preSum = 0
+    for i in range(len(a)):
+        if a[i] * (2 * i - len(a)) - 2 * preSum &lt; minDstnc:
+            minDstnc = a[i] * (2 * i - len(a)) - 2 * preSum
+            minElmnt = a[i]
+        preSum += a[i]
+    return minElmnt
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>31. depositProfit</title>
+	  <link>//31-depositProfit</link>
+	  <author></author>
+	  <pubDate>2020-02-03T10:00:00+09:00</pubDate>
+	  <guid>//31-depositProfit</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth <code class="highlighter-rouge">rate</code>. With the assumption that you don’t make any additional deposits, find out how long it would take for your balance to pass a specific <code class="highlighter-rouge">threshold</code>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">deposit = 100</code>, <code class="highlighter-rouge">rate = 20</code>, and <code class="highlighter-rouge">threshold = 170</code>, the output should be <br />
+<code class="highlighter-rouge">depositProfit(deposit, rate, threshold) = 3</code>.</p>
+
+<p>Each year the amount of money in your account increases by <code class="highlighter-rouge">20%</code>. So throughout the years, your balance would be:</p>
+
+<p>year 0: <code class="highlighter-rouge">100</code>;
+  year 1: <code class="highlighter-rouge">120</code>;
+  year 2: <code class="highlighter-rouge">144</code>;
+  year 3: <code class="highlighter-rouge">172.8</code>.</p>
+
+<p>Thus, it will take <code class="highlighter-rouge">3</code> years for your balance to pass the <code class="highlighter-rouge">threshold</code>, so the answer is <code class="highlighter-rouge">3</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] integer deposit <br />
+The initial deposit, guaranteed to be a positive integer. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ deposit ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer rate <br />
+The rate of increase. Each year the balance increases by the <code class="highlighter-rouge">rate</code> percent of the current sum. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ rate ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer threshold <br />
+The target balance. <br />
+Guaranteed constraints: <code class="highlighter-rouge">deposit &lt; threshold ≤ 200</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The number of years it would take to hit the <code class="highlighter-rouge">threshold</code>.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def depositProfit(deposit, rate, threshold):
+    year = 0
+    while deposit &lt; threshold:
+        deposit *= (1 + rate / 100)
+        year += 1
+    return year
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>30. Circle of Numbers</title>
 	  <link>//30-circleOfNumbers</link>
 	  <author></author>
@@ -454,135 +593,6 @@ A blurred image represented as integers, obtained through the process in the des
     return [[sum(sum([image[row + j][col + i] for i in range(-1, 2)]) for j in range(-1, 2)) // 9
              for col in range(1, len(image[0]) - 1)]
              for row in range(1, len(image) - 1)]
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>22. avoidObstacles</title>
-	  <link>//22-avoidObstacles</link>
-	  <author></author>
-	  <pubDate>2020-01-29T11:00:00+09:00</pubDate>
-	  <guid>//22-avoidObstacles</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>You are given an array of integers representing coordinates of obstacles situated on a straight line.</p>
-
-<p>Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.</p>
-
-<p>Find the minimal length of the jump enough to avoid all the obstacles.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = [5, 3, 6, 7, 9]</code>, the output should be <br />
-<code class="highlighter-rouge">avoidObstacles(inputArray) = 4</code>.</p>
-
-<p>Check out the image below for better understanding:
-<img src="./img/obstacles.png" alt="obstacles" /></p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer inputArray <br />
-Non-empty array of positive integers. <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ inputArray.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The desired length.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def avoidObstacles(inputArray):
-    for i in range(2, max(inputArray) + 1):
-        if list(map(lambda x: (x % i) == 0, inputArray)) == ([False] * len(inputArray)):
-            return i
-    return max(inputArray) + 1
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>21. isIPv4Address</title>
-	  <link>//21-isIPv4Address</link>
-	  <author></author>
-	  <pubDate>2020-01-29T10:00:00+09:00</pubDate>
-	  <guid>//21-isIPv4Address</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the IPv4 address.</p>
-
-<p>IPv4 address is a string with the following structure: <code class="highlighter-rouge">a.b.c.d</code>, where <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code>, <code class="highlighter-rouge">c</code> and <code class="highlighter-rouge">d</code> are integers in range <code class="highlighter-rouge">[0, 255]</code>. For example, <code class="highlighter-rouge">0.0.0.0</code>, <code class="highlighter-rouge">255.255.255.255</code> or <code class="highlighter-rouge">252.0.128.32</code> are correct IPv4 addresses, and <code class="highlighter-rouge">0.0.0.256</code>, <code class="highlighter-rouge">-1.1.1.1</code>, <code class="highlighter-rouge">0.0.0.0.0</code> are incorrect.</p>
-
-<p><code class="highlighter-rouge">a.b</code> is named network part and <code class="highlighter-rouge">c.d</code> is named host part.</p>
-
-<p>Given a string, find out if it satisfies the IPv4 address naming rules.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "172.16.254.1"</code>, the output should be <br />
-<code class="highlighter-rouge">isIPv4Address(inputString) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "172.316.254.1"</code>, the output should be <br />
-<code class="highlighter-rouge">isIPv4Address(inputString) = false</code>. <br />
-<code class="highlighter-rouge">316</code> is not in range <code class="highlighter-rouge">[0, 255]</code>.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = ".254.255.0"</code>, the output should be <br />
-<code class="highlighter-rouge">isIPv4Address(inputString) = false</code>. <br />
-There is no first number.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string inputString <br />
-A string consisting of digits, full stops and lowercase English letters. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ inputString.length ≤ 30</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">inputString</code> satisfies the IPv4 address naming rules, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isIPv4Address(inputString):
-    try:
-        address = list(map(int, inputString.split('.')))
-        if len(address) != 4:
-            return False
-        for number in address:
-            if (number &lt; 0) or (number &gt; 255):
-                return False
-        return True
-    except:
-        return False
 </code></pre></div></div>
 
 	  ]]></description>

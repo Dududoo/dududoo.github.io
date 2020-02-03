@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>30. Circle of Numbers</title>
+    <title>32. absoluteValuesSumMinimization</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//30-circleOfNumbers" />
+        <link rel="canonical" href="http://localhost:4000//32-absoluteValuesSumMinimization" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="30. Circle of Numbers" />
+    <meta property="og:title" content="32. absoluteValuesSumMinimization" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//30-circleOfNumbers" />
+    <meta property="og:url" content="http://localhost:4000//32-absoluteValuesSumMinimization" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="30. Circle of Numbers" />
+    <meta name="twitter:title" content="32. absoluteValuesSumMinimization" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//30-circleOfNumbers" />
+    <meta name="twitter:url" content="http://localhost:4000//32-absoluteValuesSumMinimization" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "30. Circle of Numbers",
-    "url": "http://localhost:4000//30-circleOfNumbers",
+    "name": "32. absoluteValuesSumMinimization",
+    "url": "http://localhost:4000//32-absoluteValuesSumMinimization",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">30. Circle of Numbers</h1>
+            <h1 class="post-title">32. absoluteValuesSumMinimization</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-01">01 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-03">03 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,15 +132,30 @@
 
 <h3 id="task">Task</h3>
 
-<p>Consider integer numbers from <code class="highlighter-rouge">0</code> to <code class="highlighter-rouge">n - 1</code> written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">n - 1</code> are neighboring, too).</p>
+<p>Given a sorted array of integers <code class="highlighter-rouge">a</code>, your task is to determine which element of a is closest to all other values of <code class="highlighter-rouge">a</code>. In other words, find the element <code class="highlighter-rouge">x</code> in <code class="highlighter-rouge">a</code>, which minimizes the following sum:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abs(a[0] - x) + abs(a[1] - x) + ... + abs(a[a.length - 1] - x)
+</code></pre></div></div>
+<p>(where <code class="highlighter-rouge">abs</code> denotes the absolute value)</p>
 
-<p>Given <code class="highlighter-rouge">n</code> and <code class="highlighter-rouge">firstNumber</code>, find the number which is written in the radially opposite position to <code class="highlighter-rouge">firstNumber</code>.</p>
+<p>If there are several possible answers, output the smallest one.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For <code class="highlighter-rouge">n = 10</code> and <code class="highlighter-rouge">firstNumber = 2</code>, the output should be <br />
-<code class="highlighter-rouge">circleOfNumbers(n, firstNumber) = 7</code>.
-<img src="./img/circleOfNumbers.png" alt="circleOfNumbers" /></p>
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">a = [2, 4, 7]</code>, the output should be <code class="highlighter-rouge">absoluteValuesSumMinimization(a) = 4</code>. <br />
+for <code class="highlighter-rouge">x = 2</code>, the value will be <code class="highlighter-rouge">abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7</code>. <br />
+for <code class="highlighter-rouge">x = 4</code>, the value will be <code class="highlighter-rouge">abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5</code>. <br />
+for <code class="highlighter-rouge">x = 7</code>, the value will be <code class="highlighter-rouge">abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8</code>. <br />
+The lowest possible value is when <code class="highlighter-rouge">x = 4</code>, so the answer is <code class="highlighter-rouge">4</code>.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">a = [2, 3]</code>, the output should be <code class="highlighter-rouge">absoluteValuesSumMinimization(a) = 2</code>. <br />
+for <code class="highlighter-rouge">x = 2</code>, the value will be <code class="highlighter-rouge">abs(2 - 2) + abs(3 - 2) = 1</code>. <br />
+for <code class="highlighter-rouge">x = 3</code>, the value will be <code class="highlighter-rouge">abs(2 - 3) + abs(3 - 3) = 1</code>. <br />
+Because there is a tie, the smallest <code class="highlighter-rouge">x</code> between <code class="highlighter-rouge">x = 2</code> and <code class="highlighter-rouge">x = 3</code> is the answer.</p>
+  </li>
+</ul>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -150,23 +165,28 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] integer n <br />
-A positive even integer. <br />
-Guaranteed constraints: <code class="highlighter-rouge">4 ≤ n ≤ 20</code>.</p>
+    <p>[input] array.integer a <br />
+A non-empty array of integers, sorted in ascending order. <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 1000</code>, <code class="highlighter-rouge">-106 ≤ a[i] ≤ 106</code>.</p>
   </li>
   <li>
-    <p>[input] integer firstNumber <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ firstNumber ≤ n - 1</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer</p>
+    <p>[output] integer <br />
+An integer representing the element from <code class="highlighter-rouge">a</code> that minimizes the sum of its absolute differences with all other elements.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def circleOfNumbers(n, firstNumber):
-    return (firstNumber + n / 2) % n
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def absoluteValuesSumMinimization(a):
+    minDstnc = a[0] * len(a) * -1
+    minElmnt = a[0]
+    preSum = 0
+    for i in range(len(a)):
+        if a[i] * (2 * i - len(a)) - 2 * preSum &lt; minDstnc:
+            minDstnc = a[i] * (2 * i - len(a)) - 2 * preSum
+            minElmnt = a[i]
+        preSum += a[i]
+    return minElmnt
 </code></pre></div></div>
 
 
@@ -200,15 +220,15 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ firstNumber ≤ n 
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=30. Circle of Numbers&amp;url=http://localhost:400030-circleOfNumbers"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=32. absoluteValuesSumMinimization&amp;url=http://localhost:400032-absoluteValuesSumMinimization"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400030-circleOfNumbers"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400032-absoluteValuesSumMinimization"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400030-circleOfNumbers"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400032-absoluteValuesSumMinimization"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -229,20 +249,13 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ firstNumber ≤ n 
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/31-depositProfit">
-            <section class="post">
-                <h2>31. depositProfit</h2>
-                <p>### Task You have deposited a specific amount of money into your bank account. Each...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/29-chessBoardCellColor">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/31-depositProfit">
             <section class="post">
-                <h2>29. chessBoardCellColor</h2>
-                <p>Task Given two cells on the standard chess board, determine whether they have the same...</p>
+                <h2>31. depositProfit</h2>
+                <p>Task You have deposited a specific amount of money into your bank account. Each year...</p>
             </section>
         </a>
     
