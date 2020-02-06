@@ -12,6 +12,111 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>33. stringsRearrangement</title>
+	  <link>//33-stringsRearrangement</link>
+	  <author></author>
+	  <pubDate>2020-02-06T10:00:00+09:00</pubDate>
+	  <guid>//33-stringsRearrangement</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given an array of equal-length strings, you’d like to know if it’s possible to rearrange the order of the elements in such a way that each consecutive pair of strings differ by exactly one character. Return <code class="highlighter-rouge">true</code> if it’s possible, and <code class="highlighter-rouge">false</code> if not.</p>
+
+<p>Note: You’re only rearranging the order of the strings, not the order of the letters within the strings!</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For inputArray = [“aba”, “bbb”, “bab”], the output should be <br />
+stringsRearrangement(inputArray) = false.</p>
+
+    <p>There are 6 possible arrangements for these strings:</p>
+
+    <p>[“aba”, “bbb”, “bab”]
+[“aba”, “bab”, “bbb”]
+[“bbb”, “aba”, “bab”]
+[“bbb”, “bab”, “aba”]
+[“bab”, “bbb”, “aba”]
+[“bab”, “aba”, “bbb”] <br />
+None of these satisfy the condition of consecutive strings differing by 1 character, so the answer is false.</p>
+  </li>
+  <li>
+    <p>For inputArray = [“ab”, “bb”, “aa”], the output should be <br />
+stringsRearrangement(inputArray) = true.</p>
+
+    <p>It’s possible to arrange these strings in a way that each consecutive pair of strings differ by 1 character (eg: “aa”, “ab”, “bb” or “bb”, “ab”, “aa”), so return true.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.string inputArray <br />
+AA non-empty array of strings of lowercase letters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ inputArray.length ≤ 10</code>, <code class="highlighter-rouge">1 ≤ inputArray[i].length ≤ 15</code>.</p>
+  </li>
+  <li>
+    <p>[output] boolean <br />
+Return <code class="highlighter-rouge">true</code> if the strings can be reordered in such a way that each neighbouring pair of strings differ by exactly one character (<code class="highlighter-rouge">false</code> otherwise).</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def stringsRearrangement(inputArray):
+
+    def checkDiffByOneChar(w1, w2):
+        count = 0
+        for i, c in enumerate(w1):
+            if c != w2[i]:
+                count += 1
+            if count &gt; 1:
+                return False
+        return count == 1
+
+    nodes = []
+    for i, w1 in enumerate(inputArray):
+        neighbors = []
+        for j, w2 in enumerate(inputArray):
+            if checkDiffByOneChar(w1, w2):
+                neighbors.append(j)
+        nodes.append(neighbors)
+    path = []
+
+
+    def walkPath(n, path):
+        path.append(n)
+
+        if len(path) == len(nodes):
+            print("path walked. path = {}".format(path))
+            return True
+
+        for i in nodes[n]:
+            if i not in path:
+                if walkPath(i, path):
+                    return True
+        path.pop()
+        return False
+
+    for start in range(len(nodes)):
+        if walkPath(start, path):
+            return True
+
+    return False
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>32. absoluteValuesSumMinimization</title>
 	  <link>//32-absoluteValuesSumMinimization</link>
 	  <author></author>
@@ -524,75 +629,6 @@ Rectangular matrix of the same size as <code class="highlighter-rouge">matrix</c
     return [[sum([sum(matrix[row + i][col - 1:col + 2]) for i in range(-1, 2)]) - matrix[row][col]
              for col in range(1, len(matrix[0]) - 1)]
              for row in range(1, len(matrix) - 1)]
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>23. Box Blur</title>
-	  <link>//23-boxBlur</link>
-	  <author></author>
-	  <pubDate>2020-01-30T10:00:00+09:00</pubDate>
-	  <guid>//23-boxBlur</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Last night you partied a little too hard. Now there’s a black and white photo of you that’s about to go viral! You can’t let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.</p>
-
-<p>The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel <code class="highlighter-rouge">x</code> in the output image has a value equal to the average value of the pixel values from the <code class="highlighter-rouge">3 × 3</code> square that has its center at <code class="highlighter-rouge">x</code>, including <code class="highlighter-rouge">x</code> itself. All the pixels on the border of <code class="highlighter-rouge">x</code> are then removed.</p>
-
-<p>Return the blurred image as an integer, with the fractions rounded down.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image = [[1, 1, 1],
-         [1, 7, 1],
-         [1, 1, 1]]
-</code></pre></div></div>
-<p>the output should be <code class="highlighter-rouge">boxBlur(image) = [[1]]</code>.</p>
-
-<p>To get the value of the middle pixel in the input <code class="highlighter-rouge">3 × 3</code> square: <code class="highlighter-rouge">(1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) = 15 / 9 = 1.66666 = 1</code>. The border pixels are cropped from the final result.</p>
-
-<p>For</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image = [[7, 4, 0, 1],
-         [5, 6, 2, 2],
-         [6, 10, 7, 8],
-         [1, 4, 2, 0]]
-</code></pre></div></div>
-<p>the output should be</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>boxBlur(image) = [[5, 4],
-                  [4, 4]]
-</code></pre></div></div>
-<p>There are four <code class="highlighter-rouge">3 × 3</code> squares in the input image, so there should be four integers in the blurred output. To get the first value: <code class="highlighter-rouge">(7 + 4 + 0 + 5 + 6 + 2 + 6 + 10 + 7) = 47 / 9 = 5.2222 = 5</code>. The other three integers are obtained the same way, then the surrounding integers are cropped from the final result.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.array.integer image <br />
-An image, stored as a rectangular matrix of non-negative integers. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ image.length ≤ 100</code>, <code class="highlighter-rouge">3 ≤ image[0].length ≤ 100</code>, <code class="highlighter-rouge">0 ≤ image[i][j] ≤ 255</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.array.integer <br />
-A blurred image represented as integers, obtained through the process in the description.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def boxBlur(image):
-    return [[sum(sum([image[row + j][col + i] for i in range(-1, 2)]) for j in range(-1, 2)) // 9
-             for col in range(1, len(image[0]) - 1)]
-             for row in range(1, len(image) - 1)]
 </code></pre></div></div>
 
 	  ]]></description>

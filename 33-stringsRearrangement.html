@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>32. absoluteValuesSumMinimization</title>
+    <title>33. stringsRearrangement</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//32-absoluteValuesSumMinimization" />
+        <link rel="canonical" href="http://localhost:4000//33-stringsRearrangement" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="32. absoluteValuesSumMinimization" />
+    <meta property="og:title" content="33. stringsRearrangement" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//32-absoluteValuesSumMinimization" />
+    <meta property="og:url" content="http://localhost:4000//33-stringsRearrangement" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="32. absoluteValuesSumMinimization" />
+    <meta name="twitter:title" content="33. stringsRearrangement" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//32-absoluteValuesSumMinimization" />
+    <meta name="twitter:url" content="http://localhost:4000//33-stringsRearrangement" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "32. absoluteValuesSumMinimization",
-    "url": "http://localhost:4000//32-absoluteValuesSumMinimization",
+    "name": "33. stringsRearrangement",
+    "url": "http://localhost:4000//33-stringsRearrangement",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">32. absoluteValuesSumMinimization</h1>
+            <h1 class="post-title">33. stringsRearrangement</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-03">03 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-06">06 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,28 +132,32 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given a sorted array of integers <code class="highlighter-rouge">a</code>, your task is to determine which element of a is closest to all other values of <code class="highlighter-rouge">a</code>. In other words, find the element <code class="highlighter-rouge">x</code> in <code class="highlighter-rouge">a</code>, which minimizes the following sum:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abs(a[0] - x) + abs(a[1] - x) + ... + abs(a[a.length - 1] - x)
-</code></pre></div></div>
-<p>(where <code class="highlighter-rouge">abs</code> denotes the absolute value)</p>
+<p>Given an array of equal-length strings, you’d like to know if it’s possible to rearrange the order of the elements in such a way that each consecutive pair of strings differ by exactly one character. Return <code class="highlighter-rouge">true</code> if it’s possible, and <code class="highlighter-rouge">false</code> if not.</p>
 
-<p>If there are several possible answers, output the smallest one.</p>
+<p>Note: You’re only rearranging the order of the strings, not the order of the letters within the strings!</p>
 
 <h3 id="example">Example</h3>
 
 <ul>
   <li>
-    <p>For <code class="highlighter-rouge">a = [2, 4, 7]</code>, the output should be <code class="highlighter-rouge">absoluteValuesSumMinimization(a) = 4</code>. <br />
-for <code class="highlighter-rouge">x = 2</code>, the value will be <code class="highlighter-rouge">abs(2 - 2) + abs(4 - 2) + abs(7 - 2) = 7</code>. <br />
-for <code class="highlighter-rouge">x = 4</code>, the value will be <code class="highlighter-rouge">abs(2 - 4) + abs(4 - 4) + abs(7 - 4) = 5</code>. <br />
-for <code class="highlighter-rouge">x = 7</code>, the value will be <code class="highlighter-rouge">abs(2 - 7) + abs(4 - 7) + abs(7 - 7) = 8</code>. <br />
-The lowest possible value is when <code class="highlighter-rouge">x = 4</code>, so the answer is <code class="highlighter-rouge">4</code>.</p>
+    <p>For inputArray = [“aba”, “bbb”, “bab”], the output should be <br />
+stringsRearrangement(inputArray) = false.</p>
+
+    <p>There are 6 possible arrangements for these strings:</p>
+
+    <p>[“aba”, “bbb”, “bab”]
+[“aba”, “bab”, “bbb”]
+[“bbb”, “aba”, “bab”]
+[“bbb”, “bab”, “aba”]
+[“bab”, “bbb”, “aba”]
+[“bab”, “aba”, “bbb”] <br />
+None of these satisfy the condition of consecutive strings differing by 1 character, so the answer is false.</p>
   </li>
   <li>
-    <p>For <code class="highlighter-rouge">a = [2, 3]</code>, the output should be <code class="highlighter-rouge">absoluteValuesSumMinimization(a) = 2</code>. <br />
-for <code class="highlighter-rouge">x = 2</code>, the value will be <code class="highlighter-rouge">abs(2 - 2) + abs(3 - 2) = 1</code>. <br />
-for <code class="highlighter-rouge">x = 3</code>, the value will be <code class="highlighter-rouge">abs(2 - 3) + abs(3 - 3) = 1</code>. <br />
-Because there is a tie, the smallest <code class="highlighter-rouge">x</code> between <code class="highlighter-rouge">x = 2</code> and <code class="highlighter-rouge">x = 3</code> is the answer.</p>
+    <p>For inputArray = [“ab”, “bb”, “aa”], the output should be <br />
+stringsRearrangement(inputArray) = true.</p>
+
+    <p>It’s possible to arrange these strings in a way that each consecutive pair of strings differ by 1 character (eg: “aa”, “ab”, “bb” or “bb”, “ab”, “aa”), so return true.</p>
   </li>
 </ul>
 
@@ -165,28 +169,58 @@ Because there is a tie, the smallest <code class="highlighter-rouge">x</code> be
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.integer a <br />
-A non-empty array of integers, sorted in ascending order. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ a.length ≤ 1000</code>, <code class="highlighter-rouge">-106 ≤ a[i] ≤ 106</code>.</p>
+    <p>[input] array.string inputArray <br />
+AA non-empty array of strings of lowercase letters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ inputArray.length ≤ 10</code>, <code class="highlighter-rouge">1 ≤ inputArray[i].length ≤ 15</code>.</p>
   </li>
   <li>
-    <p>[output] integer <br />
-An integer representing the element from <code class="highlighter-rouge">a</code> that minimizes the sum of its absolute differences with all other elements.</p>
+    <p>[output] boolean <br />
+Return <code class="highlighter-rouge">true</code> if the strings can be reordered in such a way that each neighbouring pair of strings differ by exactly one character (<code class="highlighter-rouge">false</code> otherwise).</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def absoluteValuesSumMinimization(a):
-    minDstnc = a[0] * len(a) * -1
-    minElmnt = a[0]
-    preSum = 0
-    for i in range(len(a)):
-        if a[i] * (2 * i - len(a)) - 2 * preSum &lt; minDstnc:
-            minDstnc = a[i] * (2 * i - len(a)) - 2 * preSum
-            minElmnt = a[i]
-        preSum += a[i]
-    return minElmnt
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def stringsRearrangement(inputArray):
+
+    def checkDiffByOneChar(w1, w2):
+        count = 0
+        for i, c in enumerate(w1):
+            if c != w2[i]:
+                count += 1
+            if count &gt; 1:
+                return False
+        return count == 1
+
+    nodes = []
+    for i, w1 in enumerate(inputArray):
+        neighbors = []
+        for j, w2 in enumerate(inputArray):
+            if checkDiffByOneChar(w1, w2):
+                neighbors.append(j)
+        nodes.append(neighbors)
+    path = []
+
+
+    def walkPath(n, path):
+        path.append(n)
+
+        if len(path) == len(nodes):
+            print("path walked. path = {}".format(path))
+            return True
+
+        for i in nodes[n]:
+            if i not in path:
+                if walkPath(i, path):
+                    return True
+        path.pop()
+        return False
+
+    for start in range(len(nodes)):
+        if walkPath(start, path):
+            return True
+
+    return False
 </code></pre></div></div>
 
 
@@ -220,15 +254,15 @@ An integer representing the element from <code class="highlighter-rouge">a</code
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=32. absoluteValuesSumMinimization&amp;url=http://localhost:400032-absoluteValuesSumMinimization"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=33. stringsRearrangement&amp;url=http://localhost:400033-stringsRearrangement"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400032-absoluteValuesSumMinimization"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400033-stringsRearrangement"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400032-absoluteValuesSumMinimization"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400033-stringsRearrangement"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -249,20 +283,13 @@ An integer representing the element from <code class="highlighter-rouge">a</code
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/33-stringsRearrangement">
-            <section class="post">
-                <h2>33. stringsRearrangement</h2>
-                <p>### Task Given an array of equal-length strings, you'd like to know if it's possible...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/31-depositProfit">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/32-absoluteValuesSumMinimization">
             <section class="post">
-                <h2>31. depositProfit</h2>
-                <p>Task You have deposited a specific amount of money into your bank account. Each year...</p>
+                <h2>32. absoluteValuesSumMinimization</h2>
+                <p>Task Given a sorted array of integers a, your task is to determine which element...</p>
             </section>
         </a>
     
