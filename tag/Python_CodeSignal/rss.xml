@@ -12,6 +12,55 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>34. extracntEachKth</title>
+	  <link>//34-extractEachKth</link>
+	  <author></author>
+	  <pubDate>2020-02-09T10:00:00+09:00</pubDate>
+	  <guid>//34-extractEachKth</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given array of integers, remove each <code class="highlighter-rouge">kth</code> element from it.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code> and <code class="highlighter-rouge">k = 3</code>, the output should be <br />
+<code class="highlighter-rouge">extractEachKth(inputArray, k) = [1, 2, 4, 5, 7, 8, 10]</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer inputArray <br />
+Guaranteed constraints: <code class="highlighter-rouge">5 ≤ inputArray.length ≤ 15</code>, <code class="highlighter-rouge">-20 ≤ inputArray[i] ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer k <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ 10</code>.</p>
+  </li>
+  <li>
+    <p>[output] array.integer <br />
+<code class="highlighter-rouge">inputArray</code> without elements <code class="highlighter-rouge">k - 1</code>, <code class="highlighter-rouge">2k - 1</code>, <code class="highlighter-rouge">3k - 1</code> etc.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def extractEachKth(inputArray, k):
+    del inputArray[k - 1::k]
+    return inputArray
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>33. stringsRearrangement</title>
 	  <link>//33-stringsRearrangement</link>
 	  <author></author>
@@ -567,68 +616,6 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ substitutionElem �
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayReplace(inputArray, elemToReplace, substitutionElem):
     return [substitutionElem if i == elemToReplace else i for i in inputArray]
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>24. Minesweeper</title>
-	  <link>//24-minesweeper</link>
-	  <author></author>
-	  <pubDate>2020-01-30T11:00:00+09:00</pubDate>
-	  <guid>//24-minesweeper</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>In the popular Minesweeper game you have a board with some mines and those cells that don’t contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[true, false, false],
-          [false, true, false],
-          [false, false, false]]
-</code></pre></div></div>
-<p>the output should be</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minesweeper(matrix) = [[1, 2, 1],
-                       [2, 1, 1],
-                       [1, 1, 1]]
-</code></pre></div></div>
-<p>Check out the image below for better understanding:
-<img src="./img/minesweeper.png" alt="minesweeper" /></p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.array.boolean matrix <br />
-A non-empty rectangular matrix consisting of boolean values - <code class="highlighter-rouge">true</code> if the corresponding cell contains a mine, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-  <li>
-    <p>Guaranteed constraints: <code class="highlighter-rouge">2 ≤ matrix.length ≤ 100</code>, <code class="highlighter-rouge">2 ≤ matrix[0].length ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.array.integer <br />
-Rectangular matrix of the same size as <code class="highlighter-rouge">matrix</code> each cell of which contains an integer equal to the number of mines in the neighboring cells. Two cells are called neighboring if they share at least one corner.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def minesweeper(matrix):
-    matrix = [[False, *matrix[row], False] for row in range(len(matrix))]
-    matrix.insert(0, [False] * len(matrix[0]))
-    matrix.append([False] * len(matrix[0]))
-    return [[sum([sum(matrix[row + i][col - 1:col + 2]) for i in range(-1, 2)]) - matrix[row][col]
-             for col in range(1, len(matrix[0]) - 1)]
-             for row in range(1, len(matrix) - 1)]
 </code></pre></div></div>
 
 	  ]]></description>
