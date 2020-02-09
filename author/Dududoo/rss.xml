@@ -12,6 +12,69 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>41. digitDegree</title>
+	  <link>//41-digitDegree</link>
+	  <author></author>
+	  <pubDate>2020-02-09T17:00:00+09:00</pubDate>
+	  <guid>//41-digitDegree</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Let’s define <em>digit degree</em> of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.</p>
+
+<p>Given an integer, find its digit degree.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">n = 5</code>, the output should be <br />
+<code class="highlighter-rouge">digitDegree(n) = 0</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">n = 100</code>, the output should be <br />
+<code class="highlighter-rouge">digitDegree(n) = 1</code>. <br />
+<code class="highlighter-rouge">1 + 0 + 0 = 1</code>.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">n = 91</code>, the output should be <br />
+<code class="highlighter-rouge">digitDegree(n) = 2</code>. <br />
+<code class="highlighter-rouge">9 + 1 = 10</code> -&gt; <code class="highlighter-rouge">1 + 0 = 1</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] integer n</strong> <br />
+Guaranteed constraints: 5 ≤ n ≤ 10<sup>9</sup>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def digitDegree(n):
+    count = 0
+    while len(str(n)) &gt; 1:
+        n = sum([int(digit) for digit in str(n)])
+        count += 1
+    return count
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>40. longestDigitsPrefix</title>
 	  <link>//40-longestDigitsPrefix</link>
 	  <author></author>
@@ -56,7 +119,6 @@ Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputString.length
         if not inputString[i].isdigit():
             return inputString[:i]
     return inputString
-
 </code></pre></div></div>
 
 	  ]]></description>
@@ -669,74 +731,6 @@ An integer representing the element from <code class="highlighter-rouge">a</code
             minElmnt = a[i]
         preSum += a[i]
     return minElmnt
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>31. depositProfit</title>
-	  <link>//31-depositProfit</link>
-	  <author></author>
-	  <pubDate>2020-02-03T10:00:00+09:00</pubDate>
-	  <guid>//31-depositProfit</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth <code class="highlighter-rouge">rate</code>. With the assumption that you don’t make any additional deposits, find out how long it would take for your balance to pass a specific <code class="highlighter-rouge">threshold</code>.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">deposit = 100</code>, <code class="highlighter-rouge">rate = 20</code>, and <code class="highlighter-rouge">threshold = 170</code>, the output should be <br />
-<code class="highlighter-rouge">depositProfit(deposit, rate, threshold) = 3</code>.</p>
-
-<p>Each year the amount of money in your account increases by <code class="highlighter-rouge">20%</code>. So throughout the years, your balance would be:</p>
-
-<p>year 0: <code class="highlighter-rouge">100</code>;
-  year 1: <code class="highlighter-rouge">120</code>;
-  year 2: <code class="highlighter-rouge">144</code>;
-  year 3: <code class="highlighter-rouge">172.8</code>.</p>
-
-<p>Thus, it will take <code class="highlighter-rouge">3</code> years for your balance to pass the <code class="highlighter-rouge">threshold</code>, so the answer is <code class="highlighter-rouge">3</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer deposit <br />
-The initial deposit, guaranteed to be a positive integer. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ deposit ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer rate <br />
-The rate of increase. Each year the balance increases by the <code class="highlighter-rouge">rate</code> percent of the current sum. <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ rate ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer threshold <br />
-The target balance. <br />
-Guaranteed constraints: <code class="highlighter-rouge">deposit &lt; threshold ≤ 200</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The number of years it would take to hit the <code class="highlighter-rouge">threshold</code>.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def depositProfit(deposit, rate, threshold):
-    year = 0
-    while deposit &lt; threshold:
-        deposit *= (1 + rate / 100)
-        year += 1
-    return year
 </code></pre></div></div>
 
 	  ]]></description>
