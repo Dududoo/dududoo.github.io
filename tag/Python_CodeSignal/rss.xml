@@ -12,6 +12,143 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>40. longestDigitsPrefix</title>
+	  <link>//40-longestDigitsPrefix</link>
+	  <author></author>
+	  <pubDate>2020-02-09T16:00:00+09:00</pubDate>
+	  <guid>//40-longestDigitsPrefix</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a string, output its longest <strong>prefix</strong> which contains only digits.</p>
+
+<p>A substring of a string is called a <strong>prefix</strong> if it starts at the string’s first character.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputString = "123aa1"</code>, the output should be <br />
+<code class="highlighter-rouge">longestDigitsPrefix(inputString) = "123"</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string inputString</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputString.length ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] string</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def longestDigitsPrefix(inputString):
+    if not inputString[0].isdigit():
+        return ""
+    for i in range(len(inputString)):
+        if not inputString[i].isdigit():
+            return inputString[:i]
+    return inputString
+
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>39. Knapsack Light</title>
+	  <link>//39-knapsackLight</link>
+	  <author></author>
+	  <pubDate>2020-02-09T15:00:00+09:00</pubDate>
+	  <guid>//39-knapsackLight</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>You found two items in a treasure chest! The first item weighs <code class="highlighter-rouge">weight1</code> and is worth <code class="highlighter-rouge">value1</code>, and the second item weighs <code class="highlighter-rouge">weight2</code> and is worth <code class="highlighter-rouge">value2</code>. What is the total maximum value of the items you can take with you, assuming that your max weight capacity is <code class="highlighter-rouge">maxW</code> and you can’t come back for the items later?</p>
+
+<p>Note that there are only two items and you can’t bring more than one item of each type, i.e. you can’t take two first items or two second items.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">value1 = 10</code>, <code class="highlighter-rouge">weight1 = 5</code>, <code class="highlighter-rouge">value2 = 6</code>, <code class="highlighter-rouge">weight2 = 4</code>, and <code class="highlighter-rouge">maxW = 8</code>, the output should be <br />
+<code class="highlighter-rouge">knapsackLight(value1, weight1, value2, weight2, maxW) = 10</code>. <br />
+You can only carry the first item.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">value1 = 10</code>, <code class="highlighter-rouge">weight1 = 5</code>, <code class="highlighter-rouge">value2 = 6</code>, <code class="highlighter-rouge">weight2 = 4</code>, and <code class="highlighter-rouge">maxW = 9</code>, the output should be <br />
+<code class="highlighter-rouge">knapsackLight(value1, weight1, value2, weight2, maxW) = 16</code>. <br />
+You’re strong enough to take both of the items with you.</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">value1 = 5</code>, <code class="highlighter-rouge">weight1 = 3</code>, <code class="highlighter-rouge">value2 = 7</code>, <code class="highlighter-rouge">weight2 = 4</code>, and <code class="highlighter-rouge">maxW = 6</code>, the output should be <br />
+<code class="highlighter-rouge">knapsackLight(value1, weight1, value2, weight2, maxW) = 7</code>. <br />
+You can’t take both items, but you can take any of them.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] integer value1</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ value1 ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p><strong>[input] integer weight1</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ weight1 ≤ 10</code>.</p>
+  </li>
+  <li>
+    <p><strong>[input] integer value2</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ value2 ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p><strong>[input] integer weight2</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ weight2 ≤ 10</code>.</p>
+  </li>
+  <li>
+    <p><strong>[input] integer maxW</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ maxW ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def knapsackLight(value1, weight1, value2, weight2, maxW):
+    if weight1 &gt; maxW:
+        if weight2 &gt; maxW:
+            return 0
+        else:
+            return value2
+    elif weight2 &gt; maxW:
+        return value1
+    elif weight1 + weight2 &gt; maxW:
+        return max(value1, value2)
+    else:
+        return value1 + value2
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>38. growingPlant</title>
 	  <link>//38-growingPlant</link>
 	  <author></author>
@@ -600,111 +737,6 @@ The number of years it would take to hit the <code class="highlighter-rouge">thr
         deposit *= (1 + rate / 100)
         year += 1
     return year
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>30. Circle of Numbers</title>
-	  <link>//30-circleOfNumbers</link>
-	  <author></author>
-	  <pubDate>2020-02-01T12:00:00+09:00</pubDate>
-	  <guid>//30-circleOfNumbers</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Consider integer numbers from <code class="highlighter-rouge">0</code> to <code class="highlighter-rouge">n - 1</code> written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">n - 1</code> are neighboring, too).</p>
-
-<p>Given <code class="highlighter-rouge">n</code> and <code class="highlighter-rouge">firstNumber</code>, find the number which is written in the radially opposite position to <code class="highlighter-rouge">firstNumber</code>.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">n = 10</code> and <code class="highlighter-rouge">firstNumber = 2</code>, the output should be <br />
-<code class="highlighter-rouge">circleOfNumbers(n, firstNumber) = 7</code>.
-<img src="./img/circleOfNumbers.png" alt="circleOfNumbers" /></p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer n <br />
-A positive even integer. <br />
-Guaranteed constraints: <code class="highlighter-rouge">4 ≤ n ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer firstNumber <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ firstNumber ≤ n - 1</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def circleOfNumbers(n, firstNumber):
-    return (firstNumber + n / 2) % n
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>29. chessBoardCellColor</title>
-	  <link>//29-chessBoardCellColor</link>
-	  <author></author>
-	  <pubDate>2020-02-01T11:00:00+09:00</pubDate>
-	  <guid>//29-chessBoardCellColor</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given two cells on the standard chess board, determine whether they have the same color or not.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "C3"</code>, the output should be <br />
-<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = true</code>.
-<img src="./img/chess1.png" alt="chess1" /></li>
-  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "H3"</code>, the output should be <br />
-<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = false</code>.
-<img src="./img/chess2.png" alt="chess2" /></li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string cell1 <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell1.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell1[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell1[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p>[input] string cell2 <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell2[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell2[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if both cells have the same color, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessBoardCellColor(cell1, cell2):
-    return (ord(cell1[0]) + int(cell1[1]) + ord(cell2[0]) + int(cell2[1])) % 2 == 0
 </code></pre></div></div>
 
 	  ]]></description>
