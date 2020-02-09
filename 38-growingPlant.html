@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>37. arrayMaxConsecutiveSum</title>
+    <title>38. growingPlant</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//37-arrayMaxConsecutiveSum" />
+        <link rel="canonical" href="http://localhost:4000//38-growingPlant" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="37. arrayMaxConsecutiveSum" />
+    <meta property="og:title" content="38. growingPlant" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//37-arrayMaxConsecutiveSum" />
+    <meta property="og:url" content="http://localhost:4000//38-growingPlant" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="37. arrayMaxConsecutiveSum" />
+    <meta name="twitter:title" content="38. growingPlant" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//37-arrayMaxConsecutiveSum" />
+    <meta name="twitter:url" content="http://localhost:4000//38-growingPlant" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "37. arrayMaxConsecutiveSum",
-    "url": "http://localhost:4000//37-arrayMaxConsecutiveSum",
+    "name": "38. growingPlant",
+    "url": "http://localhost:4000//38-growingPlant",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">37. arrayMaxConsecutiveSum</h1>
+            <h1 class="post-title">38. growingPlant</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,21 +132,78 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given array of integers, find the maximal possible sum of some of its <code class="highlighter-rouge">k</code> consecutive elements.</p>
+<p>Caring for a plant can be hard work, but since you tend to it regularly, you have a plant that grows consistently. Each day, its height increases by a fixed amount represented by the integer <code class="highlighter-rouge">upSpeed</code>. But due to lack of sunlight, the plant decreases in height every night, by an amount represented by <code class="highlighter-rouge">downSpeed</code>.</p>
+
+<p>Since you grew the plant from a seed, it started at height <code class="highlighter-rouge">0</code> initially. Given an integer <code class="highlighter-rouge">desiredHeight</code>, your task is to find how many days it’ll take for the plant to reach this height.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For <code class="highlighter-rouge">inputArray = [2, 3, 5, 1, 6]</code> and <code class="highlighter-rouge">k = 2</code>, the output should be <br />
-<code class="highlighter-rouge">arrayMaxConsecutiveSum(inputArray, k) = 8</code>. <br />
-All possible sums of <code class="highlighter-rouge">2</code> consecutive elements are:</p>
+<p>For <code class="highlighter-rouge">upSpeed = 100</code>, <code class="highlighter-rouge">downSpeed = 10</code>, and <code class="highlighter-rouge">desiredHeight = 910</code>, the output should be <br />
+<code class="highlighter-rouge">growingPlant(upSpeed, downSpeed, desiredHeight) = 10</code>.</p>
 
-<ul>
-  <li><code class="highlighter-rouge">2 + 3 = 5</code>;</li>
-  <li><code class="highlighter-rouge">3 + 5 = 8</code>;</li>
-  <li><code class="highlighter-rouge">5 + 1 = 6</code>;</li>
-  <li><code class="highlighter-rouge">1 + 6 = 7</code>. <br />
-Thus, the answer is <code class="highlighter-rouge">8</code>.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: center">Day</th>
+      <th style="text-align: center">Night</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">100</td>
+      <td style="text-align: center">90</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">190</td>
+      <td style="text-align: center">180</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">280</td>
+      <td style="text-align: center">270</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">370</td>
+      <td style="text-align: center">360</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">460</td>
+      <td style="text-align: center">450</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">550</td>
+      <td style="text-align: center">540</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">640</td>
+      <td style="text-align: center">630</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center">730</td>
+      <td style="text-align: center">720</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">820</td>
+      <td style="text-align: center">810</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center">910</td>
+      <td style="text-align: center">900</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The plant first reaches a height of <code class="highlighter-rouge">910</code> on day <code class="highlighter-rouge">10</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -156,31 +213,34 @@ Thus, the answer is <code class="highlighter-rouge">8</code>.</li>
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.integer inputArray <br />
-Array of positive integers. <br /><br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 105</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
+    <p>[input] integer upSpeed <br />
+A positive integer representing the daily growth of the plant. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ upSpeed ≤ 100</code>.</p>
   </li>
   <li>
-    <p>[input] integer k <br />
-An integer (not greater than the length of <code class="highlighter-rouge">inputArray</code>). <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ inputArray.length</code>.</p>
+    <p>[input] integer downSpeed <br />
+A positive integer representing the nightly decline of the plant. <br />
+Guaranteed constraints: <code class="highlighter-rouge">2 ≤ downSpeed &lt; upSpeed</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer desiredHeight <br />
+A positive integer representing the goal height. <br />
+Guaranteed constraints: <code class="highlighter-rouge">4 ≤ desiredHeight ≤ 1000</code>.</p>
   </li>
   <li>
     <p>[output] integer <br />
-The maximal possible sum.</p>
+The number of days that it will take for the plant to reach / pass <code class="highlighter-rouge">desiredHeight</code>.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaxConsecutiveSum(inputArray, k):
-    curSum = sum(inputArray[:k])
-    maxSum = curSum
-    for i in range(len(inputArray) - k):
-        curSum += inputArray[k + i] - inputArray[i]
-        if curSum &gt; maxSum:
-            maxSum = curSum
-    return maxSum
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import math
+
+def growingPlant(upSpeed, downSpeed, desiredHeight):
+    if desiredHeight &lt; upSpeed:
+        return 1
+    return math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed) + 1)
 </code></pre></div></div>
 
 
@@ -214,15 +274,15 @@ The maximal possible sum.</p>
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=37. arrayMaxConsecutiveSum&amp;url=http://localhost:400037-arrayMaxConsecutiveSum"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=38. growingPlant&amp;url=http://localhost:400038-growingPlant"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400037-arrayMaxConsecutiveSum"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400038-growingPlant"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400037-arrayMaxConsecutiveSum"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400038-growingPlant"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -243,20 +303,13 @@ The maximal possible sum.</p>
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/38-growingPlant">
-            <section class="post">
-                <h2>38. growingPlant</h2>
-                <p>### Task Caring for a plant can be hard work, but since you tend to...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/36-differentSymbolsNaive">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/37-arrayMaxConsecutiveSum">
             <section class="post">
-                <h2>36. differentSymbolsNaive</h2>
-                <p>Task Given a string, find the number of different characters in it. Example For s...</p>
+                <h2>37. arrayMaxConsecutiveSum</h2>
+                <p>Task Given array of integers, find the maximal possible sum of some of its k...</p>
             </section>
         </a>
     
