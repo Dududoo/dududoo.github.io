@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>34. extracntEachKth</title>
+    <title>35. firstDigit</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//34-extractEachKth" />
+        <link rel="canonical" href="http://localhost:4000//35-firstDigit" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="34. extracntEachKth" />
+    <meta property="og:title" content="35. firstDigit" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//34-extractEachKth" />
+    <meta property="og:url" content="http://localhost:4000//35-firstDigit" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="34. extracntEachKth" />
+    <meta name="twitter:title" content="35. firstDigit" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//34-extractEachKth" />
+    <meta name="twitter:url" content="http://localhost:4000//35-firstDigit" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "34. extracntEachKth",
-    "url": "http://localhost:4000//34-extractEachKth",
+    "name": "35. firstDigit",
+    "url": "http://localhost:4000//35-firstDigit",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">34. extracntEachKth</h1>
+            <h1 class="post-title">35. firstDigit</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -132,12 +132,24 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given array of integers, remove each <code class="highlighter-rouge">kth</code> element from it.</p>
+<p>Find the leftmost digit that occurs in a given string.</p>
 
 <h3 id="example">Example</h3>
 
-<p>For <code class="highlighter-rouge">inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code> and <code class="highlighter-rouge">k = 3</code>, the output should be <br />
-<code class="highlighter-rouge">extractEachKth(inputArray, k) = [1, 2, 4, 5, 7, 8, 10]</code>.</p>
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "var_1__Int"</code>, the output should be <br />
+<code class="highlighter-rouge">firstDigit(inputString) = '1'</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "q2q-q"</code>, the output should be <br />
+<code class="highlighter-rouge">firstDigit(inputString) = '2'</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "0ss"</code>, the output should be <br />
+<code class="highlighter-rouge">firstDigit(inputString) = '0'</code>.</p>
+  </li>
+</ul>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -147,24 +159,22 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p>[input] array.integer inputArray <br />
-Guaranteed constraints: <code class="highlighter-rouge">5 ≤ inputArray.length ≤ 15</code>, <code class="highlighter-rouge">-20 ≤ inputArray[i] ≤ 20</code>.</p>
+    <p>[input] string inputString <br />
+A string containing at least one digit. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputString.length ≤ 10</code>.</p>
   </li>
   <li>
-    <p>[input] integer k <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ 10</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.integer <br />
-<code class="highlighter-rouge">inputArray</code> without elements <code class="highlighter-rouge">k - 1</code>, <code class="highlighter-rouge">2k - 1</code>, <code class="highlighter-rouge">3k - 1</code> etc.</p>
+    <p>[output] char</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def extractEachKth(inputArray, k):
-    del inputArray[k - 1::k]
-    return inputArray
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def firstDigit(inputString):
+    for letter in inputString:
+        if letter.isdigit():
+            return letter
+    return
 </code></pre></div></div>
 
 
@@ -198,15 +208,15 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ 10</code>.</
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=34. extracntEachKth&amp;url=http://localhost:400034-extractEachKth"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=35. firstDigit&amp;url=http://localhost:400035-firstDigit"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400034-extractEachKth"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400035-firstDigit"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400034-extractEachKth"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400035-firstDigit"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -227,20 +237,20 @@ Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ 10</code>.</
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/35-firstDigit">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/36-differentSymbolsNaive">
             <section class="post">
-                <h2>35. firstDigit</h2>
-                <p>### Task Find the leftmost digit that occurs in a given string. ### Example *...</p>
+                <h2>36. differentSymbolsNaive</h2>
+                <p>### Task Given a string, find the number of different characters in it. ### Example...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/33-stringsRearrangement">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/34-extractEachKth">
             <section class="post">
-                <h2>33. stringsRearrangement</h2>
-                <p>Task Given an array of equal-length strings, you’d like to know if it’s possible to...</p>
+                <h2>34. extracntEachKth</h2>
+                <p>Task Given array of integers, remove each kth element from it. Example For inputArray =...</p>
             </section>
         </a>
     

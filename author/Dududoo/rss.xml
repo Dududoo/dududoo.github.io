@@ -12,6 +12,182 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>37. arrayMaxConsecutiveSum</title>
+	  <link>//37-arrayMaxConsecutiveSum</link>
+	  <author></author>
+	  <pubDate>2020-02-09T13:00:00+09:00</pubDate>
+	  <guid>//37-arrayMaxConsecutiveSum</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given array of integers, find the maximal possible sum of some of its <code class="highlighter-rouge">k</code> consecutive elements.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputArray = [2, 3, 5, 1, 6]</code> and <code class="highlighter-rouge">k = 2</code>, the output should be <br />
+<code class="highlighter-rouge">arrayMaxConsecutiveSum(inputArray, k) = 8</code>. <br />
+All possible sums of <code class="highlighter-rouge">2</code> consecutive elements are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">2 + 3 = 5</code>;</li>
+  <li><code class="highlighter-rouge">3 + 5 = 8</code>;</li>
+  <li><code class="highlighter-rouge">5 + 1 = 6</code>;</li>
+  <li><code class="highlighter-rouge">1 + 6 = 7</code>. <br />
+Thus, the answer is <code class="highlighter-rouge">8</code>.</li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] array.integer inputArray <br />
+Array of positive integers. <br /><br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 105</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
+  </li>
+  <li>
+    <p>[input] integer k <br />
+An integer (not greater than the length of <code class="highlighter-rouge">inputArray</code>). <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ inputArray.length</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer <br />
+The maximal possible sum.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaxConsecutiveSum(inputArray, k):
+    curSum = sum(inputArray[:k])
+    maxSum = curSum
+    for i in range(len(inputArray) - k):
+        curSum += inputArray[k + i] - inputArray[i]
+        if curSum &gt; maxSum:
+            maxSum = curSum
+    return maxSum
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>36. differentSymbolsNaive</title>
+	  <link>//36-differentSymbolsNaive</link>
+	  <author></author>
+	  <pubDate>2020-02-09T12:00:00+09:00</pubDate>
+	  <guid>//36-differentSymbolsNaive</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a string, find the number of different characters in it.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">s = "cabca"</code>, the output should be <br />
+<code class="highlighter-rouge">differentSymbolsNaive(s) = 3</code>.</p>
+
+<p>There are <code class="highlighter-rouge">3</code> different characters <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code> and <code class="highlighter-rouge">c</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string s <br />
+A string of lowercase English letters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ s.length ≤ 1000</code>.</p>
+  </li>
+  <li>
+    <p>[output] integer</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def differentSymbolsNaive(s):
+    existChar = []
+    count = 0
+    for letter in s:
+        if letter not in existChar:
+            existChar.append(letter)
+            count += 1
+    return count
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>35. firstDigit</title>
+	  <link>//35-firstDigit</link>
+	  <author></author>
+	  <pubDate>2020-02-09T11:00:00+09:00</pubDate>
+	  <guid>//35-firstDigit</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Find the leftmost digit that occurs in a given string.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "var_1__Int"</code>, the output should be <br />
+<code class="highlighter-rouge">firstDigit(inputString) = '1'</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "q2q-q"</code>, the output should be <br />
+<code class="highlighter-rouge">firstDigit(inputString) = '2'</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "0ss"</code>, the output should be <br />
+<code class="highlighter-rouge">firstDigit(inputString) = '0'</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p>[execution time limit] <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p>[input] string inputString <br />
+A string containing at least one digit. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputString.length ≤ 10</code>.</p>
+  </li>
+  <li>
+    <p>[output] char</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def firstDigit(inputString):
+    for letter in inputString:
+        if letter.isdigit():
+            return letter
+    return
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>34. extracntEachKth</title>
 	  <link>//34-extractEachKth</link>
 	  <author></author>
@@ -454,168 +630,6 @@ The resulting string after replacing each of its characters.</p>
         else:
             shift += chr(ord(letter) + 1)
     return shift
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>27. variableName</title>
-	  <link>//27-variableName</link>
-	  <author></author>
-	  <pubDate>2020-01-30T14:00:00+09:00</pubDate>
-	  <guid>//27-variableName</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Correct variable names consist only of English letters, digits and underscores and they can’t start with a digit.</p>
-
-<p>Check if the given string is a correct variable name.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">name = "var_1__Int"</code>, the output should be <br />
-<code class="highlighter-rouge">variableName(name) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">name = "qq-q"</code>, the output should be <br />
-<code class="highlighter-rouge">variableName(name) = false</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">name = "2w2"</code>, the output should be <br />
-<code class="highlighter-rouge">variableName(name) = false</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string name <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ name.length ≤ 10</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if name is a correct variable name, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def variableName(name):
-    if name[0].isdigit():
-        return False
-    valid = [*list(map(str, range(10))), *list(map(chr, [*range(65, 91), *range(97, 123)])), '_']
-    return all([letter in valid for letter in name])
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>26. evenDigitsOnly</title>
-	  <link>//26-evenDigitsOnly</link>
-	  <author></author>
-	  <pubDate>2020-01-30T13:00:00+09:00</pubDate>
-	  <guid>//26-evenDigitsOnly</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Check if all digits of the given integer are even.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 248622</code>, the output should be <code class="highlighter-rouge">evenDigitsOnly(n) = true</code>;</p>
-  </li>
-  <li>
-    <p>For n = 642386, the output should be <code class="highlighter-rouge">evenDigitsOnly(n) = false</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer n <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ n ≤ 109</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if all digits of <code class="highlighter-rouge">n</code> are even, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def evenDigitsOnly(n):
-    return all([int(digit) % 2 == 0 for digit in str(n)])
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>25. Array Replace</title>
-	  <link>//25-arrayReplace</link>
-	  <author></author>
-	  <pubDate>2020-01-30T12:00:00+09:00</pubDate>
-	  <guid>//25-arrayReplace</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given an array of integers, replace all the occurrences of <code class="highlighter-rouge">elemToReplace</code> with <code class="highlighter-rouge">substitutionElem</code>.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = [1, 2, 1]</code>, <code class="highlighter-rouge">elemToReplace = 1</code>, and <code class="highlighter-rouge">substitutionElem = 3</code>, the output should be <br />
-<code class="highlighter-rouge">arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3]</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer inputArray <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ inputArray.length ≤ 104</code>, <code class="highlighter-rouge">0 ≤ inputArray[i] ≤ 109</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer elemToReplace <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ elemToReplace ≤ 109</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer substitutionElem <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ substitutionElem ≤ 109</code>.</p>
-  </li>
-  <li>
-    <p>[output] array.integer</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayReplace(inputArray, elemToReplace, substitutionElem):
-    return [substitutionElem if i == elemToReplace else i for i in inputArray]
 </code></pre></div></div>
 
 	  ]]></description>
