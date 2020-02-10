@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>41. digitDegree</title>
+    <title>45. buildPalindrome</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//41-digitDegree" />
+        <link rel="canonical" href="http://localhost:4000//45-buildPalindrome" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="41. digitDegree" />
+    <meta property="og:title" content="45. buildPalindrome" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//41-digitDegree" />
+    <meta property="og:url" content="http://localhost:4000//45-buildPalindrome" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="41. digitDegree" />
+    <meta name="twitter:title" content="45. buildPalindrome" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//41-digitDegree" />
+    <meta name="twitter:url" content="http://localhost:4000//45-buildPalindrome" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "41. digitDegree",
-    "url": "http://localhost:4000//41-digitDegree",
+    "name": "45. buildPalindrome",
+    "url": "http://localhost:4000//45-buildPalindrome",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">41. digitDegree</h1>
+            <h1 class="post-title">45. buildPalindrome</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-09">09 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-10">10 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,28 +132,12 @@
 
 <h3 id="task">Task</h3>
 
-<p>Let’s define <em>digit degree</em> of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.</p>
-
-<p>Given an integer, find its digit degree.</p>
+<p>Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.</p>
 
 <h3 id="example">Example</h3>
 
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 5</code>, the output should be <br />
-<code class="highlighter-rouge">digitDegree(n) = 0</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 100</code>, the output should be <br />
-<code class="highlighter-rouge">digitDegree(n) = 1</code>. <br />
-<code class="highlighter-rouge">1 + 0 + 0 = 1</code>.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 91</code>, the output should be <br />
-<code class="highlighter-rouge">digitDegree(n) = 2</code>. <br />
-<code class="highlighter-rouge">9 + 1 = 10</code> -&gt; <code class="highlighter-rouge">1 + 0 = 1</code>.</p>
-  </li>
-</ul>
+<p>For <code class="highlighter-rouge">st = "abcdc"</code>, the output should be <br />
+<code class="highlighter-rouge">buildPalindrome(st) = "abcdcba"</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -163,22 +147,23 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p><strong>[input] integer n</strong> <br />
-Guaranteed constraints: 5 ≤ n ≤ 10<sup>9</sup>.</p>
+    <p><strong>[input] string st</strong> <br />
+A string consisting of lowercase English letters. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ st.length ≤ 10</code>.</p>
   </li>
   <li>
-    <p><strong>[output] integer</strong></p>
+    <p><strong>[output] string</strong></p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def digitDegree(n):
-    count = 0
-    while len(str(n)) &gt; 1:
-        n = sum([int(digit) for digit in str(n)])
-        count += 1
-    return count
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def buildPalindrome(st):
+    maxIndex = -1
+    for i in range(2, len(st) + 1):
+        if st[-i:] == st[:-i - 1:-1]:
+            maxIndex = -i
+    return st + st[:maxIndex][::-1]
 </code></pre></div></div>
 
 
@@ -212,15 +197,15 @@ Guaranteed constraints: 5 ≤ n ≤ 10<sup>9</sup>.</p>
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=41. digitDegree&amp;url=http://localhost:400041-digitDegree"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=45. buildPalindrome&amp;url=http://localhost:400045-buildPalindrome"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400041-digitDegree"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400045-buildPalindrome"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400041-digitDegree"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400045-buildPalindrome"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -241,20 +226,13 @@ Guaranteed constraints: 5 ≤ n ≤ 10<sup>9</sup>.</p>
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/42-bishopAndPawn">
-            <section class="post">
-                <h2>42. Bishop and Pawn</h2>
-                <p>### Task Given the positions of a white `bishop` and a black `pawn` on the...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/40-longestDigitsPrefix">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/44-findEmailDomain">
             <section class="post">
-                <h2>40. longestDigitsPrefix</h2>
-                <p>Task Given a string, output its longest prefix which contains only digits. A substring of...</p>
+                <h2>44. Find Email Domain</h2>
+                <p>Task An email address such as "John.Smith@example.com" is made up of a local part ("John.Smith"),...</p>
             </section>
         </a>
     
