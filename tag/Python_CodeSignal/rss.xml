@@ -12,6 +12,343 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>50. chessKnight</title>
+	  <link>//50-chessKnight</link>
+	  <author></author>
+	  <pubDate>2020-02-12T14:00:00+09:00</pubDate>
+	  <guid>//50-chessKnight</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.</p>
+
+<p>The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L. Check out the image below to see all valid moves for a knight piece that is placed on one of the central squares.
+<img src="./img/knight.jpg" alt="knight" /></p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">cell = "a1"</code>, the output should be <br />
+<code class="highlighter-rouge">chessKnight(cell) = 2</code>.
+<img src="./img/knight1.jpg" alt="knight1" /></p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">cell = "c2"</code>, the output should be <br />
+<code class="highlighter-rouge">chessKnight(cell) = 6</code>.
+<img src="./img/knight2.jpg" alt="knight2" /></p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string cell</strong> <br />
+String consisting of 2 letters - coordinates of the knight on an 8 × 8 chessboard in chess notation. <br />
+Guaranteed constraints: <code class="highlighter-rouge">cell.length = 2</code>, <code class="highlighter-rouge">'a' ≤ cell[0] ≤ 'h'</code>, <code class="highlighter-rouge">1 ≤ cell[1] ≤ 8</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessKnight(cell):
+    move = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
+    arrive = [chr(ord(cell[0]) + i[0]) + str(int(cell[1]) + i[1]) for i in move]
+    valid_x = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    valid_y = [str(i) for i in range(1, 9)]
+    count = 0
+    for position in arrive:
+        if (position[0] in valid_x) and (position[1:] in valid_y):
+            count += 1
+    return count
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>49. lineEncoding</title>
+	  <link>//49-lineEncoding</link>
+	  <author></author>
+	  <pubDate>2020-02-12T13:00:00+09:00</pubDate>
+	  <guid>//49-lineEncoding</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a string, return its encoding defined as follows:</p>
+
+<ul>
+  <li>First, the string is divided into the least possible number of disjoint substrings consisting of identical characters
+    <ul>
+      <li>for example, <code class="highlighter-rouge">"aabbbc"</code> is divided into <code class="highlighter-rouge">["aa", "bbb", "c"]</code></li>
+    </ul>
+  </li>
+  <li>Next, each substring with length greater than one is replaced with a concatenation of its length and the repeating character
+    <ul>
+      <li>for example, substring <code class="highlighter-rouge">"bbb"</code> is replaced by <code class="highlighter-rouge">"3b"</code></li>
+    </ul>
+  </li>
+  <li>Finally, all the new strings are concatenated together in the same order and a new string is returned.</li>
+</ul>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">s = "aabbbc"</code>, the output should be <br />
+<code class="highlighter-rouge">lineEncoding(s) = "2a3bc"</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string s</strong> <br />
+String consisting of lowercase English letters.
+Guaranteed constraints: <code class="highlighter-rouge">4 ≤ s.length ≤ 15</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] string</strong> <br />
+Encoded version of <code class="highlighter-rouge">s</code>.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def lineEncoding(s):
+    s = s + '_'
+    encoded = ''
+    count = 1
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
+            count += 1
+        else:
+            if count == 1:
+                encoded += s[i]
+            else:
+                encoded += str(count) + s[i]
+            count = 1
+    return encoded
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>48. isDigit</title>
+	  <link>//48-isDigit</link>
+	  <author></author>
+	  <pubDate>2020-02-12T12:00:00+09:00</pubDate>
+	  <guid>//48-isDigit</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Determine if the given character is a digit or not.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">symbol = '0'</code>, the output should be <br />
+<code class="highlighter-rouge">isDigit(symbol) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">symbol = '-'</code>, the output should be <br />
+<code class="highlighter-rouge">isDigit(symbol) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] char symbol</strong> <br />
+A character which is either a digit or not.</p>
+  </li>
+  <li>
+    <p><strong>[output] boolean</strong> <br />
+<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">symbol</code> is a digit, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isDigit(symbol):
+    return symbol.isdigit()
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>47. Is MAC48 Address?</title>
+	  <link>//47-isMAC48Address</link>
+	  <author></author>
+	  <pubDate>2020-02-12T11:00:00+09:00</pubDate>
+	  <guid>//47-isMAC48Address</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>A media access control address (MAC address) is a unique identifier assigned to network interfaces for communications on the physical network segment.</p>
+
+<p>The standard (IEEE 802) format for printing MAC-48 addresses in human-friendly form is six groups of two hexadecimal digits (0 to 9 or A to F), separated by hyphens (e.g. <code class="highlighter-rouge">01-23-45-67-89-AB</code>).</p>
+
+<p>Your task is to check by given string <code class="highlighter-rouge">inputString</code> whether it corresponds to MAC-48 address or not.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "00-1B-63-84-45-E6"</code>, the output should be <br />
+<code class="highlighter-rouge">isMAC48Address(inputString) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "Z1-1B-63-84-45-E6"</code>, the output should be <br />
+<code class="highlighter-rouge">isMAC48Address(inputString) = false</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">inputString = "not a MAC-48 address"</code>, the output should be <br />
+<code class="highlighter-rouge">isMAC48Address(inputString) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string inputString</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">15 ≤ inputString.length ≤ 20</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] boolean</strong> <br />
+<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">inputString</code> corresponds to MAC-48 address naming rules, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isMAC48Address(inputString):
+    inputS = inputString.split('-')
+    valid = [str(i) for i in range(10)] + ['A', 'B', 'C', 'D', 'E', 'F']
+    if len(inputS) == 6:
+        for element in inputS:
+            if len(element) == 2 and (element[0] in valid) and (element[1] in valid):
+                continue
+            else:
+                return False
+        return True
+    return False
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>46. Elections Winners</title>
+	  <link>//46-electionsWinners</link>
+	  <author></author>
+	  <pubDate>2020-02-12T10:00:00+09:00</pubDate>
+	  <guid>//46-electionsWinners</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Elections are in progress!</p>
+
+<p>Given an array of the numbers of votes given to each of the candidates so far, and an integer <code class="highlighter-rouge">k</code> equal to the number of voters who haven’t cast their vote yet, find the number of candidates who still have a chance to win the election.</p>
+
+<p>The winner of the election must secure strictly more votes than any other candidate. If two or more candidates receive the same (maximum) number of votes, assume there is no winner at all.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">votes = [2, 3, 5, 2]</code> and <code class="highlighter-rouge">k = 3</code>, the output should be <br />
+<code class="highlighter-rouge">electionsWinners(votes, k) = 2</code>.</p>
+
+<ul>
+  <li>
+    <p>The first candidate got 2 votes. Even if all of the remaining 3 candidates vote for him, he will still have only 5 votes, i.e. the same number as the third candidate, so there will be no winner.</p>
+  </li>
+  <li>
+    <p>The second candidate can win if all the remaining candidates vote for him (<code class="highlighter-rouge">3 + 3 = 6 &gt; 5</code>).</p>
+  </li>
+  <li>
+    <p>The third candidate can win even if none of the remaining candidates vote for him. For example, if each of the remaining voters cast their votes for each of his opponents, he will still be the winner (the <code class="highlighter-rouge">votes</code> array will thus be <code class="highlighter-rouge">[3, 4, 5, 3]</code>).</p>
+  </li>
+  <li>
+    <p>The last candidate can’t win no matter what (for the same reason as the first candidate).</p>
+  </li>
+</ul>
+
+<p>Thus, only 2 candidates can win (the second and the third), which is the answer.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] array.integer votes</strong> <br />
+A non-empty array of non-negative integers. Its i<sup>th</sup> element denotes the number of votes cast for the i<sup>th</sup> candidate. <br />
+Guaranteed constraints: 4 ≤ votes.length ≤ 10<sup>5</sup>, 0 ≤ votes[i] ≤ 10<sup>4</sup>.</p>
+  </li>
+  <li>
+    <p><strong>[input] integer k</strong>
+The number of voters who haven’t cast their vote yet. <br />
+Guaranteed constraints: 0 ≤ k ≤ 10<sup>5</sup></p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def electionsWinners(votes, k):
+    maxVote = max(votes)
+    count = 0
+    if k == 0:
+        if votes.count(maxVote) &gt; 1:
+            return 0
+        else:
+            return 1
+    for vote in votes:
+        if maxVote - vote &lt; k:
+            count += 1
+    return count
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>45. buildPalindrome</title>
 	  <link>//45-buildPalindrome</link>
 	  <author></author>
@@ -306,384 +643,6 @@ Guaranteed constraints: 5 ≤ n ≤ 10<sup>9</sup>.</p>
     while len(str(n)) &gt; 1:
         n = sum([int(digit) for digit in str(n)])
         count += 1
-    return count
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>40. longestDigitsPrefix</title>
-	  <link>//40-longestDigitsPrefix</link>
-	  <author></author>
-	  <pubDate>2020-02-09T16:00:00+09:00</pubDate>
-	  <guid>//40-longestDigitsPrefix</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a string, output its longest <strong>prefix</strong> which contains only digits.</p>
-
-<p>A substring of a string is called a <strong>prefix</strong> if it starts at the string’s first character.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputString = "123aa1"</code>, the output should be <br />
-<code class="highlighter-rouge">longestDigitsPrefix(inputString) = "123"</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string inputString</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputString.length ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] string</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def longestDigitsPrefix(inputString):
-    if not inputString[0].isdigit():
-        return ""
-    for i in range(len(inputString)):
-        if not inputString[i].isdigit():
-            return inputString[:i]
-    return inputString
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>39. Knapsack Light</title>
-	  <link>//39-knapsackLight</link>
-	  <author></author>
-	  <pubDate>2020-02-09T15:00:00+09:00</pubDate>
-	  <guid>//39-knapsackLight</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>You found two items in a treasure chest! The first item weighs <code class="highlighter-rouge">weight1</code> and is worth <code class="highlighter-rouge">value1</code>, and the second item weighs <code class="highlighter-rouge">weight2</code> and is worth <code class="highlighter-rouge">value2</code>. What is the total maximum value of the items you can take with you, assuming that your max weight capacity is <code class="highlighter-rouge">maxW</code> and you can’t come back for the items later?</p>
-
-<p>Note that there are only two items and you can’t bring more than one item of each type, i.e. you can’t take two first items or two second items.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">value1 = 10</code>, <code class="highlighter-rouge">weight1 = 5</code>, <code class="highlighter-rouge">value2 = 6</code>, <code class="highlighter-rouge">weight2 = 4</code>, and <code class="highlighter-rouge">maxW = 8</code>, the output should be <br />
-<code class="highlighter-rouge">knapsackLight(value1, weight1, value2, weight2, maxW) = 10</code>. <br />
-You can only carry the first item.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">value1 = 10</code>, <code class="highlighter-rouge">weight1 = 5</code>, <code class="highlighter-rouge">value2 = 6</code>, <code class="highlighter-rouge">weight2 = 4</code>, and <code class="highlighter-rouge">maxW = 9</code>, the output should be <br />
-<code class="highlighter-rouge">knapsackLight(value1, weight1, value2, weight2, maxW) = 16</code>. <br />
-You’re strong enough to take both of the items with you.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">value1 = 5</code>, <code class="highlighter-rouge">weight1 = 3</code>, <code class="highlighter-rouge">value2 = 7</code>, <code class="highlighter-rouge">weight2 = 4</code>, and <code class="highlighter-rouge">maxW = 6</code>, the output should be <br />
-<code class="highlighter-rouge">knapsackLight(value1, weight1, value2, weight2, maxW) = 7</code>. <br />
-You can’t take both items, but you can take any of them.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] integer value1</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ value1 ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p><strong>[input] integer weight1</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ weight1 ≤ 10</code>.</p>
-  </li>
-  <li>
-    <p><strong>[input] integer value2</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ value2 ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p><strong>[input] integer weight2</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ weight2 ≤ 10</code>.</p>
-  </li>
-  <li>
-    <p><strong>[input] integer maxW</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ maxW ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] integer</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def knapsackLight(value1, weight1, value2, weight2, maxW):
-    if weight1 &gt; maxW:
-        if weight2 &gt; maxW:
-            return 0
-        else:
-            return value2
-    elif weight2 &gt; maxW:
-        return value1
-    elif weight1 + weight2 &gt; maxW:
-        return max(value1, value2)
-    else:
-        return value1 + value2
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>38. growingPlant</title>
-	  <link>//38-growingPlant</link>
-	  <author></author>
-	  <pubDate>2020-02-09T14:00:00+09:00</pubDate>
-	  <guid>//38-growingPlant</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Caring for a plant can be hard work, but since you tend to it regularly, you have a plant that grows consistently. Each day, its height increases by a fixed amount represented by the integer <code class="highlighter-rouge">upSpeed</code>. But due to lack of sunlight, the plant decreases in height every night, by an amount represented by <code class="highlighter-rouge">downSpeed</code>.</p>
-
-<p>Since you grew the plant from a seed, it started at height <code class="highlighter-rouge">0</code> initially. Given an integer <code class="highlighter-rouge">desiredHeight</code>, your task is to find how many days it’ll take for the plant to reach this height.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">upSpeed = 100</code>, <code class="highlighter-rouge">downSpeed = 10</code>, and <code class="highlighter-rouge">desiredHeight = 910</code>, the output should be <br />
-<code class="highlighter-rouge">growingPlant(upSpeed, downSpeed, desiredHeight) = 10</code>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">#</th>
-      <th style="text-align: center">Day</th>
-      <th style="text-align: center">Night</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">100</td>
-      <td style="text-align: center">90</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2</td>
-      <td style="text-align: center">190</td>
-      <td style="text-align: center">180</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">3</td>
-      <td style="text-align: center">280</td>
-      <td style="text-align: center">270</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td style="text-align: center">370</td>
-      <td style="text-align: center">360</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">5</td>
-      <td style="text-align: center">460</td>
-      <td style="text-align: center">450</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">6</td>
-      <td style="text-align: center">550</td>
-      <td style="text-align: center">540</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">7</td>
-      <td style="text-align: center">640</td>
-      <td style="text-align: center">630</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">8</td>
-      <td style="text-align: center">730</td>
-      <td style="text-align: center">720</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">9</td>
-      <td style="text-align: center">820</td>
-      <td style="text-align: center">810</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">10</td>
-      <td style="text-align: center">910</td>
-      <td style="text-align: center">900</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>The plant first reaches a height of <code class="highlighter-rouge">910</code> on day <code class="highlighter-rouge">10</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] integer upSpeed <br />
-A positive integer representing the daily growth of the plant. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ upSpeed ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer downSpeed <br />
-A positive integer representing the nightly decline of the plant. <br />
-Guaranteed constraints: <code class="highlighter-rouge">2 ≤ downSpeed &lt; upSpeed</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer desiredHeight <br />
-A positive integer representing the goal height. <br />
-Guaranteed constraints: <code class="highlighter-rouge">4 ≤ desiredHeight ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The number of days that it will take for the plant to reach / pass <code class="highlighter-rouge">desiredHeight</code>.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import math
-
-def growingPlant(upSpeed, downSpeed, desiredHeight):
-    if desiredHeight &lt; upSpeed:
-        return 1
-    return math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed) + 1)
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>37. arrayMaxConsecutiveSum</title>
-	  <link>//37-arrayMaxConsecutiveSum</link>
-	  <author></author>
-	  <pubDate>2020-02-09T13:00:00+09:00</pubDate>
-	  <guid>//37-arrayMaxConsecutiveSum</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given array of integers, find the maximal possible sum of some of its <code class="highlighter-rouge">k</code> consecutive elements.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">inputArray = [2, 3, 5, 1, 6]</code> and <code class="highlighter-rouge">k = 2</code>, the output should be <br />
-<code class="highlighter-rouge">arrayMaxConsecutiveSum(inputArray, k) = 8</code>. <br />
-All possible sums of <code class="highlighter-rouge">2</code> consecutive elements are:</p>
-
-<ul>
-  <li><code class="highlighter-rouge">2 + 3 = 5</code>;</li>
-  <li><code class="highlighter-rouge">3 + 5 = 8</code>;</li>
-  <li><code class="highlighter-rouge">5 + 1 = 6</code>;</li>
-  <li><code class="highlighter-rouge">1 + 6 = 7</code>. <br />
-Thus, the answer is <code class="highlighter-rouge">8</code>.</li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] array.integer inputArray <br />
-Array of positive integers. <br /><br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputArray.length ≤ 105</code>, <code class="highlighter-rouge">1 ≤ inputArray[i] ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[input] integer k <br />
-An integer (not greater than the length of <code class="highlighter-rouge">inputArray</code>). <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ k ≤ inputArray.length</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer <br />
-The maximal possible sum.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def arrayMaxConsecutiveSum(inputArray, k):
-    curSum = sum(inputArray[:k])
-    maxSum = curSum
-    for i in range(len(inputArray) - k):
-        curSum += inputArray[k + i] - inputArray[i]
-        if curSum &gt; maxSum:
-            maxSum = curSum
-    return maxSum
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>36. differentSymbolsNaive</title>
-	  <link>//36-differentSymbolsNaive</link>
-	  <author></author>
-	  <pubDate>2020-02-09T12:00:00+09:00</pubDate>
-	  <guid>//36-differentSymbolsNaive</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a string, find the number of different characters in it.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">s = "cabca"</code>, the output should be <br />
-<code class="highlighter-rouge">differentSymbolsNaive(s) = 3</code>.</p>
-
-<p>There are <code class="highlighter-rouge">3</code> different characters <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code> and <code class="highlighter-rouge">c</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p>[input] string s <br />
-A string of lowercase English letters. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ s.length ≤ 1000</code>.</p>
-  </li>
-  <li>
-    <p>[output] integer</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def differentSymbolsNaive(s):
-    existChar = []
-    count = 0
-    for letter in s:
-        if letter not in existChar:
-            existChar.append(letter)
-            count += 1
     return count
 </code></pre></div></div>
 
