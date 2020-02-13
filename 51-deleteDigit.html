@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>50. chessKnight</title>
+    <title>51. deleteDigit</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//50-chessKnight" />
+        <link rel="canonical" href="http://localhost:4000//51-deleteDigit" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="50. chessKnight" />
+    <meta property="og:title" content="51. deleteDigit" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//50-chessKnight" />
+    <meta property="og:url" content="http://localhost:4000//51-deleteDigit" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="50. chessKnight" />
+    <meta name="twitter:title" content="51. deleteDigit" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//50-chessKnight" />
+    <meta name="twitter:url" content="http://localhost:4000//51-deleteDigit" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "50. chessKnight",
-    "url": "http://localhost:4000//50-chessKnight",
+    "name": "51. deleteDigit",
+    "url": "http://localhost:4000//51-deleteDigit",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">50. chessKnight</h1>
+            <h1 class="post-title">51. deleteDigit</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-12">12 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-13">13 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,23 +132,18 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.</p>
-
-<p>The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L. Check out the image below to see all valid moves for a knight piece that is placed on one of the central squares.
-<img src="./img/knight.jpg" alt="knight" /></p>
+<p>Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.</p>
 
 <h3 id="example">Example</h3>
 
 <ul>
   <li>
-    <p>For <code class="highlighter-rouge">cell = "a1"</code>, the output should be <br />
-<code class="highlighter-rouge">chessKnight(cell) = 2</code>.
-<img src="./img/knight1.jpg" alt="knight1" /></p>
+    <p>For <code class="highlighter-rouge">n = 152</code>, the output should be <br />
+<code class="highlighter-rouge">deleteDigit(n) = 52</code>;</p>
   </li>
   <li>
-    <p>For <code class="highlighter-rouge">cell = "c2"</code>, the output should be <br />
-<code class="highlighter-rouge">chessKnight(cell) = 6</code>.
-<img src="./img/knight2.jpg" alt="knight2" /></p>
+    <p>For <code class="highlighter-rouge">n = 1001</code>, the output should be <br />
+<code class="highlighter-rouge">deleteDigit(n) = 101</code>.</p>
   </li>
 </ul>
 
@@ -160,9 +155,8 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p><strong>[input] string cell</strong> <br />
-String consisting of 2 letters - coordinates of the knight on an 8 × 8 chessboard in chess notation. <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell.length = 2</code>, <code class="highlighter-rouge">'a' ≤ cell[0] ≤ 'h'</code>, <code class="highlighter-rouge">1 ≤ cell[1] ≤ 8</code>.</p>
+    <p><strong>[input] integer n</strong> <br />
+Guaranteed constraints: 10 ≤ n ≤ 10<sup>6</sup>.</p>
   </li>
   <li>
     <p><strong>[output] integer</strong></p>
@@ -171,16 +165,15 @@ Guaranteed constraints: <code class="highlighter-rouge">cell.length = 2</code>, 
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessKnight(cell):
-    move = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
-    arrive = [chr(ord(cell[0]) + i[0]) + str(int(cell[1]) + i[1]) for i in move]
-    valid_x = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-    valid_y = [str(i) for i in range(1, 9)]
-    count = 0
-    for position in arrive:
-        if (position[0] in valid_x) and (position[1:] in valid_y):
-            count += 1
-    return count
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def deleteDigit(n):
+    str_n = str(n)
+    maxNumber = 0
+    for i in range(len(str_n) - 1):
+        if int(str_n[:i] + str_n[i + 1:]) &gt; maxNumber:
+            maxNumber = int(str_n[:i] + str_n[i + 1:])
+    if int(str_n[:-1]) &gt; maxNumber:
+        maxNumber = int(str_n[:-1])
+    return maxNumber
 </code></pre></div></div>
 
 
@@ -214,15 +207,15 @@ Guaranteed constraints: <code class="highlighter-rouge">cell.length = 2</code>, 
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=50. chessKnight&amp;url=http://localhost:400050-chessKnight"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=51. deleteDigit&amp;url=http://localhost:400051-deleteDigit"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400050-chessKnight"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400051-deleteDigit"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400050-chessKnight"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400051-deleteDigit"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -243,20 +236,20 @@ Guaranteed constraints: <code class="highlighter-rouge">cell.length = 2</code>, 
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/51-deleteDigit">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/52-longestWord">
             <section class="post">
-                <h2>51. deleteDigit</h2>
-                <p>### Task Given some integer, find the maximal number you can obtain by deleting exactly...</p>
+                <h2>52. longestWord</h2>
+                <p>### Task Define a _word_ as a sequence of consecutive English letters. Find the longest...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/49-lineEncoding">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/50-chessKnight">
             <section class="post">
-                <h2>49. lineEncoding</h2>
-                <p>Task Given a string, return its encoding defined as follows: First, the string is divided...</p>
+                <h2>50. chessKnight</h2>
+                <p>Task Given a position of a knight on the standard chessboard, find the number of...</p>
             </section>
         </a>
     

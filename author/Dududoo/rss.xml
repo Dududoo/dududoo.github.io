@@ -12,6 +12,351 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>56. digitsProduct</title>
+	  <link>//56-digitsProduct</link>
+	  <author></author>
+	  <pubDate>2020-02-13T15:00:00+09:00</pubDate>
+	  <guid>//56-digitsProduct</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given an integer <code class="highlighter-rouge">product</code>, find the smallest positive (i.e. greater than <code class="highlighter-rouge">0</code>) integer the product of whose digits is equal to <code class="highlighter-rouge">product</code>. If there is no such integer, return <code class="highlighter-rouge">-1</code> instead.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>For <code class="highlighter-rouge">product = 12</code>, the output should be <br />
+<code class="highlighter-rouge">digitsProduct(product) = 26</code>;</li>
+  <li>For <code class="highlighter-rouge">product = 19</code>, the output should be <br />
+<code class="highlighter-rouge">digitsProduct(product) = -1</code>.</li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] integer product</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 ≤ product ≤ 600</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def digitsProduct(product):
+    if product == 0:
+        return 10
+    divisor = []
+    while product &gt; 9:
+        for i in reversed(range(2, 10)):
+            if product % i == 0:
+                divisor.append(i)
+                product = product / i
+                break
+            if i == 2:
+                return -1
+    divisor.append(int(product))
+    return int(''.join(map(str, divisor[::-1])))
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>55. Different Squares</title>
+	  <link>//55-differentSquares</link>
+	  <author></author>
+	  <pubDate>2020-02-13T14:00:00+09:00</pubDate>
+	  <guid>//55-differentSquares</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given a rectangular matrix containing only digits, calculate the number of different <code class="highlighter-rouge">2 × 2</code> squares in it.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[1, 2, 1],
+          [2, 2, 2],
+          [2, 2, 2],
+          [1, 2, 3],
+          [2, 2, 1]]
+</code></pre></div></div>
+<p>the output should be <br />
+<code class="highlighter-rouge">differentSquares(matrix) = 6</code>.</p>
+
+<p>Here are all 6 different <code class="highlighter-rouge">2 × 2</code> squares:</p>
+<ul>
+  <li>1 2 <br />
+2 2</li>
+  <li>2 1 <br />
+2 2</li>
+  <li>2 2 <br />
+2 2</li>
+  <li>2 2 <br />
+1 2</li>
+  <li>2 2 <br />
+2 3</li>
+  <li>2 3 <br />
+2 1</li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] array.array.integer matrix</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">1 ≤ matrix.length ≤ 100</code>, <code class="highlighter-rouge">1 ≤ matrix[i].length ≤ 100</code>, <code class="highlighter-rouge">0 ≤ matrix[i][j] ≤ 9</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong> <br />
+The number of different <code class="highlighter-rouge">2 × 2</code> squares in <code class="highlighter-rouge">matrix</code>.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def differentSquares(matrix):
+    squares = set([((matrix[row][column], matrix[row][column + 1]),
+                    (matrix[row + 1][column], matrix[row + 1][column + 1]))
+                  for column in range(len(matrix[0]) - 1) for row in range(len(matrix) - 1)])
+    return len(squares)
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>54. sumUpNumbers</title>
+	  <link>//54-sumUpNumbers</link>
+	  <author></author>
+	  <pubDate>2020-02-13T13:00:00+09:00</pubDate>
+	  <guid>//54-sumUpNumbers</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>CodeMaster has just returned from shopping. He scanned the check of the items he bought and gave the resulting string to Ratiorg to figure out the total number of purchased items. Since Ratiorg is a bot he is definitely going to automate it, so he needs a program that sums up all the numbers which appear in the given input.</p>
+
+<p>Help Ratiorg by writing a function that returns the sum of numbers that appear in the given <code class="highlighter-rouge">inputString</code>.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">inputString = "2 apples, 12 oranges"</code>, the output should be <br />
+<code class="highlighter-rouge">sumUpNumbers(inputString) = 14</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string inputString</strong> <br />
+Guaranteed constraints: 0 ≤ inputString.length ≤ 10<sup>5</sup>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import re
+
+def sumUpNumbers(inputString):
+    return sum([0] + list(map(int, re.findall('[0-9]+', inputString))))
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>53. Valid Time</title>
+	  <link>//53-validTime</link>
+	  <author></author>
+	  <pubDate>2020-02-13T12:00:00+09:00</pubDate>
+	  <guid>//53-validTime</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Check if the given string is a correct time representation of the 24-hour clock.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">time = "13:58"</code>, the output should be <br />
+<code class="highlighter-rouge">validTime(time) = true</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">time = "25:51"</code>, the output should be <br />
+<code class="highlighter-rouge">validTime(time) = false</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">time = "02:76"</code>, the output should be <br />
+<code class="highlighter-rouge">validTime(time) = false</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string time</strong> <br />
+A string representing time in <code class="highlighter-rouge">HH:MM</code> format. It is guaranteed that the first two characters, as well as the last two characters, are digits.</p>
+  </li>
+  <li>
+    <p><strong>[output] boolean</strong> <br />
+<code class="highlighter-rouge">true</code> if the given representation is correct, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import re
+
+def validTime(time):
+    correct = re.match('([01][0-9]|2[0-3]):[0-5][0-9]', time)
+    if correct:
+        return True
+    else:
+        return False
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>52. longestWord</title>
+	  <link>//52-longestWord</link>
+	  <author></author>
+	  <pubDate>2020-02-13T11:00:00+09:00</pubDate>
+	  <guid>//52-longestWord</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Define a <em>word</em> as a sequence of consecutive English letters. Find the longest <em>word</em> from the given string.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">text = "Ready, steady, go!"</code>, the output should be <br />
+<code class="highlighter-rouge">longestWord(text) = "steady"</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string text</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">4 ≤ text.length ≤ 50</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] string</strong> <br />
+The longest <em>word</em> from <code class="highlighter-rouge">text</code>. It’s guaranteed that there is a unique output.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import re
+
+def longestWord(text):
+    wordList = re.findall('[a-zA-Z]+', text)
+    lengthList = [len(word) for word in wordList]
+    ix_longest = lengthList.index(max(lengthList))
+    return wordList[ix_longest]
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>51. deleteDigit</title>
+	  <link>//51-deleteDigit</link>
+	  <author></author>
+	  <pubDate>2020-02-13T10:00:00+09:00</pubDate>
+	  <guid>//51-deleteDigit</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Given some integer, find the maximal number you can obtain by deleting exactly one digit of the given number.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>
+    <p>For <code class="highlighter-rouge">n = 152</code>, the output should be <br />
+<code class="highlighter-rouge">deleteDigit(n) = 52</code>;</p>
+  </li>
+  <li>
+    <p>For <code class="highlighter-rouge">n = 1001</code>, the output should be <br />
+<code class="highlighter-rouge">deleteDigit(n) = 101</code>.</p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] integer n</strong> <br />
+Guaranteed constraints: 10 ≤ n ≤ 10<sup>6</sup>.</p>
+  </li>
+  <li>
+    <p><strong>[output] integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def deleteDigit(n):
+    str_n = str(n)
+    maxNumber = 0
+    for i in range(len(str_n) - 1):
+        if int(str_n[:i] + str_n[i + 1:]) &gt; maxNumber:
+            maxNumber = int(str_n[:i] + str_n[i + 1:])
+    if int(str_n[:-1]) &gt; maxNumber:
+        maxNumber = int(str_n[:-1])
+    return maxNumber
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>50. chessKnight</title>
 	  <link>//50-chessKnight</link>
 	  <author></author>
@@ -263,387 +608,6 @@ Guaranteed constraints: <code class="highlighter-rouge">15 ≤ inputString.lengt
                 return False
         return True
     return False
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>46. Elections Winners</title>
-	  <link>//46-electionsWinners</link>
-	  <author></author>
-	  <pubDate>2020-02-12T10:00:00+09:00</pubDate>
-	  <guid>//46-electionsWinners</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Elections are in progress!</p>
-
-<p>Given an array of the numbers of votes given to each of the candidates so far, and an integer <code class="highlighter-rouge">k</code> equal to the number of voters who haven’t cast their vote yet, find the number of candidates who still have a chance to win the election.</p>
-
-<p>The winner of the election must secure strictly more votes than any other candidate. If two or more candidates receive the same (maximum) number of votes, assume there is no winner at all.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">votes = [2, 3, 5, 2]</code> and <code class="highlighter-rouge">k = 3</code>, the output should be <br />
-<code class="highlighter-rouge">electionsWinners(votes, k) = 2</code>.</p>
-
-<ul>
-  <li>
-    <p>The first candidate got 2 votes. Even if all of the remaining 3 candidates vote for him, he will still have only 5 votes, i.e. the same number as the third candidate, so there will be no winner.</p>
-  </li>
-  <li>
-    <p>The second candidate can win if all the remaining candidates vote for him (<code class="highlighter-rouge">3 + 3 = 6 &gt; 5</code>).</p>
-  </li>
-  <li>
-    <p>The third candidate can win even if none of the remaining candidates vote for him. For example, if each of the remaining voters cast their votes for each of his opponents, he will still be the winner (the <code class="highlighter-rouge">votes</code> array will thus be <code class="highlighter-rouge">[3, 4, 5, 3]</code>).</p>
-  </li>
-  <li>
-    <p>The last candidate can’t win no matter what (for the same reason as the first candidate).</p>
-  </li>
-</ul>
-
-<p>Thus, only 2 candidates can win (the second and the third), which is the answer.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] array.integer votes</strong> <br />
-A non-empty array of non-negative integers. Its i<sup>th</sup> element denotes the number of votes cast for the i<sup>th</sup> candidate. <br />
-Guaranteed constraints: 4 ≤ votes.length ≤ 10<sup>5</sup>, 0 ≤ votes[i] ≤ 10<sup>4</sup>.</p>
-  </li>
-  <li>
-    <p><strong>[input] integer k</strong>
-The number of voters who haven’t cast their vote yet. <br />
-Guaranteed constraints: 0 ≤ k ≤ 10<sup>5</sup></p>
-  </li>
-  <li>
-    <p><strong>[output] integer</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def electionsWinners(votes, k):
-    maxVote = max(votes)
-    count = 0
-    if k == 0:
-        if votes.count(maxVote) &gt; 1:
-            return 0
-        else:
-            return 1
-    for vote in votes:
-        if maxVote - vote &lt; k:
-            count += 1
-    return count
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>45. buildPalindrome</title>
-	  <link>//45-buildPalindrome</link>
-	  <author></author>
-	  <pubDate>2020-02-10T13:00:00+09:00</pubDate>
-	  <guid>//45-buildPalindrome</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">st = "abcdc"</code>, the output should be <br />
-<code class="highlighter-rouge">buildPalindrome(st) = "abcdcba"</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string st</strong> <br />
-A string consisting of lowercase English letters. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ st.length ≤ 10</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] string</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def buildPalindrome(st):
-    maxIndex = -1
-    for i in range(2, len(st) + 1):
-        if st[-i:] == st[:-i - 1:-1]:
-            maxIndex = -i
-    return st + st[:maxIndex][::-1]
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>44. Find Email Domain</title>
-	  <link>//44-findEmailDomain</link>
-	  <author></author>
-	  <pubDate>2020-02-10T12:00:00+09:00</pubDate>
-	  <guid>//44-findEmailDomain</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>An email address such as <code class="highlighter-rouge">"John.Smith@example.com"</code> is made up of a local part (<code class="highlighter-rouge">"John.Smith"</code>), an <code class="highlighter-rouge">"@"</code> symbol, then a domain part (<code class="highlighter-rouge">"example.com"</code>).</p>
-
-<p>The domain name part of an email address may only consist of letters, digits, hyphens and dots. The local part, however, also allows a lot of different special characters.</p>
-
-<p>Given a valid email address, find its domain part.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">address = "prettyandsimple@example.com"</code>, the output should be <br />
-<code class="highlighter-rouge">findEmailDomain(address) = "example.com"</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">address = "fully-qualified-domain@codesignal.com"</code>, the output should be <br />
-<code class="highlighter-rouge">findEmailDomain(address) = "codesignal.com"</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string address</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">10 ≤ address.length ≤ 50</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] string</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def findEmailDomain(address):
-    return address.split('@')[-1]
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>43. isBeautifulString</title>
-	  <link>//43-isBeautifulString</link>
-	  <author></author>
-	  <pubDate>2020-02-10T11:00:00+09:00</pubDate>
-	  <guid>//43-isBeautifulString</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>A string is said to be beautiful if each letter in the <strong>string</strong> appears at most as many times as <strong>the previous letter in the alphabet within the string</strong>; ie: b occurs no more times than a; c occurs no more times than b; etc.</p>
-
-<p>Given a string, check whether it is <em>beautiful</em>.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "bbbaacdafe"</code>, the output should be <code class="highlighter-rouge">isBeautifulString(inputString) = true</code>; <br />
-This string contains 3 <code class="highlighter-rouge">a</code>s, 3 <code class="highlighter-rouge">b</code>s, 1 <code class="highlighter-rouge">c</code>, 1 <code class="highlighter-rouge">d</code>, 1 <code class="highlighter-rouge">e</code>, and 1 <code class="highlighter-rouge">f</code> (and 0 of every other letter), so since there aren’t any letters that appear more frequently than the previous letter, this string qualifies as beautiful.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "aabbb"</code>, the output should be <code class="highlighter-rouge">isBeautifulString(inputString) = false</code>; <br />
-Since there are more <code class="highlighter-rouge">b</code>s than <code class="highlighter-rouge">a</code>s, this string is not beautiful.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "bbc"</code>, the output should be <code class="highlighter-rouge">isBeautifulString(inputString) = false</code>. <br />
-Although there are more <code class="highlighter-rouge">b</code>s than <code class="highlighter-rouge">c</code>s, this string is not beautiful because there are no <code class="highlighter-rouge">a</code>s, so therefore there are more <code class="highlighter-rouge">b</code>s than <code class="highlighter-rouge">a</code>s.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string inputString</strong> <br />
-A string of lowercase English letters. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ inputString.length ≤ 50</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] boolean</strong> <br />
-Return <code class="highlighter-rouge">true</code> if the string is beautiful, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isBeautifulString(inputString):
-    abcCount = [0 for i in range(26)]
-    for letter in inputString:
-        abcCount[ord(letter) - 97] += 1
-    for i in range(1, len(abcCount)):
-        if abcCount[i] &gt; abcCount[i - 1]:
-            return False
-    return True
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>42. Bishop and Pawn</title>
-	  <link>//42-bishopAndPawn</link>
-	  <author></author>
-	  <pubDate>2020-02-10T10:00:00+09:00</pubDate>
-	  <guid>//42-bishopAndPawn</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given the positions of a white <code class="highlighter-rouge">bishop</code> and a black <code class="highlighter-rouge">pawn</code> on the standard chess board, determine whether the bishop can capture the pawn in one move.</p>
-
-<p>The bishop has no restrictions in distance for each move, but is limited to diagonal movement. Check out the example below to see how it can move:
-<img src="./img/bishop.jpg" alt="bishop" /></p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">bishop = "a1"</code> and <code class="highlighter-rouge">pawn = "c3"</code>, the output should be <br />
-<code class="highlighter-rouge">bishopAndPawn(bishop, pawn) = true</code>.
-<img src="./img/bishopex1.jpg" alt="bishopex1" /></p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">bishop = "h1"</code> and <code class="highlighter-rouge">pawn = "h3"</code>, the output should be <br />
-<code class="highlighter-rouge">bishopAndPawn(bishop, pawn) = false</code>.
-<img src="./img/bishopex2.jpg" alt="bishopex2" /></p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string bishop</strong> <br />
-Coordinates of the white bishop in the chess notation. <br />
-Guaranteed constraints: <code class="highlighter-rouge">bishop.length = 2</code>, <code class="highlighter-rouge">'a' ≤ bishop[0] ≤ 'h'</code>, <code class="highlighter-rouge">1 ≤ bishop[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p><strong>[input] string pawn</strong> <br />
-Coordinates of the black pawn in the same notation. <br />
-Guaranteed constraints: <code class="highlighter-rouge">pawn.length = 2</code>, <code class="highlighter-rouge">'a' ≤ pawn[0] ≤ 'h'</code>, <code class="highlighter-rouge">1 ≤ pawn[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] boolean</strong> <br />
-<code class="highlighter-rouge">true</code> if the bishop can capture the pawn, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def bishopAndPawn(bishop, pawn):
-    capturePosition = []
-    for i in range(-7, 8):
-        x = chr(ord(bishop[0]) + i)
-        y1 = str(int(bishop[1]) + i)
-        y2 = str(int(bishop[1]) - i)
-        capturePosition.append(x + y1)
-        capturePosition.append(x + y2)
-    return pawn in capturePosition
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>41. digitDegree</title>
-	  <link>//41-digitDegree</link>
-	  <author></author>
-	  <pubDate>2020-02-09T17:00:00+09:00</pubDate>
-	  <guid>//41-digitDegree</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Let’s define <em>digit degree</em> of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.</p>
-
-<p>Given an integer, find its digit degree.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 5</code>, the output should be <br />
-<code class="highlighter-rouge">digitDegree(n) = 0</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 100</code>, the output should be <br />
-<code class="highlighter-rouge">digitDegree(n) = 1</code>. <br />
-<code class="highlighter-rouge">1 + 0 + 0 = 1</code>.</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">n = 91</code>, the output should be <br />
-<code class="highlighter-rouge">digitDegree(n) = 2</code>. <br />
-<code class="highlighter-rouge">9 + 1 = 10</code> -&gt; <code class="highlighter-rouge">1 + 0 = 1</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] integer n</strong> <br />
-Guaranteed constraints: 5 ≤ n ≤ 10<sup>9</sup>.</p>
-  </li>
-  <li>
-    <p><strong>[output] integer</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def digitDegree(n):
-    count = 0
-    while len(str(n)) &gt; 1:
-        n = sum([int(digit) for digit in str(n)])
-        count += 1
-    return count
 </code></pre></div></div>
 
 	  ]]></description>
