@@ -12,6 +12,265 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>60. Sudoku</title>
+	  <link>//60-sudoku</link>
+	  <author></author>
+	  <pubDate>2020-02-15T13:00:00+09:00</pubDate>
+	  <guid>//60-sudoku</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p><em>Sudoku</em> is a number-placement puzzle. The objective is to fill a <code class="highlighter-rouge">9 × 9</code> grid with digits so that each column, each row, and each of the nine <code class="highlighter-rouge">3 × 3</code> sub-grids that compose the grid contains all of the digits from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">9</code>.</p>
+
+<p>This algorithm should check if the given grid of numbers represents a correct solution to Sudoku.</p>
+
+<h3 id="example">Example</h3>
+
+<ul>
+  <li>For
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid = [[1, 3, 2, 5, 4, 6, 9, 8, 7],
+        [4, 6, 5, 8, 7, 9, 3, 2, 1],
+        [7, 9, 8, 2, 1, 3, 6, 5, 4],
+        [9, 2, 1, 4, 3, 5, 8, 7, 6],
+        [3, 5, 4, 7, 6, 8, 2, 1, 9],
+        [6, 8, 7, 1, 9, 2, 5, 4, 3],
+        [5, 7, 6, 9, 8, 1, 4, 3, 2],
+        [2, 4, 3, 6, 5, 7, 1, 9, 8],
+        [8, 1, 9, 3, 2, 4, 7, 6, 5]]
+</code></pre></div>    </div>
+    <p>the output should be <br />
+<code class="highlighter-rouge">sudoku(grid) = true</code>;</p>
+  </li>
+  <li>For
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid = [[1, 3, 2, 5, 4, 6, 9, 2, 7],
+        [4, 6, 5, 8, 7, 9, 3, 8, 1],
+        [7, 9, 8, 2, 1, 3, 6, 5, 4],
+        [9, 2, 1, 4, 3, 5, 8, 7, 6],
+        [3, 5, 4, 7, 6, 8, 2, 1, 9],
+        [6, 8, 7, 1, 9, 2, 5, 4, 3],
+        [5, 7, 6, 9, 8, 1, 4, 3, 2],
+        [2, 4, 3, 6, 5, 7, 1, 9, 8],
+        [8, 1, 9, 3, 2, 4, 7, 6, 5]]
+</code></pre></div>    </div>
+    <p>the output should be <br />
+<code class="highlighter-rouge">sudoku(grid) = false</code>. <br /><br />
+The output should be <code class="highlighter-rouge">false</code>: each of the nine <code class="highlighter-rouge">3 × 3</code> sub-grids should contain all of the digits from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">9</code>. <br />
+These examples are represented on the image below.
+<img src="./img/sudoku.png" alt="sudoku" /></p>
+  </li>
+</ul>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] array.array.integer grid</strong> <br />
+A matrix representing <code class="highlighter-rouge">9 × 9</code> grid already filled with numbers from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">9</code>. <br />
+Guaranteed constraints: <code class="highlighter-rouge">grid.length = 9</code>, <code class="highlighter-rouge">grid[i].length = 9</code>, <code class="highlighter-rouge">1 ≤ grid[i][j] ≤ 9</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] boolean</strong> <br />
+<code class="highlighter-rouge">true</code> if the given grid represents a correct solution to Sudoku, <code class="highlighter-rouge">false</code> otherwise.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def sudoku(grid):
+    rowTrue = all([set(grid[row]) == set(range(1, 10)) for row in range(9)])
+    columnTrue = all([set([grid[row][column] for row in range(9)]) == set(range(1, 10))
+                      for column in range(9)])
+    subGridTrue = True
+    for column in range(3):
+        for i in range(3):
+            subGrid = set()
+            for row in range(3 * i, 3 * (i + 1)):
+                for j in range(3):
+                    subGrid.add(grid[row][3 * column + j])
+            if subGrid != set(range(1, 10)):
+                subGridTrue = False
+    return rowTrue and columnTrue and subGridTrue
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>59. spiralNumbers</title>
+	  <link>//59-spiralNumbers</link>
+	  <author></author>
+	  <pubDate>2020-02-15T12:00:00+09:00</pubDate>
+	  <guid>//59-spiralNumbers</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>Construct a square matrix with a size <code class="highlighter-rouge">N × N</code> containing integers from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">N * N</code> in a spiral order, starting from top-left and in clockwise direction.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">n = 3</code>, the output should be</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spiralNumbers(n) = [[1, 2, 3],
+                    [8, 9, 4],
+                    [7, 6, 5]]
+</code></pre></div></div>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] integer n</strong> <br />
+Matrix size, a positive integer. <br />
+Guaranteed constraints: <code class="highlighter-rouge">3 ≤ n ≤ 100</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] array.array.integer</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def edge(spiralMatrix, n, step):
+    start = 1
+    for j in range(step):
+        start += (n - j * 2 - 1) * 4
+    for i in range(n - step * 2):
+        spiralMatrix[step][step + i] = start + i
+    for i in range(n - step * 2 - 1):
+        spiralMatrix[step + i][-1 - step] = start + (n - (step * 2) - 1) + i
+        spiralMatrix[-1 - step][-1 - step - i] = start + (n - 1 - step * 2) * 2 + i
+        spiralMatrix[-1 - step - i][step] = start + (n - 1 - step * 2) * 3 + i
+    return
+
+def spiralNumbers(n):
+    spiralMatrix = [[0] * n for i in range(n)]
+    for step in range((n + 1) // 2):
+        edge(spiralMatrix, n, step)
+    return spiralMatrix
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>58.messageFromBinaryCode</title>
+	  <link>//58-messageFromBinaryCode</link>
+	  <author></author>
+	  <pubDate>2020-02-15T11:00:00+09:00</pubDate>
+	  <guid>//58-messageFromBinaryCode</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>You are taking part in an Escape Room challenge designed specifically for programmers. In your efforts to find a clue, you’ve found a binary code written on the wall behind a vase, and realized that it must be an encrypted message. After some thought, your first guess is that each consecutive 8 bits of the code stand for the character with the corresponding <em>extended ASCII code</em>.</p>
+
+<p>Assuming that your hunch is correct, decode the message.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">code = "010010000110010101101100011011000110111100100001"</code>, the output should be <br />
+<code class="highlighter-rouge">messageFromBinaryCode(code) = "Hello!"</code>.</p>
+
+<p>The first 8 characters of the code are <code class="highlighter-rouge">01001000</code>, which is <code class="highlighter-rouge">72</code> in the binary numeral system. <code class="highlighter-rouge">72</code> stands for <code class="highlighter-rouge">H</code> in the <em>ASCII-table</em>, so the first letter is H. <br />
+Other letters can be obtained in the same manner.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] string code</strong> <br />
+A string, the encrypted message consisting of characters <code class="highlighter-rouge">'0'</code> and <code class="highlighter-rouge">'1'</code>. <br />
+Guaranteed constraints: <code class="highlighter-rouge">0 &lt; code.length &lt; 800</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] string</strong> <br />
+The decrypted message.</p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def messageFromBinaryCode(code):
+    message = ''
+    for i in range(len(code) // 8):
+        message += chr(int('0b' + code[8 * i:8 * (i + 1)], 2))
+    return message
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>57. File Naming</title>
+	  <link>//57-fileNaming</link>
+	  <author></author>
+	  <pubDate>2020-02-15T10:00:00+09:00</pubDate>
+	  <guid>//57-fileNaming</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="task">Task</h3>
+
+<p>You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of <code class="highlighter-rouge">(k)</code>, where <code class="highlighter-rouge">k</code> is the smallest positive integer such that the obtained name is not used yet.</p>
+
+<p>Return an array of names that will be given to the files.</p>
+
+<h3 id="example">Example</h3>
+
+<p>For <code class="highlighter-rouge">names = ["doc", "doc", "image", "doc(1)", "doc"]</code>, the output should be <br />
+<code class="highlighter-rouge">fileNaming(names) = ["doc", "doc(1)", "image", "doc(1)(1)", "doc(2)"]</code>.</p>
+
+<h3 id="inputoutput">Input/Output</h3>
+
+<ul>
+  <li>
+    <p><strong>[execution time limit]</strong> <br />
+4 seconds (py3)</p>
+  </li>
+  <li>
+    <p><strong>[input] array.string names</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">5 ≤ names.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ names[i].length ≤ 15</code>.</p>
+  </li>
+  <li>
+    <p><strong>[output] array.string</strong></p>
+  </li>
+</ul>
+
+<h3 id="my-solution">My Solution</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def fileNaming(names):
+    fileNames = []
+    for name in names:
+        if name in fileNames:
+            name = name + '(1)'
+            while name in fileNames:
+                name = name[:-2] + str(int(name[-2]) + 1) + ')'
+            fileNames.append(name)
+        else:
+            fileNames.append(name)
+    return fileNames
+</code></pre></div></div>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>56. digitsProduct</title>
 	  <link>//56-digitsProduct</link>
 	  <author></author>
@@ -351,263 +610,6 @@ Guaranteed constraints: 10 ≤ n ≤ 10<sup>6</sup>.</p>
     if int(str_n[:-1]) &gt; maxNumber:
         maxNumber = int(str_n[:-1])
     return maxNumber
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>50. chessKnight</title>
-	  <link>//50-chessKnight</link>
-	  <author></author>
-	  <pubDate>2020-02-12T14:00:00+09:00</pubDate>
-	  <guid>//50-chessKnight</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a position of a knight on the standard chessboard, find the number of different moves the knight can perform.</p>
-
-<p>The knight can move to a square that is two squares horizontally and one square vertically, or two squares vertically and one square horizontally away from it. The complete move therefore looks like the letter L. Check out the image below to see all valid moves for a knight piece that is placed on one of the central squares.
-<img src="./img/knight.jpg" alt="knight" /></p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">cell = "a1"</code>, the output should be <br />
-<code class="highlighter-rouge">chessKnight(cell) = 2</code>.
-<img src="./img/knight1.jpg" alt="knight1" /></p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">cell = "c2"</code>, the output should be <br />
-<code class="highlighter-rouge">chessKnight(cell) = 6</code>.
-<img src="./img/knight2.jpg" alt="knight2" /></p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string cell</strong> <br />
-String consisting of 2 letters - coordinates of the knight on an 8 × 8 chessboard in chess notation. <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell.length = 2</code>, <code class="highlighter-rouge">'a' ≤ cell[0] ≤ 'h'</code>, <code class="highlighter-rouge">1 ≤ cell[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] integer</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessKnight(cell):
-    move = [(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)]
-    arrive = [chr(ord(cell[0]) + i[0]) + str(int(cell[1]) + i[1]) for i in move]
-    valid_x = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-    valid_y = [str(i) for i in range(1, 9)]
-    count = 0
-    for position in arrive:
-        if (position[0] in valid_x) and (position[1:] in valid_y):
-            count += 1
-    return count
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>49. lineEncoding</title>
-	  <link>//49-lineEncoding</link>
-	  <author></author>
-	  <pubDate>2020-02-12T13:00:00+09:00</pubDate>
-	  <guid>//49-lineEncoding</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a string, return its encoding defined as follows:</p>
-
-<ul>
-  <li>First, the string is divided into the least possible number of disjoint substrings consisting of identical characters
-    <ul>
-      <li>for example, <code class="highlighter-rouge">"aabbbc"</code> is divided into <code class="highlighter-rouge">["aa", "bbb", "c"]</code></li>
-    </ul>
-  </li>
-  <li>Next, each substring with length greater than one is replaced with a concatenation of its length and the repeating character
-    <ul>
-      <li>for example, substring <code class="highlighter-rouge">"bbb"</code> is replaced by <code class="highlighter-rouge">"3b"</code></li>
-    </ul>
-  </li>
-  <li>Finally, all the new strings are concatenated together in the same order and a new string is returned.</li>
-</ul>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">s = "aabbbc"</code>, the output should be <br />
-<code class="highlighter-rouge">lineEncoding(s) = "2a3bc"</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string s</strong> <br />
-String consisting of lowercase English letters.
-Guaranteed constraints: <code class="highlighter-rouge">4 ≤ s.length ≤ 15</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] string</strong> <br />
-Encoded version of <code class="highlighter-rouge">s</code>.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def lineEncoding(s):
-    s = s + '_'
-    encoded = ''
-    count = 1
-    for i in range(len(s) - 1):
-        if s[i] == s[i + 1]:
-            count += 1
-        else:
-            if count == 1:
-                encoded += s[i]
-            else:
-                encoded += str(count) + s[i]
-            count = 1
-    return encoded
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>48. isDigit</title>
-	  <link>//48-isDigit</link>
-	  <author></author>
-	  <pubDate>2020-02-12T12:00:00+09:00</pubDate>
-	  <guid>//48-isDigit</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Determine if the given character is a digit or not.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">symbol = '0'</code>, the output should be <br />
-<code class="highlighter-rouge">isDigit(symbol) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">symbol = '-'</code>, the output should be <br />
-<code class="highlighter-rouge">isDigit(symbol) = false</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] char symbol</strong> <br />
-A character which is either a digit or not.</p>
-  </li>
-  <li>
-    <p><strong>[output] boolean</strong> <br />
-<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">symbol</code> is a digit, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isDigit(symbol):
-    return symbol.isdigit()
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>47. Is MAC48 Address?</title>
-	  <link>//47-isMAC48Address</link>
-	  <author></author>
-	  <pubDate>2020-02-12T11:00:00+09:00</pubDate>
-	  <guid>//47-isMAC48Address</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>A media access control address (MAC address) is a unique identifier assigned to network interfaces for communications on the physical network segment.</p>
-
-<p>The standard (IEEE 802) format for printing MAC-48 addresses in human-friendly form is six groups of two hexadecimal digits (0 to 9 or A to F), separated by hyphens (e.g. <code class="highlighter-rouge">01-23-45-67-89-AB</code>).</p>
-
-<p>Your task is to check by given string <code class="highlighter-rouge">inputString</code> whether it corresponds to MAC-48 address or not.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "00-1B-63-84-45-E6"</code>, the output should be <br />
-<code class="highlighter-rouge">isMAC48Address(inputString) = true</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "Z1-1B-63-84-45-E6"</code>, the output should be <br />
-<code class="highlighter-rouge">isMAC48Address(inputString) = false</code>;</p>
-  </li>
-  <li>
-    <p>For <code class="highlighter-rouge">inputString = "not a MAC-48 address"</code>, the output should be <br />
-<code class="highlighter-rouge">isMAC48Address(inputString) = false</code>.</p>
-  </li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] string inputString</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">15 ≤ inputString.length ≤ 20</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] boolean</strong> <br />
-<code class="highlighter-rouge">true</code> if <code class="highlighter-rouge">inputString</code> corresponds to MAC-48 address naming rules, <code class="highlighter-rouge">false</code> otherwise.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def isMAC48Address(inputString):
-    inputS = inputString.split('-')
-    valid = [str(i) for i in range(10)] + ['A', 'B', 'C', 'D', 'E', 'F']
-    if len(inputS) == 6:
-        for element in inputS:
-            if len(element) == 2 and (element[0] in valid) and (element[1] in valid):
-                continue
-            else:
-                return False
-        return True
-    return False
 </code></pre></div></div>
 
 	  ]]></description>

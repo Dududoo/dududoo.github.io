@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>56. digitsProduct</title>
+    <title>57. File Naming</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//56-digitsProduct" />
+        <link rel="canonical" href="http://localhost:4000//57-fileNaming" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="56. digitsProduct" />
+    <meta property="og:title" content="57. File Naming" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//56-digitsProduct" />
+    <meta property="og:url" content="http://localhost:4000//57-fileNaming" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="56. digitsProduct" />
+    <meta name="twitter:title" content="57. File Naming" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//56-digitsProduct" />
+    <meta name="twitter:url" content="http://localhost:4000//57-fileNaming" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "56. digitsProduct",
-    "url": "http://localhost:4000//56-digitsProduct",
+    "name": "57. File Naming",
+    "url": "http://localhost:4000//57-fileNaming",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -104,7 +104,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">56. digitsProduct</h1>
+            <h1 class="post-title">57. File Naming</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -113,7 +113,7 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-13">13 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-15">15 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -132,16 +132,14 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given an integer <code class="highlighter-rouge">product</code>, find the smallest positive (i.e. greater than <code class="highlighter-rouge">0</code>) integer the product of whose digits is equal to <code class="highlighter-rouge">product</code>. If there is no such integer, return <code class="highlighter-rouge">-1</code> instead.</p>
+<p>You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of <code class="highlighter-rouge">(k)</code>, where <code class="highlighter-rouge">k</code> is the smallest positive integer such that the obtained name is not used yet.</p>
+
+<p>Return an array of names that will be given to the files.</p>
 
 <h3 id="example">Example</h3>
 
-<ul>
-  <li>For <code class="highlighter-rouge">product = 12</code>, the output should be <br />
-<code class="highlighter-rouge">digitsProduct(product) = 26</code>;</li>
-  <li>For <code class="highlighter-rouge">product = 19</code>, the output should be <br />
-<code class="highlighter-rouge">digitsProduct(product) = -1</code>.</li>
-</ul>
+<p>For <code class="highlighter-rouge">names = ["doc", "doc", "image", "doc(1)", "doc"]</code>, the output should be <br />
+<code class="highlighter-rouge">fileNaming(names) = ["doc", "doc(1)", "image", "doc(1)(1)", "doc(2)"]</code>.</p>
 
 <h3 id="inputoutput">Input/Output</h3>
 
@@ -151,30 +149,27 @@
 4 seconds (py3)</p>
   </li>
   <li>
-    <p><strong>[input] integer product</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ product ≤ 600</code>.</p>
+    <p><strong>[input] array.string names</strong> <br />
+Guaranteed constraints: <code class="highlighter-rouge">5 ≤ names.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ names[i].length ≤ 15</code>.</p>
   </li>
   <li>
-    <p><strong>[output] integer</strong></p>
+    <p><strong>[output] array.string</strong></p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def digitsProduct(product):
-    if product == 0:
-        return 10
-    divisor = []
-    while product &gt; 9:
-        for i in reversed(range(2, 10)):
-            if product % i == 0:
-                divisor.append(i)
-                product = product / i
-                break
-            if i == 2:
-                return -1
-    divisor.append(int(product))
-    return int(''.join(map(str, divisor[::-1])))
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def fileNaming(names):
+    fileNames = []
+    for name in names:
+        if name in fileNames:
+            name = name + '(1)'
+            while name in fileNames:
+                name = name[:-2] + str(int(name[-2]) + 1) + ')'
+            fileNames.append(name)
+        else:
+            fileNames.append(name)
+    return fileNames
 </code></pre></div></div>
 
 
@@ -208,15 +203,15 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ product ≤ 600</c
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=56. digitsProduct&amp;url=http://localhost:400056-digitsProduct"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=57. File Naming&amp;url=http://localhost:400057-fileNaming"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400056-digitsProduct"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400057-fileNaming"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400056-digitsProduct"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400057-fileNaming"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -237,20 +232,20 @@ Guaranteed constraints: <code class="highlighter-rouge">0 ≤ product ≤ 600</c
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/57-fileNaming">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/58-messageFromBinaryCode">
             <section class="post">
-                <h2>57. File Naming</h2>
-                <p>### Task You are given an array of desired filenames in the order of their...</p>
+                <h2>58.messageFromBinaryCode</h2>
+                <p>### Task You are taking part in an Escape Room challenge designed specifically for programmers....</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/55-differentSquares">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/56-digitsProduct">
             <section class="post">
-                <h2>55. Different Squares</h2>
-                <p>Task Given a rectangular matrix containing only digits, calculate the number of different 2 ×...</p>
+                <h2>56. digitsProduct</h2>
+                <p>Task Given an integer product, find the smallest positive (i.e. greater than 0) integer the...</p>
             </section>
         </a>
     
