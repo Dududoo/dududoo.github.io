@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>29. chessBoardCellColor</title>
+    <title>Hash - 2. 전화번호 목록</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//29-chessBoardCellColor" />
+        <link rel="canonical" href="http://localhost:4000//Hash2" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="29. chessBoardCellColor" />
+    <meta property="og:title" content="Hash - 2. 전화번호 목록" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//29-chessBoardCellColor" />
+    <meta property="og:url" content="http://localhost:4000//Hash2" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="29. chessBoardCellColor" />
+    <meta name="twitter:title" content="Hash - 2. 전화번호 목록" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//29-chessBoardCellColor" />
+    <meta name="twitter:url" content="http://localhost:4000//Hash2" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "29. chessBoardCellColor",
-    "url": "http://localhost:4000//29-chessBoardCellColor",
+    "name": "Hash - 2. 전화번호 목록",
+    "url": "http://localhost:4000//Hash2",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -105,7 +105,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">29. chessBoardCellColor</h1>
+            <h1 class="post-title">Hash - 2. 전화번호 목록</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -114,13 +114,13 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-01">01 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-19">19 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
+                       <a href='/tag/Programmers'>Programmers</a>
                     
                 
                 
@@ -133,44 +133,76 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given two cells on the standard chess board, determine whether they have the same color or not.</p>
+<p>전화번호부에 적힌 전화번호 중, 한 번호가 다른 번호의 접두어인 경우가 있는지 확인하려 합니다. <br />
+전화번호가 다음과 같을 경우, 구조대 전화번호는 영석이의 전화번호의 접두사입니다.</p>
+
+<ul>
+  <li>구조대 : 119</li>
+  <li>박준영 : 97 674 223</li>
+  <li>지영석 : 11 9552 4421</li>
+</ul>
+
+<p>전화번호부에 적힌 전화번호를 담은 배열 phone_book 이 solution 함수의 매개변수로 주어질 때, 어떤 번호가 다른 번호의 접두어인 경우가 있으면 false를 그렇지 않으면 true를 return 하도록 solution 함수를 작성해주세요.</p>
 
 <h3 id="example">Example</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>phone_book</th>
+      <th>return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>[“119”, “97674223”, “1195524421”]</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>[“123”, “456”, “789”]</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>[“12”, “123”, “1235”, “567”, “88”]</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
 <ul>
-  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "C3"</code>, the output should be <br />
-<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = true</code>.
-<img src="./img/chess1.png" alt="chess1" /></li>
-  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "H3"</code>, the output should be <br />
-<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = false</code>.
-<img src="./img/chess2.png" alt="chess2" /></li>
+  <li>
+    <p>예제 1 <br />
+앞에서 설명한 예와 같습니다.</p>
+  </li>
+  <li>
+    <p>예제 2 <br />
+한 번호가 다른 번호의 접두사인 경우가 없으므로, 답은 true입니다.</p>
+  </li>
+  <li>
+    <p>예제 3 <br />
+첫 번째 전화번호, “12”가 두 번째 전화번호 “123”의 접두사입니다. 따라서 답은 false입니다.</p>
+  </li>
 </ul>
 
 <h3 id="inputoutput">Input/Output</h3>
 
 <ul>
   <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
+    <p>phone_book의 길이는 1 이상 1,000,000 이하입니다.</p>
   </li>
   <li>
-    <p>[input] string cell1 <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell1.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell1[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell1[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p>[input] string cell2 <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell2[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell2[1] ≤ 8</code>.</p>
-  </li>
-  <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if both cells have the same color, <code class="highlighter-rouge">false</code> otherwise.</p>
+    <p>각 전화번호의 길이는 1 이상 20 이하입니다.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessBoardCellColor(cell1, cell2):
-    return (ord(cell1[0]) + int(cell1[1]) + ord(cell2[0]) + int(cell2[1])) % 2 == 0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def solution(phone_book):
+    phone_book.sort()
+    for i in range(len(phone_book) - 1):
+        if phone_book[i + 1][:len(phone_book[i])] == phone_book[i]:
+            return False
+    return True
 </code></pre></div></div>
 
 
@@ -204,15 +236,15 @@ Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>,
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=29. chessBoardCellColor&amp;url=http://localhost:400029-chessBoardCellColor"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=Hash - 2. 전화번호 목록&amp;url=http://localhost:4000Hash2"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400029-chessBoardCellColor"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000Hash2"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400029-chessBoardCellColor"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000Hash2"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -233,20 +265,20 @@ Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>,
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/30-circleOfNumbers">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/Hash3">
             <section class="post">
-                <h2>30. Circle of Numbers</h2>
-                <p>### Task Consider integer numbers from `0` to `n - 1` written down along the...</p>
+                <h2>Hash - 3. 위장</h2>
+                <p>### Task 스파이들은 매일 다른 옷을 조합하여 입어 자신을 위장합니다. 예를 들어 스파이가 가진 옷이...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/28-alphabeticShift">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/Hash1">
             <section class="post">
-                <h2>28. alphabeticShift</h2>
-                <p>Task Given a string, your task is to replace each of its characters by the...</p>
+                <h2>Hash - 1. 완주하지 못한 선수</h2>
+                <p>Task 수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다....</p>
             </section>
         </a>
     

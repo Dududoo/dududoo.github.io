@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>29. chessBoardCellColor</title>
+    <title>Hash - 1. 완주하지 못한 선수</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//29-chessBoardCellColor" />
+        <link rel="canonical" href="http://localhost:4000//Hash1" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="29. chessBoardCellColor" />
+    <meta property="og:title" content="Hash - 1. 완주하지 못한 선수" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//29-chessBoardCellColor" />
+    <meta property="og:url" content="http://localhost:4000//Hash1" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="29. chessBoardCellColor" />
+    <meta name="twitter:title" content="Hash - 1. 완주하지 못한 선수" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//29-chessBoardCellColor" />
+    <meta name="twitter:url" content="http://localhost:4000//Hash1" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "29. chessBoardCellColor",
-    "url": "http://localhost:4000//29-chessBoardCellColor",
+    "name": "Hash - 1. 완주하지 못한 선수",
+    "url": "http://localhost:4000//Hash1",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -105,7 +105,7 @@
     <article class="post tag-test tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">29. chessBoardCellColor</h1>
+            <h1 class="post-title">Hash - 1. 완주하지 못한 선수</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -114,13 +114,13 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-01">01 Feb 2020</time>
+            <time class="post-date" datetime="2020-02-19">19 Feb 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
+                       <a href='/tag/Programmers'>Programmers</a>
                     
                 
                 
@@ -133,44 +133,80 @@
 
 <h3 id="task">Task</h3>
 
-<p>Given two cells on the standard chess board, determine whether they have the same color or not.</p>
+<p>수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.</p>
+
+<p>마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.</p>
 
 <h3 id="example">Example</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>participant</th>
+      <th>completion</th>
+      <th>return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>[leo, kiki, eden]</td>
+      <td>[eden, kiki]</td>
+      <td>“leo”</td>
+    </tr>
+    <tr>
+      <td>[marina, josipa, nikola, vinko, filipa]</td>
+      <td>[josipa, filipa, marina, nikola]</td>
+      <td>“vinko”</td>
+    </tr>
+    <tr>
+      <td>[mislav, stanko, mislav, ana]</td>
+      <td>[stanko, ana, mislav]</td>
+      <td>“mislav”</td>
+    </tr>
+  </tbody>
+</table>
+
 <ul>
-  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "C3"</code>, the output should be <br />
-<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = true</code>.
-<img src="./img/chess1.png" alt="chess1" /></li>
-  <li>For <code class="highlighter-rouge">cell1 = "A1"</code> and <code class="highlighter-rouge">cell2 = "H3"</code>, the output should be <br />
-<code class="highlighter-rouge">chessBoardCellColor(cell1, cell2) = false</code>.
-<img src="./img/chess2.png" alt="chess2" /></li>
+  <li>
+    <p>예제 1 <br />
+“leo”는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</p>
+  </li>
+  <li>
+    <p>예제 2 <br />
+“vinko”는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</p>
+  </li>
+  <li>
+    <p>예제 3 <br />
+“mislav”는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.</p>
+  </li>
 </ul>
 
 <h3 id="inputoutput">Input/Output</h3>
 
 <ul>
   <li>
-    <p>[execution time limit] <br />
-4 seconds (py3)</p>
+    <p>마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.</p>
   </li>
   <li>
-    <p>[input] string cell1 <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell1.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell1[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell1[1] ≤ 8</code>.</p>
+    <p>completion의 길이는 participant의 길이보다 1 작습니다.</p>
   </li>
   <li>
-    <p>[input] string cell2 <br />
-Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>, <code class="highlighter-rouge">'A' ≤ cell2[0] ≤ 'H'</code>, <code class="highlighter-rouge">1 ≤ cell2[1] ≤ 8</code>.</p>
+    <p>참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</p>
   </li>
   <li>
-    <p>[output] boolean <br />
-<code class="highlighter-rouge">true</code> if both cells have the same color, <code class="highlighter-rouge">false</code> otherwise.</p>
+    <p>참가자 중에는 동명이인이 있을 수 있습니다.</p>
   </li>
 </ul>
 
 <h3 id="my-solution">My Solution</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def chessBoardCellColor(cell1, cell2):
-    return (ord(cell1[0]) + int(cell1[1]) + ord(cell2[0]) + int(cell2[1])) % 2 == 0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def solution(participant, completion):
+    participant.sort()
+    completion.sort()
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            return participant[i]
+    return participant[-1]
 </code></pre></div></div>
 
 
@@ -204,15 +240,15 @@ Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>,
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=29. chessBoardCellColor&amp;url=http://localhost:400029-chessBoardCellColor"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=Hash - 1. 완주하지 못한 선수&amp;url=http://localhost:4000Hash1"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400029-chessBoardCellColor"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000Hash1"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400029-chessBoardCellColor"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000Hash1"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -233,20 +269,20 @@ Guaranteed constraints: <code class="highlighter-rouge">cell2.length = 2</code>,
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/30-circleOfNumbers">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/Hash2">
             <section class="post">
-                <h2>30. Circle of Numbers</h2>
-                <p>### Task Consider integer numbers from `0` to `n - 1` written down along the...</p>
+                <h2>Hash - 2. 전화번호 목록</h2>
+                <p>### Task 전화번호부에 적힌 전화번호 중, 한 번호가 다른 번호의 접두어인 경우가 있는지 확인하려 합니다....</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/28-alphabeticShift">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/60-sudoku">
             <section class="post">
-                <h2>28. alphabeticShift</h2>
-                <p>Task Given a string, your task is to replace each of its characters by the...</p>
+                <h2>60. Sudoku</h2>
+                <p>Task Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9...</p>
             </section>
         </a>
     

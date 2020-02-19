@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//" />
+        <link rel="canonical" href="http://localhost:4000//tag/Programmers/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,14 +34,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dududoo Study Blog" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//" />
-    <meta property="og:image" content="/assets/images/cover1.jpg" />
+    <meta property="og:url" content="http://localhost:4000//tag/Programmers/" />
+    <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dududoo Study Blog" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//" />
-    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000//tag/Programmers/" />
+    <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
 {
@@ -49,8 +49,8 @@
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
     "name": "Dududoo Study Blog",
-    "url": "http://localhost:4000//",
-    "image": "/assets/images/cover1.jpg",
+    "url": "http://localhost:4000//tag/Programmers/",
+    "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
     </script>
@@ -60,7 +60,7 @@
 
 
 </head>
-<body class="home-template nav-closed">
+<body class="tag-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -69,10 +69,10 @@
         <span class="hidden">Close</span>
     </a>
     <ul>
-        <li class="nav-home  nav-current" role="presentation"><a href="/">Home</a></li>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/about">About</a></li>
         <li class="nav-Python_CodeSignal " role="presentation"><a href="/tag/Python_CodeSignal">Python CodeSignal</a></li>
-        <li class="nav-Programmers " role="presentation"><a href="/tag/Programmers">Programmers</a></li>
+        <li class="nav-Programmers  nav-current" role="presentation"><a href="/tag/Programmers">Programmers</a></li>
         <li class="nav-author " role="presentation"><a href="/author/Dududoo">Dududoo</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
@@ -83,12 +83,14 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default -->
+        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header  -->
-<header class="main-header "
-        style="background-image: url(/assets/images/cover1.jpg) ">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/assets/images/cover2.jpg) ">
     <nav class="main-nav overlay clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -97,11 +99,14 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Dududoo Study Blog</h1>
-            <h2 class="page-description">Since Jan 2020...</h2>
+            <h1 class="page-title">Programmers</h1>
+            <h2 class="page-description">
+            
+			    A 4-post collection
+            
+            </h2>
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
@@ -113,9 +118,7 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 7 </span>
-     
-        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 1 of 1 </span>
      
 </nav>
         
@@ -247,200 +250,12 @@
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/60-sudoku">60. Sudoku</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Task Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with digits so that each column, each row, and each... <a class="read-more" href="/60-sudoku">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/Dududoo'>Dududoo</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-02-15">15 Feb 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/59-spiralNumbers">59. spiralNumbers</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Task Construct a square matrix with a size N × N containing integers from 1 to N * N in a spiral order, starting from top-left... <a class="read-more" href="/59-spiralNumbers">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/Dududoo'>Dududoo</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-02-15">15 Feb 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/58-messageFromBinaryCode">58.messageFromBinaryCode</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Task You are taking part in an Escape Room challenge designed specifically for programmers. In your efforts to find a clue, you’ve found a binary code... <a class="read-more" href="/58-messageFromBinaryCode">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/Dududoo'>Dududoo</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-02-15">15 Feb 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/57-fileNaming">57. File Naming</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Task You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes... <a class="read-more" href="/57-fileNaming">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/Dududoo'>Dududoo</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-02-15">15 Feb 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/56-digitsProduct">56. digitsProduct</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Task Given an integer product, find the smallest positive (i.e. greater than 0) integer the product of whose digits is equal to product. If there is... <a class="read-more" href="/56-digitsProduct">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/Dududoo'>Dududoo</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-02-13">13 Feb 2020</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/55-differentSquares">55. Different Squares</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>Task Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it. Example For matrix = [[1, 2, 1],... <a class="read-more" href="/55-differentSquares">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/Dududoo'>Dududoo</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
-                    
-                
-            
-            <time class="post-date" datetime="2020-02-13">13 Feb 2020</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 7 </span>
-     
-        <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
+    <span class="page-number"> Page 1 of 1 </span>
      
 </nav>
     
