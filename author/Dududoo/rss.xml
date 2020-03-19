@@ -12,6 +12,140 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Lithium Batteries - A Practical Application of Chemical Principles</title>
+	  <link>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles</link>
+	  <author></author>
+	  <pubDate>2020-03-19T13:00:00+09:00</pubDate>
+	  <guid>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="the-lithium-metal-anode">The Lithium-Metal Anode</h3>
+
+<p>금속 원소들은 쉽게 산화하여 양이온이 되고 전자를 내놓으므로 배터리의 음극(Anode)으로 적합한 특성을 가지고 있다. <br /></p>
+<div style="text-align: center">
+M     &rarr;    M <sup>n+</sup> + ne<sup>-</sup>
+</div>
+<p><br />
+음극으로 쉽게 사용될 수 있는 금속들의 주요 특성은 아래의 테이블과 같다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Metal</th>
+      <th style="text-align: center">Atomic Weight</th>
+      <th style="text-align: center">Density (g cm<sup>-3</sup>)</th>
+      <th style="text-align: center">Redox Couple</th>
+      <th style="text-align: center">Standard Reduction Potential (V)</th>
+      <th style="text-align: center">Electrochemical Capacity (Ah g<sup>-1</sup>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Lithium</td>
+      <td style="text-align: center">6.94</td>
+      <td style="text-align: center">0.53</td>
+      <td style="text-align: center">Li<sup>+</sup>/Li</td>
+      <td style="text-align: center">-3.04</td>
+      <td style="text-align: center">3.86</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Sodium</td>
+      <td style="text-align: center">22.99</td>
+      <td style="text-align: center">0.97</td>
+      <td style="text-align: center">Na<sup>+</sup>/Na</td>
+      <td style="text-align: center">-2.71</td>
+      <td style="text-align: center">1.17</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Magnesium</td>
+      <td style="text-align: center">24.31</td>
+      <td style="text-align: center">1.74</td>
+      <td style="text-align: center">Mg<sup>2+</sup>/Mg</td>
+      <td style="text-align: center">-2.70</td>
+      <td style="text-align: center">2.21</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Aluminum</td>
+      <td style="text-align: center">26.98</td>
+      <td style="text-align: center">2.70</td>
+      <td style="text-align: center">Al<sup>3+</sup>/Al</td>
+      <td style="text-align: center">-1.66</td>
+      <td style="text-align: center">2.98</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Calcium</td>
+      <td style="text-align: center">40.08</td>
+      <td style="text-align: center">1.54</td>
+      <td style="text-align: center">Ca<sup>2+</sup>/Ca</td>
+      <td style="text-align: center">-2.87</td>
+      <td style="text-align: center">1.34</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Iron</td>
+      <td style="text-align: center">55.85</td>
+      <td style="text-align: center">7.86</td>
+      <td style="text-align: center">Fe<sup>2+</sup>/Fe</td>
+      <td style="text-align: center">-0.45</td>
+      <td style="text-align: center">0.96</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Zinc</td>
+      <td style="text-align: center">65.39</td>
+      <td style="text-align: center">7.14</td>
+      <td style="text-align: center">Zn<sup>2+</sup>/Zn</td>
+      <td style="text-align: center">-0.76</td>
+      <td style="text-align: center">0.82</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cadmium</td>
+      <td style="text-align: center">112.4</td>
+      <td style="text-align: center">8.64</td>
+      <td style="text-align: center">Cd<sup>2+</sup>/Cd</td>
+      <td style="text-align: center">-0.40</td>
+      <td style="text-align: center">0.48</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Lead</td>
+      <td style="text-align: center">207.2</td>
+      <td style="text-align: center">11.3</td>
+      <td style="text-align: center">Pb<sup>2+</sup>/Pb</td>
+      <td style="text-align: center">-0.13</td>
+      <td style="text-align: center">0.26</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Electrochemical capacity</em> 는 음극의 반쪽 반응(half-reaction)에서 g당 생성되는 전하량으로 정의된다. 예를 들어, 리튬의 경우 electrochemical capacity는 다음과 같이 계산된다.</p>
+
+<script type="math/tex; mode=display">\small{({1 \ mol \ e^{-} \over mol \ Li}) \times ({mol \ Li \over 6.94 \ g \ Li}) \times ({9.65 \times 10^{4} \ C \over mol \ e^{-}}) \times ({1 \ A \ s \over C}) \times ({h \over 3600 \ s}) = 3.86 \ {A \ h \over g \ Li}}</script>
+
+<p>테이블에서 리튬을 배터리의 음극으로 아주 적합하게 만들어주는 두 가지 특성을 볼 수 있다. 첫 번째로, 리튬 이온은 가장 낮은 환원 전위를 갖는다. 이는 이온이 금속 상태로 환원되려는 경향이 가장 작다는 것을 의미한다. 다르게 말하면, 리튬 메탈이 이온 상태로 산화되려는 경향이 가장 크다는 것을 뜻한다. 만약 다른 모든 조건들이 동일하다면 리튬 음극은 다른 금속들에 비해 가장 높은 전압을 생성할 것이다. 두 번째로, 리튬은 가장 높은 용량(electrochemical capacity)을 갖는다. 위에서 계산한 바와 같이 리튬이 아주 작은 원자량을 갖기 때문이다. 따라서 리튬 음극은 단위무게당 가장 큰 전하량을 생성할 것이다. 배터리에서 생성되는 에너지는 전압과 전하량의 곱과 같다. 그러므로 위에서 말한 두 가지 특성은 리튬 배터리가 아주 높은 단위무게당 에너지를 생성한다는 것을 의미한다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Ni-Rich Cathode Materials for Lithium-Ion Batteries</title>
+	  <link>//Battery1</link>
+	  <author></author>
+	  <pubDate>2020-03-04T13:00:00+09:00</pubDate>
+	  <guid>//Battery1</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="ncm">NCM</h3>
+
+<p>LiCoO<sub>2</sub> (LCO), LiMnO<sub>2</sub> (LMO), LiFePO<sub>4</sub> (LFP) 등의 많은 층상 구조 양극 물질들은 transition metal slab, lithium slab, oxygen slab으로 이루어져 있다. 리튬의 diffusivity는 active-state의 리튬과 transition metal의 정전기적 상호작용에 의한 active site의 에너지에 영향을 받는다.</p>
+
+<p><img src="./img/lmostructure.jpg" alt="LMO structure" /></p>
+
+<p>예를 들어, LCO는 Li 이온과 CoO<sub>6</sub> octahedra가 ABCABC의 순서로 쌓여있는 층상 구조로 인해 높은 Li<sup>+</sup> 이온 모빌리티를 가지며 4.2V vs Li<sup>0</sup>/Li<sup>+</sup>의 퍼텐셜에서 272mAh/g의 theoretical specific capacity를 보인다. 하지만 practical capacity는 약 150mAh/g로 훨씬 낮은 값을 나타내는데, 이는 Li/Co 비율이 0.5보다 낮을 때 rhombohedral에서 monoclinic phase로의 irreversible phase transition이 일어나고 Li deintercalation을 억제하기 때문이다. Transition metal layer에 Nickel 이온을 넣는 것은 rhomboheral phase를 안정화시키고 용량을 늘리는 데에 효과적인 방법이다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Hash - 4. 베스트앨범</title>
 	  <link>//Hash4</link>
 	  <author></author>
@@ -682,135 +816,6 @@ Guaranteed constraints: <code class="highlighter-rouge">5 ≤ names.length ≤ 1
         else:
             fileNames.append(name)
     return fileNames
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>56. digitsProduct</title>
-	  <link>//56-digitsProduct</link>
-	  <author></author>
-	  <pubDate>2020-02-13T15:00:00+09:00</pubDate>
-	  <guid>//56-digitsProduct</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given an integer <code class="highlighter-rouge">product</code>, find the smallest positive (i.e. greater than <code class="highlighter-rouge">0</code>) integer the product of whose digits is equal to <code class="highlighter-rouge">product</code>. If there is no such integer, return <code class="highlighter-rouge">-1</code> instead.</p>
-
-<h3 id="example">Example</h3>
-
-<ul>
-  <li>For <code class="highlighter-rouge">product = 12</code>, the output should be <br />
-<code class="highlighter-rouge">digitsProduct(product) = 26</code>;</li>
-  <li>For <code class="highlighter-rouge">product = 19</code>, the output should be <br />
-<code class="highlighter-rouge">digitsProduct(product) = -1</code>.</li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] integer product</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">0 ≤ product ≤ 600</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] integer</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def digitsProduct(product):
-    if product == 0:
-        return 10
-    divisor = []
-    while product &gt; 9:
-        for i in reversed(range(2, 10)):
-            if product % i == 0:
-                divisor.append(i)
-                product = product / i
-                break
-            if i == 2:
-                return -1
-    divisor.append(int(product))
-    return int(''.join(map(str, divisor[::-1])))
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>55. Different Squares</title>
-	  <link>//55-differentSquares</link>
-	  <author></author>
-	  <pubDate>2020-02-13T14:00:00+09:00</pubDate>
-	  <guid>//55-differentSquares</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>Given a rectangular matrix containing only digits, calculate the number of different <code class="highlighter-rouge">2 × 2</code> squares in it.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>matrix = [[1, 2, 1],
-          [2, 2, 2],
-          [2, 2, 2],
-          [1, 2, 3],
-          [2, 2, 1]]
-</code></pre></div></div>
-<p>the output should be <br />
-<code class="highlighter-rouge">differentSquares(matrix) = 6</code>.</p>
-
-<p>Here are all 6 different <code class="highlighter-rouge">2 × 2</code> squares:</p>
-<ul>
-  <li>1 2 <br />
-2 2</li>
-  <li>2 1 <br />
-2 2</li>
-  <li>2 2 <br />
-2 2</li>
-  <li>2 2 <br />
-1 2</li>
-  <li>2 2 <br />
-2 3</li>
-  <li>2 3 <br />
-2 1</li>
-</ul>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] array.array.integer matrix</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">1 ≤ matrix.length ≤ 100</code>, <code class="highlighter-rouge">1 ≤ matrix[i].length ≤ 100</code>, <code class="highlighter-rouge">0 ≤ matrix[i][j] ≤ 9</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] integer</strong> <br />
-The number of different <code class="highlighter-rouge">2 × 2</code> squares in <code class="highlighter-rouge">matrix</code>.</p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def differentSquares(matrix):
-    squares = set([((matrix[row][column], matrix[row][column + 1]),
-                    (matrix[row + 1][column], matrix[row + 1][column + 1]))
-                  for column in range(len(matrix[0]) - 1) for row in range(len(matrix) - 1)])
-    return len(squares)
 </code></pre></div></div>
 
 	  ]]></description>

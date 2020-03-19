@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>59. spiralNumbers</title>
+    <title>Lithium Batteries - A Practical Application of Chemical Principles</title>
     <meta name="description" content="Since Jan 2020..." />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//59-spiralNumbers" />
+        <link rel="canonical" href="http://localhost:4000//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Dududoo Study Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="59. spiralNumbers" />
+    <meta property="og:title" content="Lithium Batteries - A Practical Application of Chemical Principles" />
     <meta property="og:description" content="Since Jan 2020..." />
-    <meta property="og:url" content="http://localhost:4000//59-spiralNumbers" />
+    <meta property="og:url" content="http://localhost:4000//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="59. spiralNumbers" />
+    <meta name="twitter:title" content="Lithium Batteries - A Practical Application of Chemical Principles" />
     <meta name="twitter:description" content="Since Jan 2020..." />
-    <meta name="twitter:url" content="http://localhost:4000//59-spiralNumbers" />
+    <meta name="twitter:url" content="http://localhost:4000//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Dududoo Study Blog",
-    "name": "59. spiralNumbers",
-    "url": "http://localhost:4000//59-spiralNumbers",
+    "name": "Lithium Batteries - A Practical Application of Chemical Principles",
+    "url": "http://localhost:4000//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles",
     "image": "/assets/images/cover2.jpg",
     "description": "Since Jan 2020..."
 }
@@ -108,7 +108,7 @@
       </script>
 
         <header class="post-header">
-            <h1 class="post-title">59. spiralNumbers</h1>
+            <h1 class="post-title">Lithium Batteries - A Practical Application of Chemical Principles</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
@@ -117,13 +117,13 @@
                     <a href='/author/Dududoo'>Dududoo</a>
                 
             
-            <time class="post-date" datetime="2020-02-15">15 Feb 2020</time>
+            <time class="post-date" datetime="2020-03-19">19 Mar 2020</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/tag/Python_CodeSignal'>Python_codesignal</a>
+                       <a href='/tag/Battery'>Battery</a>
                     
                 
                 
@@ -134,55 +134,107 @@
 
             <p><br /></p>
 
-<h3 id="task">Task</h3>
+<h3 id="the-lithium-metal-anode">The Lithium-Metal Anode</h3>
 
-<p>Construct a square matrix with a size <code class="highlighter-rouge">N × N</code> containing integers from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">N * N</code> in a spiral order, starting from top-left and in clockwise direction.</p>
+<p>금속 원소들은 쉽게 산화하여 양이온이 되고 전자를 내놓으므로 배터리의 음극(Anode)으로 적합한 특성을 가지고 있다. <br /></p>
+<div style="text-align: center">
+M     &rarr;    M <sup>n+</sup> + ne<sup>-</sup>
+</div>
+<p><br />
+음극으로 쉽게 사용될 수 있는 금속들의 주요 특성은 아래의 테이블과 같다.</p>
 
-<h3 id="example">Example</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Metal</th>
+      <th style="text-align: center">Atomic Weight</th>
+      <th style="text-align: center">Density (g cm<sup>-3</sup>)</th>
+      <th style="text-align: center">Redox Couple</th>
+      <th style="text-align: center">Standard Reduction Potential (V)</th>
+      <th style="text-align: center">Electrochemical Capacity (Ah g<sup>-1</sup>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Lithium</td>
+      <td style="text-align: center">6.94</td>
+      <td style="text-align: center">0.53</td>
+      <td style="text-align: center">Li<sup>+</sup>/Li</td>
+      <td style="text-align: center">-3.04</td>
+      <td style="text-align: center">3.86</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Sodium</td>
+      <td style="text-align: center">22.99</td>
+      <td style="text-align: center">0.97</td>
+      <td style="text-align: center">Na<sup>+</sup>/Na</td>
+      <td style="text-align: center">-2.71</td>
+      <td style="text-align: center">1.17</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Magnesium</td>
+      <td style="text-align: center">24.31</td>
+      <td style="text-align: center">1.74</td>
+      <td style="text-align: center">Mg<sup>2+</sup>/Mg</td>
+      <td style="text-align: center">-2.70</td>
+      <td style="text-align: center">2.21</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Aluminum</td>
+      <td style="text-align: center">26.98</td>
+      <td style="text-align: center">2.70</td>
+      <td style="text-align: center">Al<sup>3+</sup>/Al</td>
+      <td style="text-align: center">-1.66</td>
+      <td style="text-align: center">2.98</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Calcium</td>
+      <td style="text-align: center">40.08</td>
+      <td style="text-align: center">1.54</td>
+      <td style="text-align: center">Ca<sup>2+</sup>/Ca</td>
+      <td style="text-align: center">-2.87</td>
+      <td style="text-align: center">1.34</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Iron</td>
+      <td style="text-align: center">55.85</td>
+      <td style="text-align: center">7.86</td>
+      <td style="text-align: center">Fe<sup>2+</sup>/Fe</td>
+      <td style="text-align: center">-0.45</td>
+      <td style="text-align: center">0.96</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Zinc</td>
+      <td style="text-align: center">65.39</td>
+      <td style="text-align: center">7.14</td>
+      <td style="text-align: center">Zn<sup>2+</sup>/Zn</td>
+      <td style="text-align: center">-0.76</td>
+      <td style="text-align: center">0.82</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cadmium</td>
+      <td style="text-align: center">112.4</td>
+      <td style="text-align: center">8.64</td>
+      <td style="text-align: center">Cd<sup>2+</sup>/Cd</td>
+      <td style="text-align: center">-0.40</td>
+      <td style="text-align: center">0.48</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Lead</td>
+      <td style="text-align: center">207.2</td>
+      <td style="text-align: center">11.3</td>
+      <td style="text-align: center">Pb<sup>2+</sup>/Pb</td>
+      <td style="text-align: center">-0.13</td>
+      <td style="text-align: center">0.26</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>For <code class="highlighter-rouge">n = 3</code>, the output should be</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spiralNumbers(n) = [[1, 2, 3],
-                    [8, 9, 4],
-                    [7, 6, 5]]
-</code></pre></div></div>
+<p><em>Electrochemical capacity</em> 는 음극의 반쪽 반응(half-reaction)에서 g당 생성되는 전하량으로 정의된다. 예를 들어, 리튬의 경우 electrochemical capacity는 다음과 같이 계산된다.</p>
 
-<h3 id="inputoutput">Input/Output</h3>
+<script type="math/tex; mode=display">\small{({1 \ mol \ e^{-} \over mol \ Li}) \times ({mol \ Li \over 6.94 \ g \ Li}) \times ({9.65 \times 10^{4} \ C \over mol \ e^{-}}) \times ({1 \ A \ s \over C}) \times ({h \over 3600 \ s}) = 3.86 \ {A \ h \over g \ Li}}</script>
 
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] integer n</strong> <br />
-Matrix size, a positive integer. <br />
-Guaranteed constraints: <code class="highlighter-rouge">3 ≤ n ≤ 100</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] array.array.integer</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def edge(spiralMatrix, n, step):
-    start = 1
-    for j in range(step):
-        start += (n - j * 2 - 1) * 4
-    for i in range(n - step * 2):
-        spiralMatrix[step][step + i] = start + i
-    for i in range(n - step * 2 - 1):
-        spiralMatrix[step + i][-1 - step] = start + (n - (step * 2) - 1) + i
-        spiralMatrix[-1 - step][-1 - step - i] = start + (n - 1 - step * 2) * 2 + i
-        spiralMatrix[-1 - step - i][step] = start + (n - 1 - step * 2) * 3 + i
-    return
-
-def spiralNumbers(n):
-    spiralMatrix = [[0] * n for i in range(n)]
-    for step in range((n + 1) // 2):
-        edge(spiralMatrix, n, step)
-    return spiralMatrix
-</code></pre></div></div>
+<p>테이블에서 리튬을 배터리의 음극으로 아주 적합하게 만들어주는 두 가지 특성을 볼 수 있다. 첫 번째로, 리튬 이온은 가장 낮은 환원 전위를 갖는다. 이는 이온이 금속 상태로 환원되려는 경향이 가장 작다는 것을 의미한다. 다르게 말하면, 리튬 메탈이 이온 상태로 산화되려는 경향이 가장 크다는 것을 뜻한다. 만약 다른 모든 조건들이 동일하다면 리튬 음극은 다른 금속들에 비해 가장 높은 전압을 생성할 것이다. 두 번째로, 리튬은 가장 높은 용량(electrochemical capacity)을 갖는다. 위에서 계산한 바와 같이 리튬이 아주 작은 원자량을 갖기 때문이다. 따라서 리튬 음극은 단위무게당 가장 큰 전하량을 생성할 것이다. 배터리에서 생성되는 에너지는 전압과 전하량의 곱과 같다. 그러므로 위에서 말한 두 가지 특성은 리튬 배터리가 아주 높은 단위무게당 에너지를 생성한다는 것을 의미한다.</p>
 
 
         </section>
@@ -215,15 +267,15 @@ def spiralNumbers(n):
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=59. spiralNumbers&amp;url=http://localhost:400059-spiralNumbers"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=Lithium Batteries - A Practical Application of Chemical Principles&amp;url=http://localhost:4000Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:400059-spiralNumbers"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:400059-spiralNumbers"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -244,20 +296,13 @@ def spiralNumbers(n):
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover2.jpg)" href="/60-sudoku">
-            <section class="post">
-                <h2>60. Sudoku</h2>
-                <p>### Task _Sudoku_ is a number-placement puzzle. The objective is to fill a `9 ×...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/58-messageFromBinaryCode">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover2.jpg)" href="/Battery1">
             <section class="post">
-                <h2>58.messageFromBinaryCode</h2>
-                <p>Task You are taking part in an Escape Room challenge designed specifically for programmers. In...</p>
+                <h2>Ni-Rich Cathode Materials for Lithium-Ion Batteries</h2>
+                <p>NCM LiCoO2 (LCO), LiMnO2 (LMO), LiFePO4 (LFP) 등의 많은 층상 구조 양극 물질들은 transition metal...</p>
             </section>
         </a>
     
