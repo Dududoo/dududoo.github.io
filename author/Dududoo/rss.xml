@@ -12,11 +12,27 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Electrochemistry</title>
+	  <link>//Electrochemistry_1</link>
+	  <author></author>
+	  <pubDate>2020-09-23T10:00:00+09:00</pubDate>
+	  <guid>//Electrochemistry_1</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="electrochemical-cells-and-reactions">Electrochemical Cells and Reactions</h3>
+
+<p><em>Electrochemical cell</em> 은 <em>electrode</em> 와 <em>electrolyte</em>, 그리고 각각의 chemical phase들 사이의 interface들로 구성되어 있다. 각 interface에서 전하가 어떻게 이동하는지, chemical reaction들은 어떤 영향을 미치는지 등을 알기 위해 먼저 electric potential에 대한 이해가 필요하다. Potential은 전하를 움직이게 하기 위한 전기적인 위치 에너지이고, 1 V = 1 J/C 과 같다. <em>Cell potential</em> 은 cell의 두 electrode 사이의 potential 차이이다. 즉, electrode 사이에서 전하를 이동시키기 위해 외부적으로 가해줘야 하는 에너지의 양이다. 이는 또한 cell 내의 다양한 phase들 사이의 electric potential 차이를 전부 합한 것과도 같다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Lithium Batteries - A Practical Application of Chemical Principles</title>
-	  <link>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles</link>
+	  <link>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles-%EB%B3%B5%EC%82%AC%EB%B3%B8</link>
 	  <author></author>
 	  <pubDate>2020-03-19T13:00:00+09:00</pubDate>
-	  <guid>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles</guid>
+	  <guid>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles-%EB%B3%B5%EC%82%AC%EB%B3%B8</guid>
 	  <description><![CDATA[
 	     <p><br /></p>
 
@@ -782,60 +798,6 @@ The decrypted message.</p>
     for i in range(len(code) // 8):
         message += chr(int('0b' + code[8 * i:8 * (i + 1)], 2))
     return message
-</code></pre></div></div>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>57. File Naming</title>
-	  <link>//57-fileNaming</link>
-	  <author></author>
-	  <pubDate>2020-02-15T10:00:00+09:00</pubDate>
-	  <guid>//57-fileNaming</guid>
-	  <description><![CDATA[
-	     <p><br /></p>
-
-<h3 id="task">Task</h3>
-
-<p>You are given an array of desired filenames in the order of their creation. Since two files cannot have equal names, the one which comes later will have an addition to its name in a form of <code class="highlighter-rouge">(k)</code>, where <code class="highlighter-rouge">k</code> is the smallest positive integer such that the obtained name is not used yet.</p>
-
-<p>Return an array of names that will be given to the files.</p>
-
-<h3 id="example">Example</h3>
-
-<p>For <code class="highlighter-rouge">names = ["doc", "doc", "image", "doc(1)", "doc"]</code>, the output should be <br />
-<code class="highlighter-rouge">fileNaming(names) = ["doc", "doc(1)", "image", "doc(1)(1)", "doc(2)"]</code>.</p>
-
-<h3 id="inputoutput">Input/Output</h3>
-
-<ul>
-  <li>
-    <p><strong>[execution time limit]</strong> <br />
-4 seconds (py3)</p>
-  </li>
-  <li>
-    <p><strong>[input] array.string names</strong> <br />
-Guaranteed constraints: <code class="highlighter-rouge">5 ≤ names.length ≤ 1000</code>, <code class="highlighter-rouge">1 ≤ names[i].length ≤ 15</code>.</p>
-  </li>
-  <li>
-    <p><strong>[output] array.string</strong></p>
-  </li>
-</ul>
-
-<h3 id="my-solution">My Solution</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def fileNaming(names):
-    fileNames = []
-    for name in names:
-        if name in fileNames:
-            name = name + '(1)'
-            while name in fileNames:
-                name = name[:-2] + str(int(name[-2]) + 1) + ')'
-            fileNames.append(name)
-        else:
-            fileNames.append(name)
-    return fileNames
 </code></pre></div></div>
 
 	  ]]></description>

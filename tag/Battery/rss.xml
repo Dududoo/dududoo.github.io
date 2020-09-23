@@ -12,11 +12,27 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Electrochemistry</title>
+	  <link>//Electrochemistry_1</link>
+	  <author></author>
+	  <pubDate>2020-09-23T10:00:00+09:00</pubDate>
+	  <guid>//Electrochemistry_1</guid>
+	  <description><![CDATA[
+	     <p><br /></p>
+
+<h3 id="electrochemical-cells-and-reactions">Electrochemical Cells and Reactions</h3>
+
+<p><em>Electrochemical cell</em> 은 <em>electrode</em> 와 <em>electrolyte</em>, 그리고 각각의 chemical phase들 사이의 interface들로 구성되어 있다. 각 interface에서 전하가 어떻게 이동하는지, chemical reaction들은 어떤 영향을 미치는지 등을 알기 위해 먼저 electric potential에 대한 이해가 필요하다. Potential은 전하를 움직이게 하기 위한 전기적인 위치 에너지이고, 1 V = 1 J/C 과 같다. <em>Cell potential</em> 은 cell의 두 electrode 사이의 potential 차이이다. 즉, electrode 사이에서 전하를 이동시키기 위해 외부적으로 가해줘야 하는 에너지의 양이다. 이는 또한 cell 내의 다양한 phase들 사이의 electric potential 차이를 전부 합한 것과도 같다.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Lithium Batteries - A Practical Application of Chemical Principles</title>
-	  <link>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles</link>
+	  <link>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles-%EB%B3%B5%EC%82%AC%EB%B3%B8</link>
 	  <author></author>
 	  <pubDate>2020-03-19T13:00:00+09:00</pubDate>
-	  <guid>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles</guid>
+	  <guid>//Lithium-Batteries;-A-Practical-Application-of-Chemical-Principles-%EB%B3%B5%EC%82%AC%EB%B3%B8</guid>
 	  <description><![CDATA[
 	     <p><br /></p>
 
