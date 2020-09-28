@@ -22,7 +22,12 @@
 
 <h3 id="electrochemical-cells-and-reactions">Electrochemical Cells and Reactions</h3>
 
-<p><em>Electrochemical cell</em> 은 <em>electrode</em> 와 <em>electrolyte</em>, 그리고 각각의 chemical phase들 사이의 interface들로 구성되어 있다. 각 interface에서 전하가 어떻게 이동하는지, chemical reaction들은 어떤 영향을 미치는지 등을 알기 위해 먼저 electric potential에 대한 이해가 필요하다. Potential은 전하를 움직이게 하기 위한 전기적인 위치 에너지이고, 1 V = 1 J/C 과 같다. <em>Cell potential</em> 은 cell의 두 electrode 사이의 potential 차이이다. 즉, electrode 사이에서 전하를 이동시키기 위해 외부적으로 가해줘야 하는 에너지의 양이다. 이는 또한 cell 내의 다양한 phase들 사이의 electric potential 차이를 전부 합한 것과도 같다.</p>
+<p><em>Electrochemical cell</em> 은 <em>electrode</em> 와 <em>electrolyte</em>, 그리고 각각의 chemical phase들 사이의 interface들로 구성되어 있다. 각 interface에서 전하가 어떻게 이동하는지, chemical reaction들은 어떤 영향을 미치는지 등을 알기 위해 먼저 electric potential에 대한 이해가 필요하다. Potential은 전하를 움직이게 하기 위한 전기적인 위치 에너지이고, 1 V = 1 J/C 과 같다. <em>Cell potential</em> 은 cell의 두 electrode 사이의 potential 차이이다. 즉, electrode 사이에서 전하를 이동시키기 위해 외부적으로 가해줘야 하는 에너지의 양이다. 이는 또한 cell 내의 다양한 phase들 사이의 electric potential 차이를 전부 합한 것과도 같다. 하나의 conducting phase와 다른 phase 사이의 electrical potential 차이는 대부분 interface에서 발생한다. 즉, interface에 아주 큰 electric field가 존재하고 charge carrior (전자 혹은 이온)의 거동에 영향을 미친다. 그러므로 cell potential을 측정하고 제어하는 것은 electrochemistry의 가장 중요햔 요소 중 하나이다.</p>
+
+<p>Cell에서 일어나는 전체 화학 반응은 두 개의 전극에서 일어나는 독립적인 half-reaction들로 이루어진다. 각각의 half-reaction은 각 전극의 interfacial potential difference와 연관되어 있다. 일반적으로 두 전극 중 우리가 주목하는 반응이 일어나는 한 전극을 working (혹은 indicator) electrode라 한다. 이 때 electric potential 등을 표준화된 기준으로 표현하기 위해 정해진 조성을 갖는 전극 (reference electrode)을 사용한다. 국제적으로 통용되는 기준은 <em>standard hydrogen electrode</em> (SHE), 혹은 <em>normal hydrogen electrode</em> (NHE)로, 다음과 같은 조성이다.</p>
+<center>
+    Pt/H<sub>2</sub>(a = 1)/H<sup>+</sup>(a = 1, aqueous)
+</center>
 
 	  ]]></description>
 	</item>
